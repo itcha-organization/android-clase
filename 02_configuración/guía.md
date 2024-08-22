@@ -5,8 +5,8 @@
 Utiliza un IDE gratuito llamado Android Studio. Con Android Studio, puede hacerlo todo, desde el desarrollo de aplicaciones hasta las pruebas.<br>
 Necesitará unos 8 GB de espacio libre. Asegúrese de que dispone de suficiente espacio libre antes de iniciar la instalación.
 
-Abra el sitio web oficial ![https://developer.android.com/studio?hl=es-419
-](https://developer.android.com/studio?hl=es-419)
+Abra el sitio web oficial https://developer.android.com/studio?hl=es-419
+
 <br>
 Haz clic en "Descargar Android Studio Koala".
 
