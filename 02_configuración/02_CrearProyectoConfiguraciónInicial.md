@@ -121,26 +121,3 @@ Si aparece una advertencia, haga clic en `Permitir acceso`.
 Pulse en Icono ▶ o teclee las teclas Mayús y F10 para ejecutar la aplicacion.
 
 ![image](https://github.com/user-attachments/assets/f279b2e3-27f0-40cf-8d98-7bc45ac9a951)
-
-## Configurar funciones útiles
-
-### Importación automática
-
-Active la configuración para añadir automáticamente las importaciones necesarias y eliminar automáticamente las importaciones no utilizadas.
-
-Pulse en Icono Ajustes⚙→ `Setting` o teclee las teclas Ctrl, Alt y S para abrir la configuración.
-
-![image](https://github.com/user-attachments/assets/11ed7c05-839e-41b5-80fc-bba9ad04ac71)
-
-Abra `Editor` → `General` → `Auto Import` en el menú de la izquierda.<br>
-A continuación, active las siguientes opciones tanto en Java como en Kotlin 
-* Add unambiguous imports on the fly
-* Optimize imports on the fly
-
-Por último, pulse `Apply` para aplicar los ajustes y pulse `OK` para finalizar.
-
-![image](https://github.com/user-attachments/assets/a56818b3-95f9-4254-80a8-0ba32050bacf)
-
-
-> [!NOTE]
-> `Optimize imports on the fly`, que elimina automáticamente las importaciones, sólo se aplica al proyecto actual. Si creas un proyecto nuevo, tienes que volver a activarla.
