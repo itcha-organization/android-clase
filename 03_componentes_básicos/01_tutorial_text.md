@@ -496,3 +496,24 @@ Text(
 ```
 
 ![image](https://github.com/user-attachments/assets/01f6279d-c627-464e-b4f8-607f333f644f)
+
+### Padding
+
+Un elemento de la IU se une a su contenido. Para evitar que la contracción sea demasiado marcada, puedes especificar una cantidad de padding a cada lado.
+
+![image](https://github.com/user-attachments/assets/877bf16a-1572-45e4-b794-682b0e747777)
+
+El padding se usa como modificador, lo que significa que puedes aplicarlo a cualquier elemento componible.<br>
+Para cada lado del elemento componible, el modificador `padding` toma un argumento opcional que define la cantidad de padding.
+
+![image](https://github.com/user-attachments/assets/114db1dc-36fc-43c4-8dca-97f8c3941850)
+
+```kotlin
+// Este es un ejemplo.
+Modifier.padding(
+    start = 16.dp,
+    top = 16.dp,
+    end = 16.dp,
+    bottom = 16.dp
+)
+```
