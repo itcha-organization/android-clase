@@ -501,7 +501,7 @@ Text(
 
 Un elemento de la IU se une a su contenido. Para evitar que la contracción sea demasiado marcada, puedes especificar una cantidad de padding a cada lado.
 
-![image](https://github.com/user-attachments/assets/877bf16a-1572-45e4-b794-682b0e747777)
+![image](https://github.com/user-attachments/assets/ec38c0ea-6849-4afb-b70e-31db4072c9b4)
 
 El padding se usa como modificador, lo que significa que puedes aplicarlo a cualquier elemento componible.<br>
 Para cada lado del elemento componible, el modificador `padding` toma un argumento opcional que define la cantidad de padding.
