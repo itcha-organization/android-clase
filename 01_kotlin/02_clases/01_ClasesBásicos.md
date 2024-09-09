@@ -181,6 +181,10 @@ class Coche(val marca: String, var modelo: String) {
     constructor(marca: String, modelo: String, año: Int) : this(marca, modelo) {
         println("El coche es un $marca $modelo del año $año.")
     }
+
+    fun moverse() {
+        println("El vehículo se está moviendo.")
+    }
 }
 ```
   1. ¿Cuántas propiedades hay?
