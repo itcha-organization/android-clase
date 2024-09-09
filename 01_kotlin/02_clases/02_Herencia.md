@@ -33,6 +33,46 @@ class Perro(nombre: String) : Animal(nombre) {
 - El paréntesis de cierre del constructor va seguido de un espacio, dos puntos, otro espacio, el nombre de la superclase y un conjunto de paréntesis.
 - **`override`** se utiliza para sobrescribir métodos de la clase padre.
 
+1. ## Polimorfismo
+El polimorfismo es un concepto de la programación orientada a objetos en el que diferentes tipos de objetos pueden ser manipulados a través de una misma interfaz. Esto se logra mediante herencia y sobrescritura de métodos.
+
+### **Ejemplo: Fundamentos del polimorfismo**
+
+```kotlin
+fun main() {
+    // Usar polimorfismo
+    val vehiculo1: Vehiculo = Bicicleta()
+    val vehiculo2: Vehiculo = Coche()
+
+    moverVehiculo(vehiculo1)  // Salida: La bicicleta está pedaleando.
+    moverVehiculo(vehiculo2)  // Salida: El coche está conduciendo.
+}
+
+open class Vehiculo {
+    open fun moverse() {
+        println("El vehículo se está moviendo.")
+    }
+}
+
+class Bicicleta : Vehiculo() {
+    override fun moverse() {
+        println("La bicicleta está pedaleando.")
+    }
+}
+
+class Coche : Vehiculo() {
+    override fun moverse() {
+        println("El coche está conduciendo.")
+    }
+}
+
+fun moverVehiculo(vehiculo: Vehiculo) {
+    vehiculo.moverse()
+}
+```
+- La función `moverVehiculo()` toma un parámetro de tipo `Vehiculo`, lo que permite que tanto `Bicicleta` como `Coche` se utilicen.
+- Cada clase sobrescribe el método `moverse()`, y se llama al comportamiento adecuado en función del tipo de objeto.
+
 1. ## Minicuestionario
 ```kotlin
 // Clase Padre
