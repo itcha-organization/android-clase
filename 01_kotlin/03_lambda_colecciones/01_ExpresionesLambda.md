@@ -1,13 +1,5 @@
 # Expresiones Lambda
 
-基本
-・ラムダ構文を使用して関数を定義する方法。
-・関数を変数に格納する方法。
-クイズ
-
-関数を引数として他の関数に渡す方法。
-他の関数から関数を返す方法。
-ラムダ式をより簡潔にする方法。
 1. ## ¿Qué es una Expresión Lambda?
 Una **expresión lambda** es una función anónima que puedes tratar como una **primera clase** en Kotlin. Esto significa que puedes asignarla a una variable, pasarla como parámetro o devolverla desde otras funciones. Las lambdas permiten escribir código más conciso y expresivo, especialmente al trabajar con funciones de orden superior.
 
@@ -167,12 +159,6 @@ fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
     return operacion(a, b)
 }
 ```
-ここから
-
-もちろんです！以下は、ラムダ式の `it` を使った省略記法と後置ラムダについての教材をスペイン語に翻訳したものです。
-
----
-
 
 1. ## Sintaxis simplificada en lambdas (uso de `it`)
 
@@ -196,6 +182,9 @@ println(resultado)  // Salida: 10
 ```
 Ambos ejemplos realizan la misma operación, pero el segundo ejemplo utiliza `it` para simplificar la sintaxis.
 
+### Cuándo usar `it`:
+El uso de `it` es útil cuando queremos escribir funciones de una manera concisa. Sin embargo, si la operación es compleja o se requiere más de un parámetro, es recomendable declarar explícitamente los nombres de los parámetros para mejorar la legibilidad.
+
 ### **Minicuestionario**
 - Reescribe las siguientes lambdas con la sintaxis simplificada usando `it`.
   ```kotlin
@@ -218,8 +207,6 @@ Ambos ejemplos realizan la misma operación, pero el segundo ejemplo utiliza `it
       longitud
   }
   ```
-### Cuándo usar `it`:
-El uso de `it` es útil cuando queremos escribir funciones de una manera concisa. Sin embargo, si la operación es compleja o se requiere más de un parámetro, es recomendable declarar explícitamente los nombres de los parámetros para mejorar la legibilidad.
 
 1. ## Lambda de última posición
 En Kotlin, si el último argumento de una función es una lambda, puedes colocar esa lambda **fuera de los paréntesis** de la llamada a la función. Esto se conoce como **trailing lambda** o **lambda de última posición**.
