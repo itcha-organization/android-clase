@@ -94,191 +94,185 @@ val decierEdad: (Int) -> String = { edad ->
         resultado
   }
   ```
-ココマデ
+1. ## Funciones que aceptan lambdas como argumentos
 
-1. ## Uso de Lambdas con Tipos de Función
+Es posible pasar lambdas como argumentos a funciones, lo que permite definir el comportamiento dinámicamente. En otras palabras, puedes pasar una función como parámetro para ser ejecutada dentro de otra función.
 
-Las lambdas pueden ser asignadas a variables con tipos de función. Esto es útil para hacer explícitos los tipos de entrada y salida.
+### Ejemplos
 
-#### **Ejemplo con un tipo de función:**
-
+La siguiente función `ejecutarOperacion` toma dos enteros y una función lambda que acepta dos enteros como parámetros y devuelve un entero.
+Esta función ejecuta la operación proporcionada sobre los valores `a` y `b`, y devuelve el resultado.
 ```kotlin
-val multiplicar: (Int, Int) -> Int = { a, b -> a * b }
-println(multiplicar(4, 3))  // Salida: 12
+fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+    return operacion(a, b)
+}
 ```
-
-- Aquí, el tipo de la variable `multiplicar` está explícitamente definido como una función que recibe dos enteros y devuelve un entero.
-
-### **Lambdas como Parámetros de Funciones**
-
-Las lambdas son muy útiles cuando las pasamos como parámetros a otras funciones. Esto es lo que hace posible las **funciones de orden superior**.
-
-#### **Ejemplo:**
-
+**Ejemplo 1: Usando una lambda para realizar una suma**
 ```kotlin
-fun operarNumeros(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+fun main() {
+    // Lambda para sumar dos números
+    val sumar = { x: Int, y: Int -> x + y }
+
+    // Pasar la lambda a la función
+    val resultado = ejecutarOperacion(5, 10, sumar)
+
+    println("El resultado de la suma es: $resultado")  // Salida: El resultado de la suma es: 15
+}
+
+fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+    return operacion(a, b)
+}
+```
+En este ejemplo, se pasa la lambda `sumar` a la función `ejecutarOperacion` para calcular la suma de `5 + 10`.
+
+**Ejemplo 2: Usando una lambda para realizar una multiplicación**
+```kotlin
+fun main() {
+    // Lambda para multiplicar dos números
+    val multiplicar = { x: Int, y: Int -> x * y }
+
+    // Pasar la lambda a la función
+    val resultado = ejecutarOperacion(5, 10, multiplicar)
+
+    println("El resultado de la multiplicación es: $resultado")  // Salida: El resultado de la multiplicación es: 50
+}
+
+fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+    return operacion(a, b)
+}
+```
+Aquí, utilizamos una lambda `multiplicar` para realizar una multiplicación con la misma función `ejecutarOperacion`.
+
+**Ejemplo 3: Pasar lambda directamente como argumentos**
+
+En los ejemplos anteriores, la lambda se asignaba a una variable y luego la variable se pasaba a la función como argumento.En este ejemplo, la lambda encerrada en llaves se pasa directamente a la función como argumento.
+
+Usando lambdas, podemos pasar diferentes tipos de operaciones a la misma función, permitiendo ejecutar diferentes lógicas sin duplicar código.
+Aquí, usamos la misma función `ejecutarOperacion` para sumar o restar números según la lambda que se pase.
+```kotlin
+fun main() {
+    val a = 8
+    val b = 4
+
+    // Sumar
+    val resultadoSuma = ejecutarOperacion(a, b, { x, y -> x + y })
+    println("Suma: $resultadoSuma")  // Salida: Suma: 12
+
+    // Restar
+    val resultadoResta = ejecutarOperacion(a, b, { x, y -> x - y })
+    println("Resta: $resultadoResta")  // Salida: Resta: 4
+}
+
+fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+    return operacion(a, b)
+}
+```
+ここから
+
+もちろんです！以下は、ラムダ式の `it` を使った省略記法と後置ラムダについての教材をスペイン語に翻訳したものです。
+
+---
+
+
+1. ## Sintaxis simplificada en lambdas (uso de `it`)
+
+Cuando una expresión lambda tiene un solo parámetro, es posible omitir la declaración del parámetro y usar la palabra clave **`it`** en Kotlin. Este `it` se utiliza automáticamente como el único parámetro de la lambda.
+
+### Forma habitual: Con el parámetro explícito
+```kotlin
+val duplicar = { numero: Int ->
+    numero * 2
+}
+val resultado = duplicar(5)
+println(resultado)  // Salida: 10
+```
+### Sintaxis simplificada usando `it`
+```kotlin
+val duplicar = {
+    it * 2
+}
+val resultado = duplicar(5)
+println(resultado)  // Salida: 10
+```
+Ambos ejemplos realizan la misma operación, pero el segundo ejemplo utiliza `it` para simplificar la sintaxis.
+
+### **Minicuestionario**
+- Reescribe las siguientes lambdas con la sintaxis simplificada usando `it`.
+  ```kotlin
+  # 1
+  val imprimirMensaje = { mensaje: String ->
+      println(mensaje)
+  }  
+  
+  # 2
+  val decierEdad: (Int) -> String = { edad ->
+    "Tengo $edad años."
+  }
+  
+  # 3
+    val procesarTexto = { texto: String ->
+      val textoEnMayusculas = texto.toUpperCase()
+      val longitud = textoEnMayusculas.length
+      println("Texto en mayúsculas: $textoEnMayusculas")
+      println("Longitud del texto: $longitud")
+      longitud
+  }
+  ```
+### Cuándo usar `it`:
+El uso de `it` es útil cuando queremos escribir funciones de una manera concisa. Sin embargo, si la operación es compleja o se requiere más de un parámetro, es recomendable declarar explícitamente los nombres de los parámetros para mejorar la legibilidad.
+
+1. ## Lambda de última posición
+En Kotlin, si el último argumento de una función es una lambda, puedes colocar esa lambda **fuera de los paréntesis** de la llamada a la función. Esto se conoce como **trailing lambda** o **lambda de última posición**.
+
+### Forma habitual
+```kotlin
+fun procesarNumeros(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
     return operacion(a, b)
 }
 
-fun main() {
-    val resultado = operarNumeros(10, 5) { x, y -> x - y }
-    println(resultado)  // Salida: 5
-}
+val resultado = procesarNumeros(5, 10, { x, y -> x + y })
+println(resultado)  // Salida: 15
 ```
-
-- Aquí, la función `operarNumeros` toma dos números y una función lambda como parámetros. En este caso, usamos una lambda para realizar la operación de resta.
-
-### **Lambdas en Kotlin vs Funciones Anónimas**
-
-Kotlin también permite definir **funciones anónimas**, que son similares a las lambdas pero con una sintaxis más tradicional. Las funciones anónimas pueden ser útiles cuando necesitas un mayor control sobre el retorno o el tipo de la función.
-
-#### **Ejemplo de función anónima:**
-
+### Usando lambda de última posición
 ```kotlin
-val resta = fun(a: Int, b: Int): Int {
-    return a - b
-}
-
-println(resta(10, 3))  // Salida: 7
+val resultado = procesarNumeros(5, 10) { x, y -> x + y }
+println(resultado)  // Salida: 15
 ```
+Como la lambda es el último argumento de la función, podemos sacarla fuera de los paréntesis, lo que hace que el código sea más fácil de leer.
+Esto se debe a que las funciones con una lambda como último argumento aparecen con frecuencia en el framework JetpackCompose que conocerás en el futuro. Por lo tanto, esta sintaxis es muy importante.
 
-- Aquí, hemos definido una función anónima que resta dos números y la asignamos a la variable `resta`.
-
-### **Lambdas con Múltiples Líneas**
-
-Aunque las lambdas generalmente se usan para funciones concisas, también pueden contener varias líneas de código. En estos casos, debes usar `{}` para definir el bloque de código.
-
-#### **Ejemplo con varias líneas:**
-
-```kotlin
-val calcular: (Int, Int) -> Int = { a, b ->
-    val suma = a + b
-    val resta = a - b
-    suma * resta
-}
-
-println(calcular(7, 3))  // Salida: 40
-```
-
-- Esta lambda realiza múltiples operaciones dentro de su cuerpo: suma los valores, los resta y luego multiplica los resultados.
-
-### **Ejemplos de uso de Lambdas en Colecciones**
-
-Una de las principales aplicaciones de las lambdas en Kotlin es el manejo de colecciones. Muchas funciones de la biblioteca estándar, como `map`, `filter`, `reduce`, y `forEach`, toman lambdas como argumentos.
-
-#### **Ejemplo:**
-
-```kotlin
-val numeros = listOf(1, 2, 3, 4, 5)
-val numerosPares = numeros.filter { it % 2 == 0 }
-println(numerosPares)  // Salida: [2, 4]
-```
-
-- Aquí usamos una lambda para filtrar solo los números pares de la lista.
-
-### **Conclusión**
-
-Las **expresiones lambda** son una característica fundamental en Kotlin que permiten escribir código más expresivo y funcional. Al ser compactas y poderosas, permiten una mejor legibilidad y flexibilidad en el código. Las lambdas son particularmente útiles cuando se combinan con funciones de orden superior y manipulación de colecciones.
-
----
-
-Este material ofrece una vista más detallada sobre las **lambdas** y cómo usarlas en diferentes contextos. Las lambdas son una herramienta poderosa en Kotlin, especialmente cuando trabajas con colecciones o necesitas escribir código funcional y conciso.
-
-
-
-Una **expresión lambda** es una función anónima que puede ser tratada como un valor. Es compacta y muy útil cuando trabajamos con funciones de orden superior o manipulamos colecciones.
-
-#### **Sintaxis básica de una lambda:**
-
-```kotlin
-val suma = { a: Int, b: Int -> a + b }
-```
-
-#### **Ejemplo con Lambdas:**
-
-```kotlin
-val imprimirMensaje: () -> Unit = { println("Hola desde una lambda") }
-
-fun main() {
-    imprimirMensaje()  // Salida: Hola desde una lambda
-}
-```
-
-**Explicación**:
-- Definimos una variable `imprimirMensaje` que es una función lambda sin parámetros (`() -> Unit`) y simplemente imprime un mensaje.
-- Luego, la llamamos como cualquier otra función.
-
-
-### **1. Introducción a las Funciones de Orden Superior**
-
-Las **funciones de orden superior** en Kotlin son funciones que pueden recibir otras funciones como parámetros, o bien, pueden devolver una función. Este es un concepto clave en la programación funcional, ya que permite un estilo más declarativo y flexible.
-
-#### **Ejemplo básico:**
-
-```kotlin
-fun operar(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
+### **Minicuestionario**
+- Reescribe las siguientes llamadas de funciones usando lambda de última posición.
+  ```kotin
+  # 1
+  // Reescribe la siguiente llamada usando lambda de última posición
+  val resultado = operar(5, 3, { x, y -> x + y })
+  
+  fun operar(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
     return operacion(a, b)
-}
+  }
+  ```
+  ```kotin
+  # 2
+  // Reescribe la siguiente llamada usando lambda de última posición
+  ejecutarSiCondicionEsVerdadera(true, {
+      println("¡Es de día!")
+  })
 
-fun main() {
-    // Suma usando una función lambda
-    val resultado = operar(5, 3) { x, y -> x + y }
-    println(resultado)  // Salida: 8
-}
-```
+  fun ejecutarSiCondicionEsVerdadera(esDia: Boolean, accion: () -> Unit) {
+      if (condicion()) {
+          accion()
+      }
+  }
+  ```
+  ```kotin
+  # 3
+  // Reescribe la siguiente llamada usando lambda de última posición
+  ejecutarAccion ({ println("He ejectado algo") })
+  
+  fun ejecutarAccion(accion: () -> Unit) {
+      accion()
+  }
+  ```
 
-**Explicación**:
-- La función `operar` acepta dos enteros (`a` y `b`) y una función `operacion` que toma dos enteros y devuelve un entero.
-- Luego, llamamos a `operar` pasando una **expresión lambda** que realiza la suma (`x + y`).
-
-
-### **3. Operaciones con Colecciones**
-
-Kotlin ofrece una rica API para manipular colecciones como `List`, `Set`, y `Map`, utilizando funciones de orden superior y expresiones lambda. Estas funciones permiten realizar operaciones como filtrado, transformación, y reducción de colecciones de una manera concisa y legible.
-
-#### **Operaciones comunes:**
-
-1. **`map`:** Transforma cada elemento de la colección.
-2. **`filter`:** Filtra los elementos según una condición.
-3. **`forEach`:** Aplica una acción a cada elemento.
-
-#### **Ejemplo: Uso de `map` y `filter`**
-
-```kotlin
-fun main() {
-    val numeros = listOf(1, 2, 3, 4, 5, 6)
-    
-    // Map - multiplicar cada número por 2
-    val numerosDoblados = numeros.map { it * 2 }
-    println(numerosDoblados)  // Salida: [2, 4, 6, 8, 10, 12]
-
-    // Filter - obtener solo los números pares
-    val numerosPares = numeros.filter { it % 2 == 0 }
-    println(numerosPares)  // Salida: [2, 4, 6]
-}
-```
-
-**Explicación**:
-- **`map`** toma cada elemento de la lista `numeros` y lo multiplica por 2, devolviendo una nueva lista `numerosDoblados`.
-- **`filter`** selecciona solo los números que son pares, devolviendo una nueva lista `numerosPares`.
-
-### **4. Ejercicios para Practicar**
-
-#### **Ejercicio 1: Usar funciones de orden superior**
-Define una función `aplicarOperacion` que tome dos números y una operación (suma, resta, multiplicación o división) como una función lambda, y devuelve el resultado.
-
-#### **Ejercicio 2: Usar lambdas con `forEach`**
-Crea una lista de nombres y utiliza `forEach` para imprimir cada nombre con un saludo personalizado, por ejemplo, "Hola, Juan".
-
-#### **Ejercicio 3: Filtrar y transformar una lista de personas**
-Crea una clase `Persona` con propiedades `nombre` y `edad`. Luego, crea una lista de personas y filtra aquellas que tienen más de 18 años. Después, usa `map` para crear una lista de nombres en mayúsculas.
-
----
-
-### **Conclusión**
-
-En esta clase hemos aprendido sobre **funciones de orden superior**, que nos permiten usar funciones como parámetros y resultados. También exploramos las **expresiones lambda**, una forma compacta de definir funciones, y cómo podemos usarlas para manipular **colecciones** en Kotlin de manera sencilla y eficiente. Las herramientas proporcionadas por Kotlin hacen que escribir código conciso, legible y poderoso sea más fácil.
-
----
-
-Este material te proporciona una base sólida para enseñar sobre las funciones de orden superior, expresiones lambda, y las operaciones con colecciones en Kotlin. ¡Espero que sea útil para tu clase!
+1. ## 演習
