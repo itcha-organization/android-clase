@@ -100,6 +100,7 @@ println("Nombre: ${persona.nombre}, Edad: ${persona.edad}")  // Salida: Nombre: 
 
 ### **Ejemplo 2: Inicialización de objetos anidados**
 `apply` también es útil para inicializar objetos que contienen otros objetos.
+
 **Inicialización sin `apply`:**
 ```kotlin
 // Crear una instancia de Motor
