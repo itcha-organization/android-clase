@@ -34,14 +34,16 @@ Haga clic en el icono del gato para mostrar el panel `Logcat`. Introduzca `butto
 
 ![image](https://github.com/user-attachments/assets/17003884-5690-4c74-806e-dc59213b9e92)
 
-
-## アプリのUIを構築する
-・DiceWithButtonAndImageを宣言
-・Columnを追加
-・Button定義（表示するTextも）
+## Creación de la interfaz de usuario de la aplicación
 ・画像を追加する
   ・フォルダごと選択して一括で画像をアップロード
   ・とりあえず1の画像を使ってImage定義
+
+[ダウンロード](https://github.com/google-developer-training/basic-android-kotlin-compose-training-dice-roller/raw/main/dice_images.zip)
+  
+・DiceWithButtonAndImageを宣言
+・Columnを追加
+・Button定義（表示するTextも）
 ・Spacer関数
 ・strings.xml
 　→最初ハードコードしておいて、抽出する方法が良い
