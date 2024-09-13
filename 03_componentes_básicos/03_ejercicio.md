@@ -8,6 +8,7 @@ He creado algunos ejercicios que combinan `Text`, `Image`, `Column` y `Row`. A t
 * Puede descargar y utilizar cualquier imagen que desee de los siguientes sitios web.
   https://www.iconfinder.com/
 * Pega el siguiente código inicial en el archivo `MainActivity.kt` para comenzar el ejercicio.
+* TODO:Cada ejercicio es separado. Puruebe cada ejercicio.
 ```kotlin
 package com.example.basiccomponentpractice
 
