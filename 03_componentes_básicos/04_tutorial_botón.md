@@ -186,6 +186,65 @@ var `nombre de la variable` by remember { mutableStateOf(`valor inicial`) }
 
 Ahora, vuelve a ejecutar la aplicación y comprueba que la imagen del dado cambia al pulsar el botón.
 
+## Ejercicios
+
+### Ejercicio 1: Crear un botón básico
+
+Crea un botón simple que muestre un mensaje de "¡Botón presionado!" cuando se haga clic en él.
+
+**Pistas:**
+- Usa el componente `Button` y un `Text` dentro del botón para mostrar el texto "Presionar".
+- Usa la función `onClick` del botón para cambiar el estado cuando se presione.
+
+### Ejercicio 2: Botón con contador
+
+Crea un botón que incremente un contador cada vez que se haga clic en él y muestre el valor actual del contador en el botón.
+
+**Pistas:**
+- Usa `remember` y `mutableStateOf` para almacenar el valor del contador.
+- Muestra el valor actual del contador como texto dentro del botón.
+
+### Ejercicio 3: Botón deshabilitado
+
+Crea un botón que comience deshabilitado y se habilite solo cuando se cumpla cierta condición, como que el texto ingresado en un campo sea igual a "Activar".
+
+**Pistas:**
+- Usa un campo de texto (`TextField`) para ingresar texto.
+- Usa la propiedad `enabled` del botón para habilitarlo o deshabilitarlo según la condición.
+
+### Ejercicio 4: Varios botones con diferentes estilos
+
+Crea una interfaz con tres botones, cada uno con un estilo diferente (por ejemplo, diferentes colores de fondo, bordes o tamaños de texto).
+
+**Pistas:**
+- Usa las propiedades `Modifier` y `ButtonDefaults` para personalizar el estilo de los botones.
+- Personaliza el color de fondo, el borde y el texto de cada botón.
+
+### Ejercicio 5: Botones con íconos
+
+Crea un botón que muestre un ícono junto con el texto. Usa un ícono que esté relacionado con la acción del botón, como un ícono de "enviar" o "agregar".
+
+**Pistas:**
+- Usa el componente `Icon` junto con `Text` dentro del botón para mostrar el ícono y el texto.
+- Puedes usar los íconos predeterminados de `Icons.Default`.
+
+### Ejercicio 6: Botón de alternar (Toggle Button)
+
+Crea un botón que alterne entre dos estados, por ejemplo, "Encender" y "Apagar", al hacer clic en él.
+
+**Pistas:**
+- Usa un estado booleano (`remember` y `mutableStateOf`) para determinar si está encendido o apagado.
+- Cambia el texto del botón según el estado actual.
+
+### Ejercicio 7: Botón con una acción de larga duración
+
+Crea un botón que simule una acción de larga duración, como cargar datos. Mientras se realiza la acción, el botón debería estar deshabilitado y mostrar un indicador de progreso.
+
+**Pistas:**
+- Usa un estado para controlar si la acción está en progreso.
+- Usa el componente `CircularProgressIndicator` para mostrar el progreso.
+
+
 
 ## プレビューのインタラクティブモード
 
