@@ -26,8 +26,8 @@
          ```
          #### C#
          ```csharp
-         var nombre = "Juan";  // Inferencia de tipos, pero puede cambiarse
-         var edad = 25;        // Mutable
+         const string nombre = "Juan";  // Inmutable
+         int edad = 25;                 // Mutable
          ```
       
       1. **Funciones (Funciones)**
