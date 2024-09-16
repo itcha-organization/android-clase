@@ -145,6 +145,7 @@ Pista:
    - La función `calcularAreaCirculo` toma el radio de un círculo como argumento y devuelve el área.
    - Se utiliza la fórmula `π * radio^2` para calcular el área, donde la variable `pi` proporciona el valor de π.
 </details>
+
 ---
 
 ### Ejercicio 3: Crear una función que determine si un número es par o impar
