@@ -20,15 +20,13 @@ En Kotlin, las sentencias `if/else` funcionan de manera similar a otros lenguaje
    ```kotlin
    val numero = 10
 
-   val mensaje = if (numero > 10) {
-       "El número es mayor que 10"
+   if (numero > 10) {
+       println("El número es mayor que 10")
    } else if (numero == 10) {
-       "El número es igual a 10"
+       println("El número es igual a 10")
    } else {
-       "El número es menor que 10"
+       println("El número es menor que 10")
    }
-
-   println(mensaje)  // Salida: El número es igual a 10
    ```
 
 1. **Condiciones más complejas**
