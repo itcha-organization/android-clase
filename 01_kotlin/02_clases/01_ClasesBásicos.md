@@ -1,6 +1,6 @@
 # Uso básico de las clases
 
-1. ## ¿Qué son las clases y los objetos?
+## 1. ¿Qué son las clases y los objetos?
 En Kotlin, una clase es una plantilla para definir objetos, y un objeto es una instancia creada a partir de una clase. Las clases pueden tener propiedades (variables) y métodos (funciones), mientras que los objetos utilizan estas propiedades y métodos.
 
 **Sintaxis: Definición básica de una clase e instanciación**
@@ -47,7 +47,7 @@ class Persona
 }
 ```
 
-1. ## Propiedades
+## 2. Propiedades
 Como en otros lenguajes, las clases pueden tener tanto propiedades como métodos. Las propiedades almacenan datos, mientras que los métodos realizan operaciones sobre esos datos.
 
 **Sintaxis: Getter y Setter de una propiedad**
@@ -89,7 +89,7 @@ class Persona(val nombre: String, var edad: Int) {
   - La propiedad **`apellido`** define un setter personalizado, que convierte el valor a mayúsculas y lo asigna a `field`.
 - `field` es una palabra clave especial utilizada en setters en propiedades Kotlin.`field` se utiliza para establecer valores para propiedades en setters personalizados.
 
-1. ## Constructores
+## 3. Constructores
 En Kotlin, las clases pueden tener un constructor primario y constructores secundarios. El constructor primario se define inmediatamente después de la declaración de la clase, mientras que los constructores secundarios se definen dentro del cuerpo de la clase.
 
 **Sintaxis:**
@@ -123,7 +123,7 @@ class Persona(val nombre: String, var edad: Int) {
   - Inicialización del constructor principal. La inicialización comienza con dos puntos, seguidos de la palabra clave this y un conjunto de paréntesis. Si corresponde, los paréntesis contienen los parámetros que requiere el constructor principal.
   - Cuerpo del constructor secundario. A la inicialización del constructor principal le sigue un conjunto de llaves, que contienen el cuerpo del constructor secundario.
 
-1. ## Minicuestionario
+## 4. Minicuestionario
 
 ```kotlin
 class Rectangulo(var ancho: Int, var alto: Int) {
@@ -193,4 +193,4 @@ class Coche(val marca: String, var modelo: String) {
   1. ¿Cuáles son los argumentos del constructor secundario?
   1. Consideremos un ejemplo de código que llama a un constructor secundario.
 
-1. ## 演習
+## 5. Ejercicios
