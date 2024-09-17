@@ -71,14 +71,14 @@ Los tipos de datos básicos en Kotlin se muestran en la siguiente tabla.
   <summary>Respuesta</summary>
   
   ```kotlin
-   fun main() {
-       val carrera: String = "Computación"  // Inmutable
-       var año: Int = 2           // Mutable
-   
-       // ${año} inserta el valor de la variable carrera en la cadena.
-       // $carrera inserta el valor de la variable carrera en la cadena.
-       println("Soy ${año}do año de $carrera.")
-   }
+  fun main() {
+      val carrera: String = "Computación"  // Inmutable
+      var grado: Int = 2  // Mutable
+  
+      // ${grado} inserta el valor de la variable carrera en la cadena.
+      // $carrera inserta el valor de la variable carrera en la cadena.
+      println("Soy ${grado}do año de $carrera.")
+  }
   ```
 </details>
 
