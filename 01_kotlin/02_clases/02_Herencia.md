@@ -1,6 +1,6 @@
 # Herencia en Kotlin
 
-1. ## Herencia
+## 1. Herencia
 En Kotlin, las clases pueden heredar de otras clases. Las clases hijas pueden utilizar las propiedades y métodos de las clases padres. Sin embargo, por defecto, las clases en Kotlin no se pueden heredar a menos que se marque con la palabra clave `open`.
 
 ### **Ejemplo: Herencia de clases**
@@ -33,7 +33,7 @@ class Perro(nombre: String) : Animal(nombre) {
 - El paréntesis de cierre del constructor va seguido de un espacio, dos puntos, otro espacio, el nombre de la superclase y un conjunto de paréntesis.
 - **`override`** se utiliza para sobrescribir métodos de la clase padre.
 
-1. ## Polimorfismo
+## 2. Polimorfismo
 El polimorfismo es un concepto de la programación orientada a objetos en el que diferentes tipos de objetos pueden ser manipulados a través de una misma interfaz. Esto se logra mediante herencia y sobrescritura de métodos.
 
 ### **Ejemplo: Fundamentos del polimorfismo**
@@ -73,7 +73,7 @@ fun moverVehiculo(vehiculo: Vehiculo) {
 - La función `moverVehiculo()` toma un parámetro de tipo `Vehiculo`, lo que permite que tanto `Bicicleta` como `Coche` se utilicen.
 - Cada clase sobrescribe el método `moverse()`, y se llama al comportamiento adecuado en función del tipo de objeto.
 
-1. ## Minicuestionario
+## 3. Minicuestionario
 ```kotlin
 // Clase Padre
 open class Vehiculo(val marca: String, val modelo: String) {
@@ -139,4 +139,4 @@ fun main() {
    }
    ```
 
- 1. ## 演習
+## 4. Ejercicios
