@@ -1,4 +1,9 @@
 # Variable
+
+Aprende la sintaxis ejecutando código de ejemplo y ejercicios en el `Kotlin Playground`.
+
+Kotlin Playground: https://play.kotlinlang.org/
+
 ## 1. Declaración de variable
 Para definir una nueva variable, comienza con la palabra clave `val` o `var` de Kotlin.
 - Palabra clave `val`: Úsala cuando esperes que el valor de la variable no cambie.
