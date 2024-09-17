@@ -24,7 +24,7 @@ fun saludoCumpleaños(nombre: String, edad: Int): String {
 
 - **El tipo Unit:**
   <br>
-  De forma predeterminada, si no se especifica un tipo de datos que se muestra, el predeterminado es `Unit. `Unit` significa que la función no muestra ningún valor. `Unit` es equivalente a el tipo `void` en Java y C#.
+  De forma predeterminada, si no se especifica un tipo de datos que se muestra, el predeterminado es `Unit`. `Unit` significa que la función no muestra ningún valor. `Unit` es equivalente a el tipo `void` en Java y C#.
 
   Ejemplo de código para funciones que no devuelven ningún valor:
    ```kotlin
@@ -35,7 +35,7 @@ fun saludoCumpleaños(nombre: String, edad: Int): String {
    ```
 
 ## 2. Argumentos con nombre
-En Kotlin, puedes llamar a una función con muchos parámetros o pasar los argumentos en un orden diferente; por ejemplo, colocar el parámetro age antes del parámetro name. Cuando incluyes un nombre de parámetro si llamas a una función, esta se denomina argumento con nombre.
+En Kotlin, puedes llamar a una función con muchos parámetros o pasar los argumentos en un orden diferente; por ejemplo, colocar el parámetro `edad` antes del parámetro `nombre`. Cuando incluyes un nombre de parámetro si llamas a una función, esta se denomina argumento con nombre.
 
 ```kotlin
 fun main() {
