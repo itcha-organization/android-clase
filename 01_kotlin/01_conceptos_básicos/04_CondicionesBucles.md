@@ -228,6 +228,17 @@ when (x) {
 3. Tres  
 4. Desconocido
 
+
+<details>
+  <summary>Respuesta</summary>
+  
+   2. Dos
+   
+   **Explicación:**
+   -La variable `x` tiene el valor de 2. El bloque `when` evalúa `x` y encuentra el caso `2`, por lo que ejecuta `println("Dos")`. Si no hubiera coincidencia con los valores 1, 2 o 3, se habría ejecutado el bloque `else`.
+</details>
+
+
 ---
 
 #### Pregunta 2:
@@ -246,6 +257,16 @@ when (color) {
 3. El color es verde  
 4. Color desconocido
 
+<details>
+  <summary>Respuesta</summary>
+  
+   2. El color es azul
+   
+   **Explicación:**
+   - La variable `color` tiene el valor "azul". El bloque `when` evalúa los casos y encuentra una coincidencia con "azul", por lo que imprime "El color es azul". Si el valor de `color` hubiera sido diferente a "rojo", "azul" o "verde", se habría ejecutado el bloque `else`.
+
+</details>
+
 ---
 
 #### Pregunta 3:
@@ -262,6 +283,23 @@ when (numero) {
     else -> println("Número grande")
 }
 ```
+
+<details>
+  <summary>Respuesta</summary>
+  
+   **Código Completo:**
+   ```kotlin
+   val numero = 4
+   when (numero) {
+       0 -> println("Cero")
+       in 1..5 -> println("Número pequeño")
+       else -> println("Número grande")
+   }
+   ```
+   **Explicación:**
+   - La declaración `when` evalúa `numero`. Si el número es 0, imprime "Cero". Si está en el rango de 1 a 5 (usando la expresión `in 1..5`), imprime "Número pequeño". Para cualquier otro valor fuera de este rango, se ejecuta el bloque `else` con el mensaje "Número grande".
+
+</details>
 
 ---
 
@@ -283,17 +321,31 @@ when (numero) {
    - Si la longitud está entre 6 y 10, imprime "Medio".
    - Si la longitud es mayor, imprime "Largo".
 
+<details>
+  <summary>Respuesta</summary>
+  
+   **Código Completo:**
+   ```kotlin
+   fun determinarLongitud(texto: String): Unit {
+       val longitud: Int = texto.length
+       when (longitud) {
+           0 -> println("Vacío")
+           in 1..5 -> println("Corto")
+           in 6..10 -> println("Medio")
+           else -> println("Largo")
+       }
+   }
+   
+   fun main() {
+      determinarLongitud("hola")  // Salida: Corto
+   }
+   ```
 
+   **Explicación:**
+   - El método length devuelve la longitud de la cadena texto.
+   - Si la longitud es 0, imprime "Vacío". Si la longitud está en el rango de 1 a 5, imprime "Corto". Para longitudes entre 6 y 10, imprime "Medio", y para cualquier valor mayor a 10, se ejecuta el bloque else que imprime "Largo". En este caso, la longitud de "hola" es 4, por lo que se imprime "Corto".
 
-```
-val texto = "hola"
-when (texto.length) {
-    0 -> println("Vacío")
-    in 1..5 -> println("Corto")
-    in 6..10 -> println("Medio")
-    else -> println("Largo")
-}
-```
+</details>
 
 ---
 
