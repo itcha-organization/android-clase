@@ -64,8 +64,8 @@ Los tipos de datos básicos en Kotlin se muestran en la siguiente tabla.
 
 ### Ejercicio 1: Operaciones aritméticas básicas
 1. Define una variable inmutable `carrera` de tipo String y asígna la cadena de `Computación`.
-1. Define una variable mutable `año` de tipo Int y asígna el numero de `2`.
-1. Usando las variables, muestra `Soy 2do año de Computación.` en el consola.
+1. Define una variable mutable `grado` de tipo Int y asígna el numero de `2`.
+1. Usando las variables, muestra `Soy 2do grado de Computación.` en el consola.
 
 <details>
   <summary>Respuesta</summary>
