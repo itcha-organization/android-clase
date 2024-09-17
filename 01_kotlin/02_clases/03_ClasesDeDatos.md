@@ -1,6 +1,6 @@
 ## Clases de Datos
 
-1. ## Introducción a las Clases de Datos
+## 1. Introducción a las Clases de Datos
 
 Las **clases de datos** en Kotlin son clases que se utilizan principalmente para almacenar datos. Su propósito principal es contener **información** y no tener comportamientos complejos. Kotlin proporciona una forma concisa y eficiente de crear este tipo de clases con la palabra clave `data`.
 
@@ -10,7 +10,7 @@ Cuando defines una clase de datos, Kotlin genera automáticamente varios método
 - `toString()`: Para proporcionar una representación en cadena del objeto.
 - `copy()`: Para crear una copia del objeto con la opción de modificar algunas propiedades.
 
-1. ## Sintaxis de una Clase de Datos
+## 2. Sintaxis de una Clase de Datos
 
 ```kotlin
 data class Persona(val nombre: String, val edad: Int)
@@ -18,7 +18,7 @@ data class Persona(val nombre: String, val edad: Int)
 - `data class Persona` define una clase de datos.
 - `val nombre` y `val edad` son las **propiedades** de la clase `Persona`.
 
-1. ## Ejemplos de Clases de Datos
+## 3. Ejemplos de Clases de Datos
 
 **Ejemplo 1: Creación y uso básico**
 ```kotlin
@@ -72,4 +72,4 @@ fun main() {
 - Con las clases de datos, puedes extraer las propiedades directamente en variables separadas. Aquí, las propiedades `nombre` y `edad` se extraen de la instancia `persona` y se asignan a dos variables (`nombre` y `edad`).
 - Esto es muy útil para evitar escribir código redundante al acceder a las propiedades de un objeto y hace que el código sea más legible.
 
-1. ## 演習
+## 4. 演習
