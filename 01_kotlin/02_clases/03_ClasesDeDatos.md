@@ -72,4 +72,4 @@ fun main() {
 - Con las clases de datos, puedes extraer las propiedades directamente en variables separadas. Aquí, las propiedades `nombre` y `edad` se extraen de la instancia `persona` y se asignan a dos variables (`nombre` y `edad`).
 - Esto es muy útil para evitar escribir código redundante al acceder a las propiedades de un objeto y hace que el código sea más legible.
 
-## 4. 演習
+## 4. Ejercicios
