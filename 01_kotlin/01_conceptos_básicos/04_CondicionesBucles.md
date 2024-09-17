@@ -412,8 +412,17 @@ Voy a explicarte cómo se usan cada uno de ellos con ejemplos.
    - Esto imprimirá los números del 1 al 5.
    - `1..5` es un rango que incluye tanto el 1 como el 5.
 
+   **Comparación con el código en C#:**
+   ```csharp
+   for (int i = 1; i <= 5; i++)
+   {
+       Console.WriteLine(i);
+   }
+   ```
+   
    **Ejemplo: Recorrer una lista**
    ```kotlin
+   // Función para crear una instancia de List
    val frutas = listOf("Manzana", "Banana", "Cereza")
 
    for (fruta in frutas) {
@@ -421,6 +430,16 @@ Voy a explicarte cómo se usan cada uno de ellos con ejemplos.
    }
    ```
    - Este código imprimirá cada elemento de la lista `frutas`.
+
+   **Comparación con el código en C#:**
+   ```csharp
+   var frutas = new List<string> { "Manzana", "Banana", "Cereza" };
+   
+   foreach (var fruta in frutas)
+   {
+       Console.WriteLine(fruta);
+   }
+   ```
 
 2. **Bucle `while`**
    <br>
@@ -436,6 +455,39 @@ Voy a explicarte cómo se usan cada uno de ellos con ejemplos.
    }
    ```
    - Este bucle imprimirá los números del 5 al 1, disminuyendo el valor de `contador` en cada iteración.
+
+### Minicuestionario
+
+#### Pregunta 1:
+¿Qué número imprimiría el siguiente código?
+   ```kotlin
+   for (i in 6..10) {
+       println(i)
+   }
+   ```
+<details>
+  <summary>Respuesta</summary>
+   
+   Esto imprimirá los números del 6 al 10.
+   
+   **Explicación:**
+   - `6..10` es un rango que incluye tanto el 6 como el 10.
+</details>
+
+#### Pregunta 2:
+¿Qué imprimiría el siguiente código?
+   ```kotlin
+   val meses = listOf("Septiembre", "Octubre", "Noviembre", "Diciembre")
+
+   for (mes in meses) {
+       println(mes)
+   }
+   ```
+<details>
+  <summary>Respuesta</summary>
+   
+   Esto imprimirá los meses de Septiembre, Octubre, Noviembre y Diciembre..
+</details>
 
 ## 5. Ejercicios opcionales
 Para seguir practicando, prueba los ejercicios de la web oficial de Android.
