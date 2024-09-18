@@ -126,7 +126,7 @@ D) Error de compilación
 
 ---
 
-4. **¿Cuál es el resultado del siguiente código?**
+3. **¿Cuál es el resultado del siguiente código?**
 
 ```kotlin
 data class Producto(val nombre: String, val precio: Double)
@@ -154,7 +154,7 @@ D) Error en tiempo de ejecución
 
 ---
 
-5. **¿Qué imprime el método `toString` en el siguiente código?**
+4. **¿Qué imprime el método `toString` en el siguiente código?**
 
 ```kotlin
 data class Libro(val titulo: String, val autor: String)
@@ -181,7 +181,7 @@ D) `Libro{1984, George Orwell}`
 
 ---
 
-7. **¿Cuál es el resultado del uso del método `copy` en el siguiente código?**
+5. **¿Cuál es el resultado del uso del método `copy` en el siguiente código?**
 
 ```kotlin
 data class Carro(val marca: String, val modelo: String)
@@ -209,7 +209,7 @@ D) `Carro(marca=Accord, modelo=Accord)`
 
 ---
 
-9. **¿Cuál es el resultado del siguiente código?**
+6. **¿Cuál es el resultado del siguiente código?**
 
 ```kotlin
 data class Ciudad(val nombre: String, val pais: String)
