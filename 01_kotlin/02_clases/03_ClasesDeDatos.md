@@ -72,4 +72,203 @@ fun main() {
 - Con las clases de datos, puedes extraer las propiedades directamente en variables separadas. Aquí, las propiedades `nombre` y `edad` se extraen de la instancia `persona` y se asignan a dos variables (`nombre` y `edad`).
 - Esto es muy útil para evitar escribir código redundante al acceder a las propiedades de un objeto y hace que el código sea más legible.
 
-## 4. Ejercicios
+## 4. Minicuestionario
+
+**Pregunta 1: Definición de Clase de Datos**
+
+El siguiente fragmento de código define la clase de datos `Empleado`. ¿Cuál es el código correcto para crear una instancia de `Empleado` y mostrar su contenido utilizando el método `toString`?
+
+```kotlin
+data class Empleado(val nombre: String, val edad: Int, val puesto: String)
+```
+
+- a) 
+```kotlin
+val empleado = Empleado("Ana", 28, "Desarrolladora")
+println(empleado.toString())
+```
+
+- b) 
+```kotlin
+val empleado = Empleado("Ana", 28, "Desarrolladora")
+println(empleado.nombre)
+```
+
+- c) 
+```kotlin
+val empleado = Empleado("Ana", 28, "Desarrolladora")
+println(empleado.edad)
+```
+
+<details>
+  <summary>Respuesta</summary>
+    
+  **a)**
+  ```kotlin
+  val empleado = Empleado("Ana", 28, "Desarrolladora")
+  println(empleado.toString())
+  ```
+  - El método `toString` es generado automáticamente en las clases de datos y devuelve una cadena que incluye los valores de todas las propiedades. `empleado.toString()` devolverá `"Empleado(nombre=Ana, edad=28, puesto=Desarrolladora)"`.    
+</details>
+
+**Pregunta 2: Uso del Método `copy`**
+
+Dado el siguiente clase de datos `Producto`, ¿cuál es el código correcto para crear una nueva instancia con un precio modificado usando el método `copy`?
+
+```kotlin
+data class Producto(val nombre: String, val categoria: String, val precio: Double)
+```
+
+- a) 
+```kotlin
+val producto = Producto("Laptop", "Electrónica", 1200.0)
+val productoDescuento = producto.copy(precio = 1000.0)
+```
+
+- b) 
+```kotlin
+val producto = Producto("Laptop", "Electrónica", 1200.0)
+val productoDescuento = Producto(producto.nombre, producto.categoria, 1000.0)
+```
+
+- c) 
+```kotlin
+val producto = Producto("Laptop", "Electrónica", 1200.0)
+val productoDescuento = Producto("Laptop", "Electrónica", producto.precio - 200.0)
+```
+
+<details>
+  <summary>Respuesta</summary>
+    
+  **a)**
+  ```kotlin
+  val producto = Producto("Laptop", "Electrónica", 1200.0)
+  val productoDescuento = producto.copy(precio = 1000.0)
+  ```
+  - El método `copy` permite crear una nueva instancia de una clase de datos modificando solo algunas propiedades. En este caso, solo se cambia el `precio`.    
+</details>
+
+**Pregunta 3: Método `equals`**
+
+Dado el siguiente código de clase de datos `Curso`, ¿cómo se comporta el método `equals` al comparar dos objetos con las mismas propiedades?
+
+```kotlin
+data class Curso(val nombre: String, val duracion: Int)
+```
+
+- a) 
+```kotlin
+val curso1 = Curso("Kotlin Básico", 30)
+val curso2 = Curso("Kotlin Avanzado", 30)
+println(curso1 == curso2)  // ¿Qué imprime esto?
+```
+
+- b) 
+```kotlin
+val curso1 = Curso("Kotlin Básico", 30)
+val curso2 = Curso("Kotlin Básico", 30)
+println(curso1 == curso2)  // ¿Qué imprime esto?
+```
+
+- c) 
+```kotlin
+val curso1 = Curso("Kotlin Básico", 30)
+val curso2 = Curso("Kotlin Básico", 20)
+println(curso1 == curso2)  // ¿Qué imprime esto?
+```
+
+<details>
+  <summary>Respuesta</summary>
+    
+  **b)**
+  ```kotlin
+  val curso1 = Curso("Kotlin Básico", 30)
+  val curso2 = Curso("Kotlin Básico", 30)
+  println(curso1 == curso2)  // ¿Qué imprime esto?
+  ```
+  - El método `equals` comparará las propiedades de ambos objetos y devolverá `true` si todas las propiedades son iguales. Aquí, `curso1` y `curso2` tienen las mismas propiedades, por lo que devuelve `true`.    
+</details>
+
+**Pregunta 4: Método `hashCode`**
+
+Dada la siguiente clase de datos `Libro`, ¿cómo funciona el método `hashCode` cuando dos objetos tienen las mismas propiedades?
+
+```kotlin
+data class Libro(val titulo: String, val autor: String, val precio: Double)
+```
+
+- a) 
+```kotlin
+val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+println(libro1.hashCode() == libro2.hashCode())
+```
+
+- b) 
+```kotlin
+val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+val libro2 = Libro("Don Quijote", "Miguel de Cervantes", 25.0)
+println(libro1.hashCode() == libro2.hashCode())
+```
+
+- c) 
+```kotlin
+val libro1 = Libro("El Quijote", "Miguel de Cervantes", 30.0)
+val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+println(libro1.hashCode() == libro2.hashCode())
+```
+
+<details>
+  <summary>Respuesta</summary>
+    
+  **a)**
+  ```kotlin
+  val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+  val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
+  println(libro1.hashCode() == libro2.hashCode())
+  ```
+  - El método `hashCode` generará el mismo valor para objetos con las mismas propiedades. Aquí, `libro1` y `libro2` tienen las mismas propiedades, por lo que tendrán el mismo `hashCode`.    
+</details>
+
+**Pregunta 5: Uso del Método `copy`**
+
+Dado el siguiente fragmento de código de la clase de datos `Vehiculo`, ¿cuál es el código correcto para crear una nueva instancia con un modelo modificado usando el método `copy`?
+
+```kotlin
+data class Vehiculo(val marca: String, val modelo: String, val año: Int)
+```
+
+- a) 
+```kotlin
+val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
+val vehiculoNuevo = vehiculoOriginal.copy(modelo = "Camry")
+println(vehiculoNuevo)
+```
+
+- b) 
+```kotlin
+val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
+val vehiculoNuevo = Vehiculo(vehiculoOriginal.marca, "Camry", vehiculoOriginal.año)
+println(vehiculoNuevo)
+```
+
+- c) 
+```kotlin
+val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
+val vehiculoNuevo = Vehiculo("Toyota", "Camry", 2021)
+println(vehiculoNuevo)
+```
+
+<details>
+  <summary>Respuesta</summary>
+    
+  **a)**
+  ```kotlin
+  val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
+  val vehiculoNuevo = vehiculoOriginal.copy(modelo = "Camry")
+  println(vehiculoNuevo)
+  ```
+  - El método `copy` permite modificar algunas propiedades y mantener las otras sin cambios. Aquí, solo se modifica el `modelo`. 
+</details>
+
+---
