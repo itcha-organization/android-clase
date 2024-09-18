@@ -194,3 +194,206 @@ class Coche(val marca: String, var modelo: String) {
   1. Consideremos un ejemplo de código que llama a un constructor secundario.
 
 ## 5. Ejercicios
+
+### Ejercicio 3: Clase `Persona`
+Crea una clase `Persona` que siga las siguientes especificaciones:
+1. Debe tener dos propiedades: `nombre` y `edad`.
+2. El constructor debe inicializar `nombre` y `edad`.
+3. Define un método `saludar` que muestre un mensaje de saludo en el siguiente formato: `"Hola, soy [nombre] y tengo [edad] años."`.
+4. En la función main, ejecute el siguiente código de prueba y compruebe los resultados.
+```kotlin
+fun main() {
+    // código de prueba
+    val persona = Persona("Carlos", 25)
+    persona.saludar()
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+   ```kotlin
+    class Persona(val nombre: String, var edad: Int) {
+        
+        // Método para saludar
+        fun saludar() {
+            println("Hola, soy $nombre y tengo $edad años.")
+        }
+    }
+    
+    fun main() {
+        // código de prueba
+        val persona = Persona("Carlos", 25)
+        persona.saludar()
+    }
+   ```
+    
+   **Explicación:**
+   - `Persona` tiene dos propiedades `nombre` y `edad`.
+   - El método `saludar` imprime un mensaje que utiliza las propiedades de la persona para personalizar el saludo.
+    
+</details>
+
+### Ejercicio 4: Clase `Vehículo`
+Crea una clase `Vehículo` con las siguientes especificaciones:
+1. Debe tener dos propiedades: `marca` y `modelo`.
+2. El constructor debe inicializar `marca` y `modelo`.
+3. Define un método `detalles` para mostrar la información del vehículo en el siguiente formato: `"Marca: [marca], Modelo: [modelo]"`.
+4. En la función main, ejecute el siguiente código de prueba y compruebe los resultados.
+```kotlin
+fun main() {
+    // código de prueba
+    val vehiculo = Vehiculo("Toyota", "Corolla")
+    vehiculo.detalles()
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+   ```kotlin
+    class Vehiculo(val marca: String, val modelo: String) {
+        
+        // Método para mostrar detalles del vehículo
+        fun detalles() {
+            println("Marca: $marca, Modelo: $modelo")
+        }
+    }
+    
+    fun main() {
+        // código de prueba
+        val vehiculo = Vehiculo("Toyota", "Corolla")
+        vehiculo.detalles()
+    }
+   ```
+    
+   **Explicación:**
+   - `Vehiculo` tiene dos propiedades `marca` y `modelo`.
+   - El método `detalles` imprime la información del vehículo.
+    
+</details>
+
+### Ejercicio 1: Clase `Rectángulo`
+Define una clase `Rectángulo` según las siguientes especificaciones:
+1. La clase debe tener dos propiedades: `ancho` (anchura) y `alto` (altura).
+2. El constructor debe inicializar `ancho` y `alto`.
+3. Define un método `calcularArea` para calcular el área del rectángulo.
+4. En la función main, ejecute el siguiente código de prueba y compruebe los resultados.
+```kotlin
+fun main() {
+    // código de prueba
+    val rectangulo = Rectangulo(5.0, 3.0)
+    println("El área del rectángulo es: ${rectangulo.calcularArea()}")
+}
+```
+**Pista:**
+El área se calcula como `ancho * alto`.
+
+<details>
+  <summary>Respuesta</summary>
+  
+   ```kotlin
+    class Rectangulo(val ancho: Double, val alto: Double) {
+        
+        // Método para calcular el área
+        fun calcularArea(): Double {
+            return ancho * alto
+        }
+    }
+    
+    fun main() {
+        // código de prueba
+        val rectangulo = Rectangulo(5.0, 3.0)
+        println("El área del rectángulo es: ${rectangulo.calcularArea()}")
+    }
+   ```
+    
+   **Explicación:**
+   - `Rectangulo` tiene dos propiedades `ancho` y `alto`, que se inicializan a través del constructor.
+   - El método `calcularArea` devuelve el resultado de `ancho * alto`, calculando el área del rectángulo.
+    
+</details>
+
+---
+
+### Ejercicio 2: Clase `Círculo`
+Crea una clase `Círculo` que cumpla con las siguientes especificaciones:
+1. Debe tener una propiedad `radio`.
+2. El constructor debe inicializar el valor de `radio`.
+3. Define un método `calcularCircunferencia` para calcular la circunferencia del círculo.
+4. En la función main, ejecute el siguiente código de prueba y compruebe los resultados.
+```kotlin
+fun main() {
+    // código de prueba
+    val circulo = Circulo(4.0)
+    println("La circunferencia del círculo es: ${circulo.calcularCircunferencia()}")
+}
+```
+**Pista:**
+La circunferencia se calcula como `2 * Math.PI * radio`.
+
+<details>
+  <summary>Respuesta</summary>
+  
+   ```kotlin
+    class Circulo(val radio: Double) {
+        
+        // Método para calcular la circunferencia
+        fun calcularCircunferencia(): Double {
+            return 2 * Math.PI * radio
+        }
+    }
+    
+    fun main() {
+        // código de prueba
+        val circulo = Circulo(4.0)
+        println("La circunferencia del círculo es: ${circulo.calcularCircunferencia()}")
+    }
+   ```
+    
+   **Explicación:**
+   - `Circulo` tiene una propiedad `radio` inicializada a través del constructor.
+   - El método `calcularCircunferencia` devuelve `2 * Math.PI * radio` para calcular la circunferencia del círculo.
+    
+</details>
+
+---
+
+### Ejercicio 5: Clase `Libro`
+Define una clase `Libro` con las siguientes especificaciones:
+1. Debe tener tres propiedades: `titulo` (título), `autor` (autor) y `paginas` (número de páginas).
+2. El constructor debe inicializar todas las propiedades.
+3. Define un método `mostrarDetalles` para mostrar la información del libro en el siguiente formato: `"Título: [titulo], Autor: [autor], Páginas: [paginas]"`.
+4. En la función main, ejecute el siguiente código de prueba y compruebe los resultados.
+```kotlin
+fun main() {
+    // código de prueba
+    val libro = Libro("Cien años de soledad", "Gabriel García Márquez", 417)
+    libro.mostrarDetalles()
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+   ```kotlin
+    class Libro(val titulo: String, val autor: String, val paginas: Int) {
+        
+        // Método para mostrar los detalles del libro
+        fun mostrarDetalles() {
+            println("Título: $titulo, Autor: $autor, Páginas: $paginas")
+        }
+    }
+    
+    fun main() {
+        // código de prueba
+        val libro = Libro("Cien años de soledad", "Gabriel García Márquez", 417)
+        libro.mostrarDetalles()
+    }
+   ```
+    
+   **Explicación:**
+   - `Libro` tiene tres propiedades `titulo`, `autor` y `paginas`.
+   - El método `mostrarDetalles` imprime la información del libro en formato legible.
+    
+</details>
