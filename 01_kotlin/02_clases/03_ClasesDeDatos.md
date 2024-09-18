@@ -150,7 +150,8 @@ val productoDescuento = Producto("Laptop", "Electrónica", producto.precio - 200
 
 **Pregunta 3: Método `equals`**
 
-Dado el siguiente código de clase de datos `Curso`, ¿cómo se comporta el método `equals` al comparar dos objetos con las mismas propiedades?
+Dado el siguiente código de clase de datos `Curso`.¿Qué opción hace que el resultado de ejecutar `println(curso1 == curso2)` sea `true`?
+
 
 ```kotlin
 data class Curso(val nombre: String, val duracion: Int)
@@ -187,88 +188,6 @@ println(curso1 == curso2)  // ¿Qué imprime esto?
   println(curso1 == curso2)  // ¿Qué imprime esto?
   ```
   - El método `equals` comparará las propiedades de ambos objetos y devolverá `true` si todas las propiedades son iguales. Aquí, `curso1` y `curso2` tienen las mismas propiedades, por lo que devuelve `true`.    
-</details>
-
-**Pregunta 4: Método `hashCode`**
-
-Dada la siguiente clase de datos `Libro`, ¿cómo funciona el método `hashCode` cuando dos objetos tienen las mismas propiedades?
-
-```kotlin
-data class Libro(val titulo: String, val autor: String, val precio: Double)
-```
-
-- a) 
-```kotlin
-val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-println(libro1.hashCode() == libro2.hashCode())
-```
-
-- b) 
-```kotlin
-val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-val libro2 = Libro("Don Quijote", "Miguel de Cervantes", 25.0)
-println(libro1.hashCode() == libro2.hashCode())
-```
-
-- c) 
-```kotlin
-val libro1 = Libro("El Quijote", "Miguel de Cervantes", 30.0)
-val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-println(libro1.hashCode() == libro2.hashCode())
-```
-
-<details>
-  <summary>Respuesta</summary>
-    
-  **a)**
-  ```kotlin
-  val libro1 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-  val libro2 = Libro("El Quijote", "Miguel de Cervantes", 25.0)
-  println(libro1.hashCode() == libro2.hashCode())
-  ```
-  - El método `hashCode` generará el mismo valor para objetos con las mismas propiedades. Aquí, `libro1` y `libro2` tienen las mismas propiedades, por lo que tendrán el mismo `hashCode`.    
-</details>
-
-**Pregunta 5: Uso del Método `copy`**
-
-Dado el siguiente fragmento de código de la clase de datos `Vehiculo`, ¿cuál es el código correcto para crear una nueva instancia con un modelo modificado usando el método `copy`?
-
-```kotlin
-data class Vehiculo(val marca: String, val modelo: String, val año: Int)
-```
-
-- a) 
-```kotlin
-val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
-val vehiculoNuevo = vehiculoOriginal.copy(modelo = "Camry")
-println(vehiculoNuevo)
-```
-
-- b) 
-```kotlin
-val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
-val vehiculoNuevo = Vehiculo(vehiculoOriginal.marca, "Camry", vehiculoOriginal.año)
-println(vehiculoNuevo)
-```
-
-- c) 
-```kotlin
-val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
-val vehiculoNuevo = Vehiculo("Toyota", "Camry", 2021)
-println(vehiculoNuevo)
-```
-
-<details>
-  <summary>Respuesta</summary>
-    
-  **a)**
-  ```kotlin
-  val vehiculoOriginal = Vehiculo("Toyota", "Corolla", 2020)
-  val vehiculoNuevo = vehiculoOriginal.copy(modelo = "Camry")
-  println(vehiculoNuevo)
-  ```
-  - El método `copy` permite modificar algunas propiedades y mantener las otras sin cambios. Aquí, solo se modifica el `modelo`. 
 </details>
 
 ---
