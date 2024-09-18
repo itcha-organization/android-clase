@@ -195,7 +195,7 @@ class Coche(val marca: String, var modelo: String) {
 
 ## 5. Ejercicios
 
-### Ejercicio 3: Clase `Persona`
+### Ejercicio 1: Clase `Persona`
 Crea una clase `Persona` que siga las siguientes especificaciones:
 1. Debe tener dos propiedades: `nombre` y `edad`.
 2. El constructor debe inicializar `nombre` y `edad`.
@@ -234,7 +234,7 @@ fun main() {
     
 </details>
 
-### Ejercicio 4: Clase `Vehículo`
+### Ejercicio 2: Clase `Vehículo`
 Crea una clase `Vehículo` con las siguientes especificaciones:
 1. Debe tener dos propiedades: `marca` y `modelo`.
 2. El constructor debe inicializar `marca` y `modelo`.
@@ -273,7 +273,7 @@ fun main() {
     
 </details>
 
-### Ejercicio 1: Clase `Rectángulo`
+### Ejercicio 3: Clase `Rectángulo`
 Define una clase `Rectángulo` según las siguientes especificaciones:
 1. La clase debe tener dos propiedades: `ancho` (anchura) y `alto` (altura).
 2. El constructor debe inicializar `ancho` y `alto`.
@@ -316,7 +316,7 @@ El área se calcula como `ancho * alto`.
 
 ---
 
-### Ejercicio 2: Clase `Círculo`
+### Ejercicio 4: Clase `Círculo`
 Crea una clase `Círculo` que cumpla con las siguientes especificaciones:
 1. Debe tener una propiedad `radio`.
 2. El constructor debe inicializar el valor de `radio`.
