@@ -28,9 +28,11 @@ fun main() {
     val persona1 = Persona("Ana", 25)
     val persona2 = Persona("Ana", 25)
 
+    println(persona1.toString())
     println(persona1)  // Salida: Persona(nombre=Ana, edad=25)
 
     // Comparación basada en los valores
+    println(persona1.equals(persona2))
     println(persona1 == persona2)  // Salida: true
 }
 ```
@@ -74,120 +76,161 @@ fun main() {
 
 ## 4. Minicuestionario
 
-**Pregunta 1: Definición de Clase de Datos**
-
-El siguiente fragmento de código define la clase de datos `Empleado`. ¿Cuál es el código correcto para crear una instancia de `Empleado` y mostrar su contenido utilizando el método `toString`?
+1. **¿Qué métodos se generan automáticamente en la siguiente clase `Persona`?**
 
 ```kotlin
-data class Empleado(val nombre: String, val edad: Int, val puesto: String)
+data class Persona(val nombre: String, val edad: Int)
 ```
 
-- a) 
-```kotlin
-val empleado = Empleado("Ana", 28, "Desarrolladora")
-println(empleado.toString())
-```
-
-- b) 
-```kotlin
-val empleado = Empleado("Ana", 28, "Desarrolladora")
-println(empleado.nombre)
-```
-
-- c) 
-```kotlin
-val empleado = Empleado("Ana", 28, "Desarrolladora")
-println(empleado.edad)
-```
+A) `equals`, `hashCode`, `toString`, `copy`  
+B) `equals`, `toString`, `finalize`  
+C) `equals`, `toString`, `hashCode`, `finalize`  
+D) `equals`, `hashCode`, `copy`, `destroy`
 
 <details>
   <summary>Respuesta</summary>
-    
-  **a)**
-  ```kotlin
-  val empleado = Empleado("Ana", 28, "Desarrolladora")
-  println(empleado.toString())
-  ```
-  - El método `toString` es generado automáticamente en las clases de datos y devuelve una cadena que incluye los valores de todas las propiedades. `empleado.toString()` devolverá `"Empleado(nombre=Ana, edad=28, puesto=Desarrolladora)"`.    
-</details>
+  
+  **A) `equals`, `hashCode`, `toString`, `copy`**
 
-**Pregunta 2: Uso del Método `copy`**
-
-Dado el siguiente clase de datos `Producto`, ¿cuál es el código correcto para crear una nueva instancia con un precio modificado usando el método `copy`?
-
-```kotlin
-data class Producto(val nombre: String, val categoria: String, val precio: Double)
-```
-
-- a) 
-```kotlin
-val producto = Producto("Laptop", "Electrónica", 1200.0)
-val productoDescuento = producto.copy(precio = 1000.0)
-```
-
-- b) 
-```kotlin
-val producto = Producto("Laptop", "Electrónica", 1200.0)
-val productoDescuento = Producto(producto.nombre, producto.categoria, 1000.0)
-```
-
-- c) 
-```kotlin
-val producto = Producto("Laptop", "Electrónica", 1200.0)
-val productoDescuento = Producto("Laptop", "Electrónica", producto.precio - 200.0)
-```
-
-<details>
-  <summary>Respuesta</summary>
-    
-  **a)**
-  ```kotlin
-  val producto = Producto("Laptop", "Electrónica", 1200.0)
-  val productoDescuento = producto.copy(precio = 1000.0)
-  ```
-  - El método `copy` permite crear una nueva instancia de una clase de datos modificando solo algunas propiedades. En este caso, solo se cambia el `precio`.    
-</details>
-
-**Pregunta 3: Método `equals`**
-
-Dado el siguiente código de clase de datos `Curso`.¿Qué opción hace que el resultado de ejecutar `println(curso1 == curso2)` sea `true`?
-
-
-```kotlin
-data class Curso(val nombre: String, val duracion: Int)
-```
-
-- a) 
-```kotlin
-val curso1 = Curso("Kotlin Básico", 30)
-val curso2 = Curso("Kotlin Avanzado", 30)
-println(curso1 == curso2)  // ¿Qué imprime esto?
-```
-
-- b) 
-```kotlin
-val curso1 = Curso("Kotlin Básico", 30)
-val curso2 = Curso("Kotlin Básico", 30)
-println(curso1 == curso2)  // ¿Qué imprime esto?
-```
-
-- c) 
-```kotlin
-val curso1 = Curso("Kotlin Básico", 30)
-val curso2 = Curso("Kotlin Básico", 20)
-println(curso1 == curso2)  // ¿Qué imprime esto?
-```
-
-<details>
-  <summary>Respuesta</summary>
-    
-  **b)**
-  ```kotlin
-  val curso1 = Curso("Kotlin Básico", 30)
-  val curso2 = Curso("Kotlin Básico", 30)
-  println(curso1 == curso2)  // ¿Qué imprime esto?
-  ```
-  - El método `equals` comparará las propiedades de ambos objetos y devolverá `true` si todas las propiedades son iguales. Aquí, `curso1` y `curso2` tienen las mismas propiedades, por lo que devuelve `true`.    
+  **Explicación:**
+  - Las clases de datos en Kotlin generan automáticamente varios métodos útiles, como `equals` para comparar objetos, `hashCode` para generar un valor hash, `toString` para representar el objeto como cadena, y `copy` para crear copias con modificaciones.
 </details>
 
 ---
+
+2. **¿Cuál es el resultado de `persona2` en el siguiente código utilizando el método `copy`?**
+
+```kotlin
+data class Persona(val nombre: String, val edad: Int)
+
+fun main() {
+    val persona1 = Persona("Ana", 25)
+    val persona2 = persona1.copy(edad = 30)
+    println(persona2)
+}
+```
+
+A) `Persona(nombre=Ana, edad=30)`  
+B) `Persona(nombre=Ana, edad=25)`  
+C) `Persona(nombre=Maria, edad=30)`  
+D) Error de compilación
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **A) `Persona(nombre=Ana, edad=30)`**
+
+  **Explicación:**
+  - El método `copy` permite crear una copia del objeto, cambiando solo los valores especificados. En este caso, se copia `persona1` y solo se modifica el valor de `edad` a 30.
+</details>
+
+---
+
+4. **¿Cuál es el resultado del siguiente código?**
+
+```kotlin
+data class Producto(val nombre: String, val precio: Double)
+
+fun main() {
+    val producto1 = Producto("Manzana", 1.5)
+    val producto2 = Producto("Manzana", 1.5)
+    println(producto1 == producto2)
+}
+```
+
+A) `true`  
+B) `false`  
+C) Error de compilación  
+D) Error en tiempo de ejecución
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **A) `true`**
+
+  **Explicación:**
+  - El método `equals` generado automáticamente por las clases de datos compara todas las propiedades. Como ambos objetos tienen las mismas propiedades (`nombre` y `precio`), se consideran iguales.
+</details>
+
+---
+
+5. **¿Qué imprime el método `toString` en el siguiente código?**
+
+```kotlin
+data class Libro(val titulo: String, val autor: String)
+
+fun main() {
+    val libro = Libro("1984", "George Orwell")
+    println(libro.toString())
+}
+```
+
+A) `Libro@1984`  
+B) `Libro(titulo=1984, autor=George Orwell)`  
+C) `Libro("1984", "George Orwell")`  
+D) `Libro{1984, George Orwell}`
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **B) `Libro(titulo=1984, autor=George Orwell)`**
+
+  **Explicación:**
+  - El método `toString` en una clase de datos genera automáticamente una representación de cadena del objeto, mostrando el nombre de la clase y sus propiedades con sus valores.
+</details>
+
+---
+
+7. **¿Cuál es el resultado del uso del método `copy` en el siguiente código?**
+
+```kotlin
+data class Carro(val marca: String, val modelo: String)
+
+fun main() {
+    val carro1 = Carro("Honda", "Civic")
+    val carro2 = carro1.copy(modelo = "Accord")
+    println(carro2)
+}
+```
+
+A) `Carro(marca=Honda, modelo=Civic)`  
+B) `Carro(marca=Honda, modelo=Accord)`  
+C) Error de compilación  
+D) `Carro(marca=Accord, modelo=Accord)`
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **B) `Carro(marca=Honda, modelo=Accord)`**
+
+  **Explicación:**
+  - Al utilizar el método `copy`, se crea una copia del objeto `carro1` con el valor del `modelo` modificado a "Accord", manteniendo el valor de `marca` como "Honda".
+</details>
+
+---
+
+9. **¿Cuál es el resultado del siguiente código?**
+
+```kotlin
+data class Ciudad(val nombre: String, val pais: String)
+
+fun main() {
+    val ciudad1 = Ciudad("Tokio", "Japón")
+    val ciudad2 = Ciudad("Tokio", "Japón")
+    println(ciudad1 == ciudad2)
+}
+```
+
+A) `true`  
+B) `false`  
+C) Error de compilación  
+D) Error en tiempo de ejecución
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **A) `true`**
+
+  **Explicación:**
+  - El método `equals` compara las propiedades de los objetos. Como `ciudad1` y `ciudad2` tienen las mismas propiedades (`nombre` y `pais`), se consideran iguales, por lo que `equals` devuelve `true`.
+</details>
