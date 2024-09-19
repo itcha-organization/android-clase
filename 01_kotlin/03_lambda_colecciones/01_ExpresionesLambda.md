@@ -1,6 +1,6 @@
 # Expresiones Lambda
 
-1. ## ¿Qué es una Expresión Lambda?
+## 1. ¿Qué es una Expresión Lambda?
 Una **expresión lambda** es una función anónima que puedes tratar como una **primera clase** en Kotlin. Esto significa que puedes asignarla a una variable, pasarla como parámetro o devolverla desde otras funciones. Las lambdas permiten escribir código más conciso y expresivo, especialmente al trabajar con funciones de orden superior.
 
 ### **Sintaxis de las Expresiones Lambda**
@@ -23,7 +23,13 @@ val suma: (Int, Int) -> Int = { a, b ->
 ```kotlin
 println(suma(3, 4))  // Salida: 7
 ```
-
+#### **Comparación con formas de función normales:**
+Las funciones normales que realizan el mismo proceso son las siguientes.
+```kotlin
+fun suma(a: Int, b: Int): Int {
+    return a + b
+}
+```
 ### **Sintaxis del tipo de dato de Lambda(las funciones)**
 Los tipos de funciones consisten en un conjunto de paréntesis que contienen una lista de parámetros, el símbolo -> y un tipo de datos que se muestra.
 
@@ -86,7 +92,220 @@ val decierEdad: (Int) -> String = { edad ->
         resultado
   }
   ```
-1. ## Funciones que aceptan lambdas como argumentos
+### Miniejercicio
+
+#### Ejercicio 1:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun suma(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val suma: (Int, Int) -> Int = { a, b -> a + b }
+  ```
+  **Explicación:**
+  - El tipo de función `(Int, Int) -> Int` indica que la lambda toma dos parámetros de tipo `Int` y devuelve un `Int`.
+  - `{ a, b -> a + b }` es la sintaxis de la lambda donde `a` y `b` son los parámetros, y `a + b` es la operación.
+</details>
+
+#### Ejercicio 2:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun esPar(n: Int): Boolean {
+    return n % 2 == 0
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val esPar: (Int) -> Boolean = { n -> n % 2 == 0 }
+  ```
+  **Explicación:**
+  - `(Int) -> Boolean` indica que la lambda toma un `Int` y devuelve un `Boolean`.
+  - `{ n -> n % 2 == 0 }` es la lógica que verifica si el número es par.
+</details>
+
+#### Ejercicio 3:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun cuadrado(n: Int): Int {
+    return n * n
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val cuadrado: (Int) -> Int = { n -> n * n }
+  ```
+  **Explicación:**
+  - `(Int) -> Boolean` indica que la lambda toma un `Int` y devuelve un `Boolean`.
+  - `{ n -> n % 2 == 0 }` es la lógica que verifica si el número es par.
+</details>
+
+#### Ejercicio 4:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun saludo(nombre: String): String {
+    return "Hola, $nombre"
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val saludo: (String) -> String = { nombre -> "Hola, $nombre" }
+  ```
+  **Explicación:**
+  - `(String) -> String` indica que toma un `String` como argumento y devuelve otro `String`.
+  - `{ nombre -> "Hola, $nombre" }` genera el saludo con el nombre dado.
+</details>
+
+
+#### Ejercicio 5:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun longitud(str: String): Int {
+    return str.length
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val longitud: (String) -> Int = { str -> str.length }
+  ```
+  **Explicación:**
+  - `(String) -> Int` indica que toma una cadena (`String`) y devuelve su longitud (`Int`).
+  - `{ str -> str.length }` es la operación que calcula la longitud de la cadena.
+</details>
+
+#### Ejercicio 6:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun maximo(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val maximo: (Int, Int) -> Int = { a, b -> if (a > b) a else b }
+  ```
+  **Explicación:**
+  - `(Int, Int) -> Int` indica que la lambda toma dos enteros y devuelve el mayor de ellos.
+  - `{ a, b -> if (a > b) a else b }` contiene la lógica condicional para comparar los valores.
+</details>
+
+#### Ejercicio 7:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun saludoFormal(nombre: String, titulo: String): String {
+    return "Hola, $titulo $nombre"
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val saludoFormal: (String, String) -> String = { nombre, titulo -> "Hola, $titulo $nombre" }
+  ```
+  **Explicación:**
+  - `(String, String) -> String` indica que la lambda toma dos cadenas, `nombre` y `titulo`, y devuelve un saludo formal.
+  - `{ nombre, titulo -> "Hola, $titulo $nombre" }` genera el saludo con el título y el nombre.
+</details>
+
+#### Ejercicio 8:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun esMayorDeEdad(edad: Int): Boolean {
+    return edad >= 18
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val esMayorDeEdad: (Int) -> Boolean = { edad -> edad >= 18 }
+  ```
+  **Explicación:**
+  - `(Int) -> Boolean` indica que la lambda toma un entero y devuelve `true` o `false`.
+  - `{ edad -> edad >= 18 }` verifica si la edad es mayor o igual a 18.
+</details>
+
+#### Ejercicio 9:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun multiplicar(a: Int, b: Int): Int {
+    return a * b
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val multiplicar: (Int, Int) -> Int = { a, b -> a * b }
+  ```
+  **Explicación:**
+  - `(Int, Int) -> Int` indica que la lambda toma dos enteros y devuelve su producto.
+  - `{ a, b -> a * b }` realiza la multiplicación entre `a` y `b`.
+</details>
+
+#### Ejercicio 10:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+fun esNegativo(n: Int): Boolean {
+    return n < 0
+}
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Lambda:**
+  ```kotlin
+  val esNegativo: (Int) -> Boolean = { n -> n < 0 }
+  ```
+  **Explicación:**
+  - `(Int) -> Boolean` indica que la lambda toma un entero y devuelve `true` si es negativo.
+  - `{ n -> n < 0 }` es la lógica que verifica si el número es negativo.
+</details>
+
+## 2. Funciones que aceptan lambdas como argumentos
 
 Es posible pasar lambdas como argumentos a funciones, lo que permite definir el comportamiento dinámicamente. En otras palabras, puedes pasar una función como parámetro para ser ejecutada dentro de otra función.
 
@@ -160,7 +379,7 @@ fun ejecutarOperacion(a: Int, b: Int, operacion: (Int, Int) -> Int): Int {
 }
 ```
 
-1. ## Sintaxis simplificada en lambdas (uso de `it`)
+## 3. Sintaxis simplificada en lambdas (uso de `it`)
 
 Cuando una expresión lambda tiene un solo parámetro, es posible omitir la declaración del parámetro y usar la palabra clave **`it`** en Kotlin. Este `it` se utiliza automáticamente como el único parámetro de la lambda.
 
@@ -185,30 +404,94 @@ Ambos ejemplos realizan la misma operación, pero el segundo ejemplo utiliza `it
 ### Cuándo usar `it`:
 El uso de `it` es útil cuando queremos escribir funciones de una manera concisa. Sin embargo, si la operación es compleja o se requiere más de un parámetro, es recomendable declarar explícitamente los nombres de los parámetros para mejorar la legibilidad.
 
-### **Minicuestionario**
-- Reescribe las siguientes lambdas con la sintaxis simplificada usando `it`.
+### Miniejercicio
+Reescribe las siguientes lambdas con la sintaxis simplificada usando `it`
+#### Ejercicio 1:
+```kotlin
+val esPar: (Int) -> Boolean = { n -> n % 2 == 0 }
+```
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`**
   ```kotlin
-  # 1
-  val imprimirMensaje = { mensaje: String ->
-      println(mensaje)
-  }  
-  
-  # 2
-  val decierEdad: (Int) -> String = { edad ->
-    "Tengo $edad años."
-  }
-  
-  # 3
-    val procesarTexto = { texto: String ->
-      val textoEnMayusculas = texto.toUpperCase()
-      val longitud = textoEnMayusculas.length
-      println("Texto en mayúsculas: $textoEnMayusculas")
-      println("Longitud del texto: $longitud")
-      longitud
-  }
+  val esPar: (Int) -> Boolean = { it % 2 == 0 }
   ```
+</details>
 
-1. ## Lambda de última posición
+#### Ejercicio 2:
+```kotlin
+val cuadrado: (Int) -> Int = { n -> n * n }
+```
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`:**
+  ```kotlin
+  val cuadrado: (Int) -> Int = { it * it }
+  ```
+</details>
+
+#### Ejercicio 3:
+```kotlin
+val saludo: (String) -> String = { nombre -> "Hola, $nombre" }
+```
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`:**
+  ```kotlin
+  val saludo: (String) -> String = { "Hola, $it" }
+  ```
+</details>
+
+#### Ejercicio 4:
+```kotlin
+  val longitud: (String) -> Int = { str -> str.length }
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`:**
+  ```kotlin
+  val longitud: (String) -> Int = { it.length }
+  ```
+</details>
+
+#### Ejercicio 5:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+val esMayorDeEdad: (Int) -> Boolean = { edad -> edad >= 18 }
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`:**
+  ```kotlin
+  val esMayorDeEdad: (Int) -> Boolean = { it >= 18 }
+  ```
+</details>
+
+#### Ejercicio 6:
+Escribe la siguiente función como una expresión lambda.
+
+```kotlin
+val esNegativo: (Int) -> Boolean = { n -> n < 0 }
+```
+
+<details>
+  <summary>Respuesta</summary>
+  
+  **Sintaxis simplificada usando `it`:**
+  ```kotlin
+  val esNegativo: (Int) -> Boolean = { it < 0 }
+  ```
+</details>
+
+## 4. Lambda de última posición
 En Kotlin, si el último argumento de una función es una lambda, puedes colocar esa lambda **fuera de los paréntesis** de la llamada a la función. Esto se conoce como **trailing lambda** o **lambda de última posición**.
 
 ### Forma habitual
