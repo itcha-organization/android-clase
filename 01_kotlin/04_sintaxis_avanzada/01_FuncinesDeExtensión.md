@@ -81,10 +81,54 @@ fun main() {
 2. Utilice el código inicial en la siguiente URL. También se proporciona el código de prueba para que lo pruebes.
    https://pl.kotl.in/E21nQHK-p
 
+<details>
+  <summary>Respuesta</summary>
+  
+  ```kotlin
+  // Definición de la función de extensión 'cuadrado' para el tipo Int
+  fun Int.cuadrado(): Int {
+      return this * this
+  }
+
+  // Ejemplo de uso
+  fun main() {
+      val numero = 5
+      println("El cuadrado de $numero es: ${numero.cuadrado()}")
+  }
+  ```
+  **Explicación:**
+  - **Funciones de extensión:** En Kotlin, podemos agregar nuevas funciones a tipos ya existentes sin modificar su código fuente. Esto se logra mediante **funciones de extensión**.
+  - **`this`:** Dentro de una función de extensión, `this` hace referencia al objeto que invocó la función. En este caso, `this` se refiere al número de tipo `Int` que está invocando `cuadrado()`.
+  - **Función `cuadrado`:** Esta función simplemente devuelve el resultado de multiplicar el número por sí mismo, es decir, su cuadrado.
+
+</details>
+
 ### Ejercicios2:
 1. Define una función de extensión `mayusculas()` para el tipo `List<String>`, que cambia cada elemento a mayúsculas y devuelve una nueva lista que contiene el elemento que se ha cambiado a mayúsculas.
 2. Utilice el código inicial en la siguiente URL. También se proporciona el código de prueba para que lo pruebes.
    https://pl.kotl.in/HH2xL58-i
 
-Respuesta:
-   https://pl.kotl.in/7gqUBhI0r
+<details>
+  <summary>Respuesta</summary>
+  
+  ```kotlin
+  // TODO: Define la función de extensión 'mayusculas' para el tipo List<String>
+  fun List<String>.mayusculas(): List<String> {
+      return this.map { it.uppercase() }
+  }
+
+  // Código de prueba
+  fun main() {
+      val nombres = listOf("ana", "juan", "carlos")
+      val nombresEnMayusculas = nombres.mayusculas()
+    
+      println(nombresEnMayusculas)  // Salida: [ANA, JUAN, CARLOS]
+  }
+  ```
+  **Explicación:**
+  - **Función de extensión**: La función `mayusculas` es una **función de extensión** definida para el tipo `List<String>`. En Kotlin, las funciones de extensión permiten añadir nuevas funciones a tipos existentes (como listas) sin modificar su código original.
+  - **Parámetros y retorno**: Esta función no recibe parámetros adicionales, pero trabaja sobre una lista de `String`. Devuelve una nueva lista donde cada cadena ha sido convertida a mayúsculas.
+  - **`this`**: Dentro de una función de extensión, **`this`** se refiere a la instancia de la clase que está invocando la función. En este caso, `this` hace referencia a la lista sobre la cual se llama `mayusculas()`. En la implementación, estamos usando `this.map` para operar sobre cada elemento de la lista.
+  - **`this.map`**: El método `map` es una función estándar que recorre todos los elementos de una colección (en este caso, la lista) y aplica la operación indicada a cada uno. En este caso, aplica `it.uppercase()`, que convierte cada cadena (`it`) a mayúsculas.
+
+</details>
