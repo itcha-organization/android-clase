@@ -1,12 +1,12 @@
 # **Estructura básica de las colecciones en Kotlin**
 
-1. ## Tipos de colecciones
+## 1. Tipos de colecciones
 En Kotlin, hay tres tipos principales de colecciones:
 - **List**: Una lista que mantiene el orden de los elementos y permite duplicados.
 - **Set**: Un conjunto que no tiene orden y no permite elementos duplicados.
 - **Map**: Un mapa que contiene pares clave-valor, donde las claves no se pueden duplicar, pero los valores sí.
 
-1. ## List (Lista)
+## 2. List (Lista)
 Una lista es una colección que puede contener elementos duplicados y mantiene el orden de los mismos.
 ### **Cómo crear una lista**
 ```kotlin
@@ -15,7 +15,7 @@ val listaMutable = mutableListOf("manzana", "plátano", "naranja")
 ```
 - `listOf` crea una lista inmutable (no se puede modificar).
 - `mutableListOf` crea una lista mutable (se puede modificar).
-- 
+  
 ### **Ejemplos de operaciones con listas**
 ```kotlin
 val primeraFruta = lista[0]  // Obtiene el primer elemento ("manzana")
@@ -25,7 +25,7 @@ listaMutable.add("uva")      // Añade un elemento a la lista mutable
 listaMutable.remove("plátano") // Elimina un elemento de la lista mutable
 ```
 
-1. ## Set (Conjunto)
+## 3. Set (Conjunto)
 Un conjunto es una colección que no mantiene un orden específico y no permite duplicados.
 ### **Cómo crear un conjunto**
 ```kotlin
@@ -42,8 +42,7 @@ val contieneManzana = conjunto.contains("manzana") // Verifica si el conjunto co
 conjuntoMutable.add("uva")     // Añade un elemento al conjunto mutable
 conjuntoMutable.remove("plátano") // Elimina un elemento del conjunto mutable
 ```
-
-1. ## Map (Mapa)
+## 4. Map (Mapa)
 Un mapa es una colección que asocia claves únicas con valores.
 ### **Cómo crear un mapa**
 ```kotlin
@@ -61,9 +60,7 @@ val tamañoMapa = mapa.size     // Obtiene el tamaño del mapa
 mapaMutable[4] = "uva"         // Añade un nuevo par clave-valor
 mapaMutable.remove(2)          // Elimina el par con clave 2
 ```
-
-1. ## Minicuestionario
-
+## 5. Minicuestionario
 ### **1. ¿Cuál es la forma correcta de crear una lista mutable en Kotlin?**
 a) `val lista = listOf("manzana", "plátano", "naranja")`
 
@@ -190,7 +187,7 @@ d) `lista.discard("elemento")`
   ```
 </details>
 
-1. ## Ejercicios
+## 6. Ejercicios
 
 ### **Ejercicio 1: Operaciones con listas**
 Cree una lista que cumpla con los siguientes requisitos y realice las operaciones indicadas.
@@ -209,8 +206,3 @@ Cree un mapa que cumpla con los siguientes requisitos y realice las operaciones 
 1. Cree un mapa donde la clave 1 esté asociada a "rojo", la clave 2 a "azul" y la clave 3 a "verde".
 2. Cambie el valor asociado con la clave 2 a "amarillo".
 3. Elimine la clave 3 del mapa.
-
----
-
-Este material proporciona una introducción a las colecciones en Kotlin, cubriendo las operaciones básicas con listas, conjuntos y mapas. También se incluye una breve explicación sobre colecciones mutables y algunas operaciones comunes como filtrado, mapeo y ordenación.
-
