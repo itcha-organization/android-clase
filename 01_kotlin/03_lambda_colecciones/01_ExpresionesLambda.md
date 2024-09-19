@@ -513,8 +513,9 @@ Esto se debe a que las funciones con una lambda como último argumento aparecen 
 
 ### **Minicuestionario**
 - Reescribe las siguientes llamadas de funciones usando lambda de última posición.
-  ```kotin
-  # 1
+  
+  ```kotlin
+  // # 1
   // Reescribe la siguiente llamada usando lambda de última posición
   val resultado = operar(5, 3, { x, y -> x + y })
   
@@ -522,8 +523,9 @@ Esto se debe a que las funciones con una lambda como último argumento aparecen 
     return operacion(a, b)
   }
   ```
-  ```kotin
-  # 2
+  
+  ```kotlin
+  // # 2
   // Reescribe la siguiente llamada usando lambda de última posición
   ejecutarSiCondicionEsVerdadera(true, {
       println("¡Es de día!")
@@ -535,8 +537,9 @@ Esto se debe a que las funciones con una lambda como último argumento aparecen 
       }
   }
   ```
-  ```kotin
-  # 3
+  
+  ```kotlin
+  // # 3
   // Reescribe la siguiente llamada usando lambda de última posición
   ejecutarAccion ({ println("He ejectado algo") })
   
@@ -544,5 +547,3 @@ Esto se debe a que las funciones con una lambda como último argumento aparecen 
       accion()
   }
   ```
-
-1. ## 演習
