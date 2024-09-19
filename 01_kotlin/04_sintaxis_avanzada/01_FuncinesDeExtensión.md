@@ -76,6 +76,15 @@ fun main() {
 
 ## **5. Ejercicios**
 
+### Ejercicios1:
 1. Define una función de extensión `cuadrado()` para el tipo `Int`, que devuelva el cuadrado del número.
-2. Define una función de extensión `concatenar()` para el tipo `List<String>`, que concatene todos los elementos de la lista en una sola cadena separada por comas.
-3. Usa una función de extensión para añadir un método `saludar()` a la clase `Persona`, que imprima el nombre de la persona.
+2. Utilice el código inicial en la siguiente URL. También se proporciona el código de prueba para que lo pruebes.
+   https://pl.kotl.in/E21nQHK-p
+
+### Ejercicios2:
+1. Define una función de extensión `mayusculas()` para el tipo `List<String>`, que cambia cada elemento a mayúsculas y devuelve una nueva lista que contiene el elemento que se ha cambiado a mayúsculas.
+2. Utilice el código inicial en la siguiente URL. También se proporciona el código de prueba para que lo pruebes.
+   https://pl.kotl.in/HH2xL58-i
+
+Respuesta:
+   https://pl.kotl.in/7gqUBhI0r
