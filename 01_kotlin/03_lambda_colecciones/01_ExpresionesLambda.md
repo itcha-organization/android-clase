@@ -385,7 +385,7 @@ Cuando una expresión lambda tiene un solo parámetro, es posible omitir la decl
 
 ### Forma habitual: Con el parámetro explícito
 ```kotlin
-val duplicar = { numero: Int ->
+val duplicar: (Int) -> Int = { numero: Int ->
     numero * 2
 }
 val resultado = duplicar(5)
@@ -393,7 +393,7 @@ println(resultado)  // Salida: 10
 ```
 ### Sintaxis simplificada usando `it`
 ```kotlin
-val duplicar = {
+val duplicar: (Int) -> Int = {
     it * 2
 }
 val resultado = duplicar(5)
@@ -532,7 +532,7 @@ Esto se debe a que las funciones con una lambda como último argumento aparecen 
   })
 
   fun ejecutarSiCondicionEsVerdadera(esDia: Boolean, accion: () -> Unit) {
-      if (condicion()) {
+      if (esDia) {
           accion()
       }
   }
