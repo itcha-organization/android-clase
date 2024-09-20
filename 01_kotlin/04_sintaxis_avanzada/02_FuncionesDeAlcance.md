@@ -130,4 +130,53 @@ val coche = Coche().apply {
 #### **Explicación:**
 - Aquí, inicializamos el objeto `Coche` y luego usamos `apply` nuevamente para inicializar su propiedad `Motor`.
 
-## 演習
+## Ejercicios
+### Ejercicios1:
+1. Reescríbe la referencia del objeto `libro` usando la función `let`.
+2. Utilice el código inicial en la siguiente URL.
+   https://pl.kotl.in/B5o1P5f98
+
+<details>
+  <summary>Respuesta</summary>
+  
+  ```kotlin
+  fun main() {
+  	val libro = Libro("Cien años de soledad", "Gabriel García Márquez", 417)
+      
+      libro.let {
+          println("Título: ${it.titulo}")
+          println("Autor: ${it.autor}")
+          println("Páginas: ${it.paginas}")
+      }
+  }
+
+  class Libro(val titulo: String, val autor: String, var paginas: Int)
+  ```
+</details>
+
+### Ejercicios2:
+1. Reescríbe asignación de valores a las propiedades del objeto `persona` usando la función `apply`.
+2. Utilice el código inicial en la siguiente URL.
+   https://pl.kotl.in/SrXNKSFfW
+
+<details>
+  <summary>Respuesta</summary>
+  
+  ```kotlin
+  fun main() {
+      val persona = Persona().apply {
+          nombre = "Juan"
+          edad = 30
+          apellido = "Guzman"
+      }
+
+      println("Nombre: ${persona.nombre}, Edad: ${persona.edad}, Apellido: ${persona.apellido}")  // Nombre: Juan, Edad: 30, Apellido: Guzman
+  }
+
+  class Persona() {
+      var nombre: String = ""
+      var edad: Int = 0
+      var apellido: String = ""
+  }
+  ```
+</details>
