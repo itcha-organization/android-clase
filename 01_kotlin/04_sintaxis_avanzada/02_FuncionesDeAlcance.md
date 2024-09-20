@@ -8,7 +8,7 @@ En esta clase, nos centraremos en dos tipos, `let()` y `apply()`.
 
 ### **Concepto básico**
 
-`let` es una función de alcance que pasa un objeto como argumento y permite realizar operaciones sobre él. Se utiliza principalmente para:
+La función `let()` te permite hacer referencia a un objeto en una expresión lambda mediante el identificador `it`, en lugar del nombre real del objeto. Esto puede ayudarte a evitar el uso de un nombre de objeto largo varias veces cuando accedas a más de una propiedad. Se utiliza principalmente para:
 - **Verificación de no nulidad (`null`)**
 - **Eliminar las referencias de objetos repetitivos**
 
