@@ -130,7 +130,7 @@ val coche = Coche().apply {
 #### **Explicación:**
 - Aquí, inicializamos el objeto `Coche` y luego usamos `apply` nuevamente para inicializar su propiedad `Motor`.
 
-## Ejercicios
+## 3. Ejercicios
 ### Ejercicios1:
 1. Reescríbe la referencia del objeto `libro` usando la función `let`.
 2. Utilice el código inicial en la siguiente URL.
@@ -180,3 +180,9 @@ val coche = Coche().apply {
   }
   ```
 </details>
+
+## **4. Estudiar más.**
+Para obtener más conocimiento, pruebe la siguiente documentación oficial y los tutoriales oficiales.
+
+- [Práctica:Clases y colecciones](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-classes-and-collections?hl=es-419#0)
+- [Scope functions](https://kotlinlang.org/docs/scope-functions.html)
