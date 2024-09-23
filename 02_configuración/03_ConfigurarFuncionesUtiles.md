@@ -57,7 +57,11 @@ Para más información sobre cómo puede utilizarse Gemini, consulte los siguien
 
 [Gemini en Android Studio](https://developer.android.com/studio/preview/gemini?hl=es-419)
 
-## Activación de GitHub Copilot
+## Activación de GitHub Copilot(Opción)
+
+**Si aún no te has registrado en `GithubEducation`, puedes hacerlo siguiendo estos pasos**
+
+https://github.com/itcha-organization/git-tutorial/blob/main/docs/GitHub-Education.md
 
 GitHub Copilot es una herramienta de inteligencia artificial basada en la nube desarrollada por GitHub y OpenAI para ayudar y asistir a codificación.Cada vez más empresas de software utilizan esta herramienta.<br>
 Activemos Gemini en Android Studio.
