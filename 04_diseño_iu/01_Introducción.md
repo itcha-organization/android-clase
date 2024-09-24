@@ -133,7 +133,7 @@ fun CalculatorApp() {
 @Preview(showBackground = true)
 @Composable
 fun CalculatorAppPreview() {
-    ComponentePracticoTheme {
+    EjemplosComponentesTheme {
         CalculatorApp()
     }
 }
