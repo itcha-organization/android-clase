@@ -88,7 +88,7 @@ Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para
 
 #### Pista:
 - Utiliza `Column` para organizar el `OutlinedTextField` y el `OutlinedButton` verticalmente.
-- Utiliza `Spacer` para insertar un espacio de anchura `16.dp` entre `Text`.
+- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre los componentes.
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -119,6 +119,7 @@ Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un b
 
 #### Pista:
 - Utiliza `Row` para alinear los tres componentes horizontalmente.
+- Utiliza `Spacer` para insertar un espacio de ancho `16.dp` entre los componentes.
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -151,6 +152,7 @@ Crea un formulario con varios `OutlinedTextField` para ingresar direcciones, y c
 
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón en una lista vertical.
+- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre los componentes.
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -185,6 +187,7 @@ Coloca un `OutlinedTextField` para el nombre de usuario y otro para la contrase�
 
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón verticalmente.
+- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre los componentes.
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -217,6 +220,8 @@ Crea un `OutlinedTextField` para ingresar una búsqueda y un botón de búsqueda
 
 #### Pista:
 - Utiliza `Row` para alinear el campo de búsqueda y el botón, y `Column` para agregar el texto debajo.
+- Utiliza `Spacer` para insertar un espacio de ancho `16.dp` entre `OutlinedTextField` y `OutlinedButton`.
+- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre `Row` y `Text`.
 
 <details>
   <summary>Ejemplo de solución</summary>
