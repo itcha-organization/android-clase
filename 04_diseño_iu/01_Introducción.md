@@ -154,7 +154,7 @@ Si ya tiene un proyecto abierto, seleccione `File` > `New` > `New Project`.
 
 3.En el campo Name, ingresa `EjemplosComponentes`, selecciona un nivel de API mínimo de 24 (Nougat) en el campo Minimum SDK y haz clic en Finish.
 
-![image](https://github.com/user-attachments/assets/e8778189-f5ff-4d65-b515-ecbdaf20c6b8)
+![image](https://github.com/user-attachments/assets/cb006886-da5f-4f0f-b06f-4d59d1d8772c)
 
 4.Espera a que Android Studio cree los archivos del proyecto y compílalo.
 
