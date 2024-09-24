@@ -88,6 +88,7 @@ Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para
 
 #### Pista:
 - Utiliza `Column` para organizar el `OutlinedTextField` y el `OutlinedButton` verticalmente.
+- Utiliza `Spacer` para insertar un espacio de anchura `16.dp` entre `Text`.
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -146,12 +147,7 @@ Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un b
 Crea un formulario con varios `OutlinedTextField` para ingresar direcciones, y coloca el botón de envío **en la parte inferior**.
 
 #### Ejemplo de diseño:
-```
-[ Campo de dirección 1 ]
-[ Campo de dirección 2 ]
-[ Campo de ciudad ]
-[ Botón de enviar ]
-```
+![image](https://github.com/user-attachments/assets/0b785794-6ecf-49bb-b53b-546af72ba9d7)
 
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón en una lista vertical.
@@ -185,11 +181,7 @@ Crea un formulario con varios `OutlinedTextField` para ingresar direcciones, y c
 Coloca un `OutlinedTextField` para el nombre de usuario y otro para la contraseña, y coloca un botón de inicio de sesión **en la parte inferior**.
 
 #### Ejemplo de diseño:
-```
-[ Campo de usuario ]
-[ Campo de contraseña ]
-[ Botón de iniciar sesión ]
-```
+![image](https://github.com/user-attachments/assets/a35e69a9-d47d-4150-8b34-9ea6bc616a2d)
 
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón verticalmente.
@@ -221,10 +213,7 @@ Coloca un `OutlinedTextField` para el nombre de usuario y otro para la contrase�
 Crea un `OutlinedTextField` para ingresar una búsqueda y un botón de búsqueda **en la misma línea**. Agrega un texto que diga "Resultados de la búsqueda" debajo del botón.
 
 #### Ejemplo de diseño:
-```
-[ Campo de búsqueda ] [ Botón de búsqueda ]
-Resultados de la búsqueda
-```
+![image](https://github.com/user-attachments/assets/edf05a38-cf32-4313-a289-bc2d75ec7e66)
 
 #### Pista:
 - Utiliza `Row` para alinear el campo de búsqueda y el botón, y `Column` para agregar el texto debajo.
