@@ -53,6 +53,10 @@ fun ColumnExampleAlineado() {
 - El parámetro `verticalArrangement` se establece en `Arrangement.Center`, lo que centra los elementos hijos verticalmente dentro de la columna.
 - De manera similar, el parámetro `horizontalAlignment` se establece en `Alignment.CenterHorizontally`, lo que centra los elementos hijos horizontalmente.
 
+**Variaciones del parámetro `verticalArrangement` de `Column`:**
+
+![image](https://github.com/user-attachments/assets/4459f63d-5240-4ac1-b437-54666a419ca9)
+
 ---
 
 ## 3. **Row** – Layout en dirección horizontal
@@ -92,4 +96,9 @@ fun RowExampleAlineado() {
 - El parámetro horizontalArrangement se establece en Arrangement.Center, lo que centra los elementos hijos horizontalmente dentro de la fila.
 - De manera similar, el parámetro verticalAlignment se establece en Alignment.CenterVertically, lo que centra los elementos hijos verticalmente.
 
+**Variaciones del parámetro `horizontalArrangement` de `Row`:**
+
+![image](https://github.com/user-attachments/assets/cf06c427-e0c9-4dab-a1d2-dd22d56af7e0)
+
 ---
+
