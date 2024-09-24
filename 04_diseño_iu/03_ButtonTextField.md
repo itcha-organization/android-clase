@@ -92,19 +92,22 @@ Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para
 #### Pista:
 - Utiliza `Column` para organizar el `OutlinedTextField` y el `OutlinedButton` verticalmente.
 
-#### Ejemplo de solución:
-```kotlin
-@Composable
-fun NombreYBoton() {
-    Column {
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Nombre") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = {}) {
-            Text("Enviar")
-        }
-    }
-}
-```
+<details>
+  <summary>Ejemplo de solución</summary>
+  
+   ```kotlin
+   @Composable
+   fun NombreYBoton() {
+       Column {
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Nombre") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = {}) {
+               Text("Enviar")
+           }
+       }
+   }
+   ```
+</details>
 
 ---
 
@@ -121,21 +124,24 @@ Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un b
 #### Pista:
 - Utiliza `Row` para alinear los tres componentes horizontalmente.
 
-#### Ejemplo de solución:
-```kotlin
-@Composable
-fun InformacionUsuario() {
-    Row {
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Nombre") })
-        Spacer(modifier = Modifier.width(16.dp))
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Edad") })
-        Spacer(modifier = Modifier.width(16.dp))
-        OutlinedButton(onClick = {}) {
-            Text("Enviar")
-        }
-    }
-}
-```
+<details>
+  <summary>Ejemplo de solución</summary>
+  
+   ```kotlin
+   @Composable
+   fun InformacionUsuario() {
+       Row {
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Nombre") })
+           Spacer(modifier = Modifier.width(16.dp))
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Edad") })
+           Spacer(modifier = Modifier.width(16.dp))
+           OutlinedButton(onClick = {}) {
+               Text("Enviar")
+           }
+       }
+   }
+   ```
+</details>
 
 ---
 
@@ -155,23 +161,26 @@ Crea un formulario con varios `OutlinedTextField` para ingresar direcciones, y c
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón en una lista vertical.
 
-#### Ejemplo de solución:
-```kotlin
-@Composable
-fun FormularioDireccion() {
-    Column {
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Dirección 1") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Dirección 2") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Ciudad") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = {}) {
-            Text("Enviar")
-        }
-    }
-}
-```
+<details>
+  <summary>Ejemplo de solución</summary>
+  
+   ```kotlin
+   @Composable
+   fun FormularioDireccion() {
+       Column {
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Dirección 1") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Dirección 2") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Ciudad") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = {}) {
+               Text("Enviar")
+           }
+       }
+   }
+   ```
+</details>
 
 ---
 
@@ -190,21 +199,24 @@ Coloca un `OutlinedTextField` para el nombre de usuario y otro para la contrase�
 #### Pista:
 - Utiliza `Column` para organizar los campos y el botón verticalmente.
 
-#### Ejemplo de solución:
-```kotlin
-@Composable
-fun FormularioLogin() {
-    Column {
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Usuario") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text("Contraseña") })
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = {}) {
-            Text("Iniciar sesión")
-        }
-    }
-}
-```
+<details>
+  <summary>Ejemplo de solución</summary>
+  
+   ```kotlin
+   @Composable
+   fun FormularioLogin() {
+       Column {
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Usuario") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Contraseña") })
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = {}) {
+               Text("Iniciar sesión")
+           }
+       }
+   }
+   ```
+</details>
 
 ---
 
@@ -222,24 +234,23 @@ Resultados de la búsqueda
 #### Pista:
 - Utiliza `Row` para alinear el campo de búsqueda y el botón, y `Column` para agregar el texto debajo.
 
-#### Ejemplo de solución:
-```kotlin
-@Composable
-fun FormularioBusqueda() {
-    Column {
-        Row {
-            OutlinedTextField(value = "", onValueChange = {}, label = { Text("Buscar") })
-            Spacer(modifier = Modifier.width(16.dp))
-            OutlinedButton(onClick = {}) {
-                Text("Buscar")
-            }
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("Resultados de la búsqueda")
-    }
-}
-```
-
----
-
-Estos ejercicios ayudarán a los estudiantes a practicar el uso de **Column**, **Row**, **OutlinedButton**, y **OutlinedTextField** en Jetpack Compose, permitiéndoles crear diferentes tipos de diseños de manera efectiva.
+<details>
+  <summary>Ejemplo de solución</summary>
+  
+   ```kotlin
+   @Composable
+   fun FormularioBusqueda() {
+       Column {
+           Row {
+               OutlinedTextField(value = "", onValueChange = {}, label = { Text("Buscar") })
+               Spacer(modifier = Modifier.width(16.dp))
+               OutlinedButton(onClick = {}) {
+                   Text("Buscar")
+               }
+           }
+           Spacer(modifier = Modifier.height(16.dp))
+           Text("Resultados de la búsqueda")
+       }
+   }
+   ```
+</details>
