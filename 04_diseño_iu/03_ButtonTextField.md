@@ -84,10 +84,7 @@ Puntos clave:
 Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para enviar, **en forma vertical**.
 
 #### Ejemplo de diseño:
-```
-[ Campo de nombre ]
-[ Botón de enviar ]
-```
+![image](https://github.com/user-attachments/assets/6a489a75-f0a7-4c04-b94d-35b78719fdb3)
 
 #### Pista:
 - Utiliza `Column` para organizar el `OutlinedTextField` y el `OutlinedButton` verticalmente.
@@ -117,9 +114,7 @@ Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para
 Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un botón de envío, **en forma horizontal**.
 
 #### Ejemplo de diseño:
-```
-[ Campo de nombre ] [ Campo de edad ] [ Botón de enviar ]
-```
+![image](https://github.com/user-attachments/assets/79cdfafd-a582-491c-bc55-815c35c07d55)
 
 #### Pista:
 - Utiliza `Row` para alinear los tres componentes horizontalmente.
