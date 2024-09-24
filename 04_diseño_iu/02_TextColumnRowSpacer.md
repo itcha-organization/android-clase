@@ -217,7 +217,7 @@ Crea una lista de productos y precios en la que los nombres de los productos y l
 
 #### Pista:
 - Utiliza `Column` para alinear los productos de forma vertical y `Row` para alinear el nombre y el precio horizontalmente en cada línea.
-- Utiliza `Spacer` para insertar un espacio de anchura `16.dp` entre `Text`.
+- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre `Text`.
 
 
 <details>
