@@ -56,7 +56,7 @@ fun OutlinedTextFieldExample() {
 - `value` mantiene el texto ingresado y `onValueChange` refleja los cambios en el texto.
 - Usa la propiedad `label` para agregar una etiqueta descriptiva al campo de texto.
 
-**Ejemplo: boton con icono**
+**Ejemplo: TextField con el teclado numerico**
 ```kotlin
 @Composable
 fun OutlinedTextFieldExampleTecladoNumerico() {
@@ -112,10 +112,10 @@ Coloca un `OutlinedTextField` para ingresar el nombre y un `OutlinedButton` para
 ### **Ejercicio 2: Entrada de información del usuario en horizontal**
 
 #### Enunciado:
-Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un botón de envío, **en forma horizontal**.
+Coloca un `OutlinedTextField` para ingresar el nombre junto con un botón de envío, **en forma horizontal**.
 
 #### Ejemplo de diseño:
-![image](https://github.com/user-attachments/assets/79cdfafd-a582-491c-bc55-815c35c07d55)
+![image](https://github.com/user-attachments/assets/e2e6a40e-7270-4ad0-b2cd-d3de28aced2e)
 
 #### Pista:
 - Utiliza `Row` para alinear los tres componentes horizontalmente.
@@ -129,8 +129,6 @@ Coloca dos `OutlinedTextField` para ingresar el nombre y la edad, junto con un b
    fun InformacionUsuario() {
        Row {
            OutlinedTextField(value = "", onValueChange = {}, label = { Text("Nombre") })
-           Spacer(modifier = Modifier.width(16.dp))
-           OutlinedTextField(value = "", onValueChange = {}, label = { Text("Edad") })
            Spacer(modifier = Modifier.width(16.dp))
            OutlinedButton(onClick = {}) {
                Text("Enviar")
