@@ -1,4 +1,4 @@
-# Scaffold y `topBar`
+# Scaffold
 
 `Scaffold` es un componente básico de diseño en Jetpack Compose que se utiliza para estructurar la interfaz de usuario. Facilita la creación de áreas como `topBar`, `bottomBar` y `floatingActionButton`.  
 En esta lección, aprenderemos cómo utilizar `topBar` para configurar un encabezado en la parte superior de la aplicación.
