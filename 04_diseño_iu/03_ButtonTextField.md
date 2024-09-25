@@ -205,39 +205,3 @@ Coloca un `OutlinedTextField` para el nombre de usuario y otro para la contrase�
    }
    ```
 </details>
-
----
-
-### **Ejercicio 5: Formulario de búsqueda**
-
-#### Enunciado:
-Crea un `OutlinedTextField` para ingresar una búsqueda y un botón de búsqueda **en la misma línea**. Agrega un texto que diga "Resultados de la búsqueda" debajo del botón.
-
-#### Ejemplo de diseño:
-![image](https://github.com/user-attachments/assets/edf05a38-cf32-4313-a289-bc2d75ec7e66)
-
-#### Pista:
-- Utiliza `Row` para alinear el campo de búsqueda y el botón, y `Column` para agregar el texto debajo.
-- Utiliza `Spacer` para insertar un espacio de ancho `16.dp` entre `OutlinedTextField` y `OutlinedButton`.
-- Utiliza `Spacer` para insertar un espacio de altura `16.dp` entre `Row` y `Text`.
-
-<details>
-  <summary>Ejemplo de solución</summary>
-  
-   ```kotlin
-   @Composable
-   fun FormularioBusqueda() {
-       Column {
-           Row {
-               OutlinedTextField(value = "", onValueChange = {}, label = { Text("Buscar") })
-               Spacer(modifier = Modifier.width(16.dp))
-               OutlinedButton(onClick = {}) {
-                   Text("Buscar")
-               }
-           }
-           Spacer(modifier = Modifier.height(16.dp))
-           Text("Resultados de la búsqueda")
-       }
-   }
-   ```
-</details>
