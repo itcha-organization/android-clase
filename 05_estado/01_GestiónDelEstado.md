@@ -243,6 +243,8 @@ fun ToggleTextFieldEnabledExample() {
 **Problema**: Crea un botón que cuente el número de clics realizados. Cada vez que se hace clic, se debe mostrar un mensaje indicando el número de clics.
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/dcee59a0-dc14-41cc-bf77-2d654c26fd80)
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -272,6 +274,8 @@ fun ToggleTextFieldEnabledExample() {
 **Problema**: Añade una etiqueta al `OutlinedTextField` que diga "Por favor, ingrese su nombre" y muestra el texto ingresado debajo.
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/9f8096b3-7bec-4b98-9e20-0257242e58b0)
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -312,6 +316,8 @@ fun ToggleTextFieldEnabledExample() {
 **Problema**: Crea una aplicación que cuente los caracteres ingresados en un `OutlinedTextField` y los muestre en tiempo real.
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/91edf3fc-fe2e-4c63-86d3-ae342fd52718)
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -345,6 +351,8 @@ fun ToggleTextFieldEnabledExample() {
 **Problema**: Crea una aplicación donde se borre el texto ingresado en un `OutlinedTextField` al presionar un `OutlinedButton`.
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/34e92eb5-16de-4423-8729-be10bd21e357)
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -383,6 +391,8 @@ fun ToggleTextFieldEnabledExample() {
 **Problema**: Crea una aplicación donde haya dos `OutlinedTextField` y un solo botón para borrar ambos campos.
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/fe25f9f1-77a9-421a-9e8a-f17f7c59a3e1)
 
 <details>
   <summary>Ejemplo de solución</summary>
@@ -425,18 +435,20 @@ fun ToggleTextFieldEnabledExample() {
 </details>
 
 ### **Ejercicio 6: Múltiples campos**
-**Problema**: Crea dos `OutlinedTextField` donde el usuario pueda ingresar su nombre y edad. Al presionar el botón de "Enviar", debería mostrarse en la pantalla: "[Nombre] tiene [Edad] años".
+**Problema**: Crea dos `OutlinedTextField` donde el usuario pueda ingresar su apellido y edad. Al presionar el botón de "Enviar", debería mostrarse en la pantalla: "[Apellido] tiene [Edad] años".
 
 **Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/62c449f6-603e-42cf-b5d0-249cdcdf59de)
 
 <details>
   <summary>Ejemplo de solución</summary>
 
    ```kotlin
    @Composable
-   fun MultipleFieldsExample() {
-       var name by remember { mutableStateOf("") }
-       var age by remember { mutableStateOf("") }
+   fun CamposMultiples() {
+       var apellido by remember { mutableStateOf("") }
+       var edad by remember { mutableStateOf("") }
        var result by remember { mutableStateOf("") }
 
        Column(
@@ -444,20 +456,20 @@ fun ToggleTextFieldEnabledExample() {
            horizontalAlignment = Alignment.CenterHorizontally
        ) {
            OutlinedTextField(
-               value = name,
-               onValueChange = { name = it },
-               label = { Text("Nombre") }
+               value = apellido,
+               onValueChange = { apellido = it },
+               label = { Text("Apellido") }
            )
            Spacer(modifier = Modifier.height(16.dp))
            OutlinedTextField(
-               value = age,
-               onValueChange = { age = it },
+               value = edad,
+               onValueChange = { edad = it },
                label = { Text("Edad") },
                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
            )
            Spacer(modifier = Modifier.height(16.dp))
            OutlinedButton(onClick = {
-               result = "$name tiene $age años"
+               result = "$apellido tiene $edad años"
            }) {
                Text("Enviar")
            }
@@ -468,6 +480,6 @@ fun ToggleTextFieldEnabledExample() {
    ```
 
    **Explicación**:
-   - `name` y `age` se utilizan para almacenar el valor ingresado en cada campo de texto.
+   - `apellido` y `edad` se utilizan para almacenar el valor ingresado en cada campo de texto.
    - Al hacer clic en el botón, se muestra el resultado basado en el nombre y la edad ingresados.
 </details>
