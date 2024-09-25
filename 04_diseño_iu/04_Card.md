@@ -33,11 +33,7 @@ fun CardExample() {
 Utiliza una `Card` para mostrar un nombre utilizando un componente `Text`, organizándolo en un `Column`.
 
 #### Ejemplo de diseño:
-```
-[--------------------]
-|     [ Nombre: John ]  |
-[--------------------]
-```
+![image](https://github.com/user-attachments/assets/8496f56a-c173-403e-8568-d6b8f88a39ad)
 
 ### Pista:
 - Coloca un `Column` dentro de la `Card`, y dentro de esta un `Text` para mostrar el nombre.
@@ -48,7 +44,7 @@ Utiliza una `Card` para mostrar un nombre utilizando un componente `Text`, organ
    ```kotlin
    @Composable
    fun NombreCard() {
-       Card(elevation = 4.dp) {
+       Card {
            Column(modifier = Modifier.padding(16.dp)) {
                Text("Nombre: John")
            }
@@ -64,12 +60,7 @@ Utiliza una `Card` para mostrar un nombre utilizando un componente `Text`, organ
 Utiliza una `Card` para mostrar el nombre y la edad. Ambos deben mostrarse usando componentes `Text` dentro de un `Column`, uno debajo del otro.
 
 #### Ejemplo de diseño:
-```
-[--------------------]
-| Nombre: Maria      |
-| Edad: 25           |
-[--------------------]
-```
+![image](https://github.com/user-attachments/assets/a46c79ce-05c9-45f0-8233-8230f6ad1b24)
 
 ### Pista:
 - Usa un `Column` dentro de la `Card` y organiza el nombre y la edad con `Text`.
@@ -80,7 +71,7 @@ Utiliza una `Card` para mostrar el nombre y la edad. Ambos deben mostrarse usand
    ```kotlin
    @Composable
    fun UsuarioCard() {
-       Card(elevation = 4.dp) {
+       Card {
            Column(modifier = Modifier.padding(16.dp)) {
                Text("Nombre: Maria")
                Text("Edad: 25")
@@ -99,11 +90,7 @@ Utiliza una `Card` para mostrar el nombre y la edad. Ambos deben mostrarse usand
 Muestra el nombre y la edad **horizontalmente** dentro de una `Card`, usando un `Row`. Ambos valores deben ser mostrados con componentes `Text`.
 
 #### Ejemplo de diseño:
-```
-[-------------------------]
-| Nombre: Carlos   Edad: 30 |
-[-------------------------]
-```
+![image](https://github.com/user-attachments/assets/3ab61efa-2ea9-4379-a69d-8e3885538156)
 
 ### Pista:
 - Usa un `Row` dentro de la `Card` y coloca los componentes `Text` horizontalmente.
@@ -114,7 +101,7 @@ Muestra el nombre y la edad **horizontalmente** dentro de una `Card`, usando un 
    ```kotlin
    @Composable
    fun UsuarioRowCard() {
-       Card(elevation = 4.dp) {
+       Card {
            Row(modifier = Modifier.padding(16.dp)) {
                Text("Nombre: Carlos")
                Spacer(modifier = Modifier.width(16.dp))
@@ -134,13 +121,7 @@ Muestra el nombre y la edad **horizontalmente** dentro de una `Card`, usando un 
 Utiliza una `Card` para mostrar el nombre, la edad y la dirección, organizados verticalmente con `Text`. Cada línea debe mostrarse con un componente `Text` diferente.
 
 #### Ejemplo de diseño:
-```
-[--------------------]
-| Nombre: Ana        |
-| Edad: 22           |
-| Dirección: Madrid  |
-[--------------------]
-```
+![image](https://github.com/user-attachments/assets/4e3e9e4b-aee9-493c-a9ea-5b0dd6986852)
 
 ### Pista:
 - Usa un `Column` dentro de la `Card` para organizar los componentes `Text` verticalmente.
@@ -151,7 +132,7 @@ Utiliza una `Card` para mostrar el nombre, la edad y la dirección, organizados 
   ```kotlin
    @Composable
    fun InformacionCard() {
-       Card(elevation = 4.dp) {
+       Card {
            Column(modifier = Modifier.padding(16.dp)) {
                Text("Nombre: Ana")
                Text("Edad: 22")
@@ -170,13 +151,7 @@ Utiliza una `Card` para mostrar el nombre, la edad y la dirección, organizados 
 Crea una `Card` para mostrar un perfil con el nombre y una breve introducción. El nombre debe aparecer en la parte superior dentro de un `Row`, y la introducción debe aparecer debajo usando `Text`.
 
 #### Ejemplo de diseño:
-```
-[---------------------------]
-| Nombre: Luis               |
-| Breve introducción:        |
-| Soy un desarrollador móvil |
-[---------------------------]
-```
+![image](https://github.com/user-attachments/assets/e2fb40fd-f62e-43ca-891e-e449161ad11c)
 
 ### Pista:
 - Usa un `Column` dentro de la `Card`. El nombre debe estar dentro de un `Row` en la parte superior, y la introducción debe aparecer debajo.
@@ -187,7 +162,7 @@ Crea una `Card` para mostrar un perfil con el nombre y una breve introducción. 
   ```kotlin
    @Composable
    fun PerfilCard() {
-       Card(elevation = 4.dp) {
+       Card {
            Column(modifier = Modifier.padding(16.dp)) {
                Row {
                    Text("Nombre: Luis")
