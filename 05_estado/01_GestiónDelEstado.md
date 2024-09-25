@@ -109,9 +109,9 @@ fun BasicTextFieldExample() {
     ) {
         // OutlinedTextField para capturar la entrada del usuario
         OutlinedTextField(
-            value = text,
-            onValueChange = { newText -> text = newText },
-            label = { Text("Ingresa texto") },
+            value = text,        // El estado actual del texto
+            onValueChange = { newText -> text = newText }, // Qué hacer cuando el texto cambia
+            label = { Text("Introduce aquí") },   // Etiqueta del campo de entrada
             modifier = Modifier.fillMaxWidth()
         )
 
