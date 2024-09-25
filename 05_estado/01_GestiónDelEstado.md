@@ -240,215 +240,234 @@ fun ToggleTextFieldEnabledExample() {
 ## **4. Ejercicios**
 
 ### **Ejercicio 1: Contador de clics**
-
 **Problema**: Crea un botón que cuente el número de clics realizados. Cada vez que se hace clic, se debe mostrar un mensaje indicando el número de clics.
 
-#### Código de respuesta:
+**Ejemplo de diseño:**
 
-```kotlin
-@Composable
-fun ClickCountExample() {
-    var count by remember { mutableStateOf(0) }
+<details>
+  <summary>Ejemplo de solución</summary>
 
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        OutlinedButton(onClick = { count++ }) {
-            Text("Clic")
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("El botón ha sido clickeado $count veces")
-    }
-}
-```
+  ```kotlin
+   @Composable
+   fun ClickCountExample() {
+       var count by remember { mutableStateOf(0) }
 
-**Explicación**:
-- Cada vez que se hace clic en el botón, el valor de `count` se incrementa y el número de clics se actualiza en la pantalla.
+       Column(
+           modifier = Modifier.padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           OutlinedButton(onClick = { count++ }) {
+               Text("Clic")
+           }
+           Spacer(modifier = Modifier.height(16.dp))
+           Text("El botón ha sido clickeado $count veces")
+       }
+   }
+   ```
+   **Explicación**:
+   - Cada vez que se hace clic en el botón, el valor de `count` se incrementa y el número de clics se actualiza en la pantalla.
+</details>
 
-
-### **Ejercicio 2: OutlinedTextField con etiqueta**
+### **Ejercicio 2: OutlinedTextField de nombre**
 **Problema**: Añade una etiqueta al `OutlinedTextField` que diga "Por favor, ingrese su nombre" y muestra el texto ingresado debajo.
 
-**Código de solución**:
-```kotlin
-@Composable
-fun LabeledTextFieldExample() {
-    var name by remember { mutableStateOf("") }
+**Ejemplo de diseño:**
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
-        // OutlinedTextField con etiqueta
-        OutlinedTextField(
-            value = name,
-            onValueChange = { newName -> name = newName },
-            label = { Text("Por favor, ingrese su nombre") },
-            modifier = Modifier.fillMaxWidth()
-        )
+<details>
+  <summary>Ejemplo de solución</summary>
 
-        Spacer(modifier = Modifier.height(16.dp))
+   ```kotlin
+   @Composable
+   fun LabeledTextFieldExample() {
+       var name by remember { mutableStateOf("") }
 
-        // Mostrar el nombre ingresado
-        Text(text = "Nombre ingresado: $name")
-    }
-}
-```
+       Column(
+           modifier = Modifier
+               .fillMaxSize()
+               .padding(16.dp),
+           verticalArrangement = Arrangement.Center
+       ) {
+           // OutlinedTextField con etiqueta
+           OutlinedTextField(
+               value = name,
+               onValueChange = { newName -> name = newName },
+               label = { Text("Por favor, ingrese su nombre") },
+               modifier = Modifier.fillMaxWidth()
+           )
 
-**Explicación**:
-- Se añade una etiqueta al `OutlinedTextField` para dar indicaciones al usuario.
-- El nombre ingresado se muestra en el componente `Text` debajo del campo de texto.
+           Spacer(modifier = Modifier.height(16.dp))
 
-### **Ejercicio 10: Contar caracteres ingresados y mostrar el total**
+           // Mostrar el nombre ingresado
+           Text(text = "Nombre ingresado: $name")
+       }
+   }
+   ```
 
+   **Explicación**:
+   - Se añade una etiqueta al `OutlinedTextField` para dar indicaciones al usuario.
+   - El nombre ingresado se muestra en el componente `Text` debajo del campo de texto.
+</details>
+
+### **Ejercicio 3: Contar caracteres ingresados y mostrar el total**
 **Problema**: Crea una aplicación que cuente los caracteres ingresados en un `OutlinedTextField` y los muestre en tiempo real.
 
-#### Solución:
+**Ejemplo de diseño:**
 
-```kotlin
-@Composable
-fun CountCharactersExample() {
-    var text by remember { mutableStateOf("") }
+<details>
+  <summary>Ejemplo de solución</summary>
 
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        OutlinedTextField(
-            value = text,
-            onValueChange = { text = it },
-            label = { Text("Ingresa texto") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text("Número de caracteres: ${text.length}")
-    }
-}
-```
+   ```kotlin
+   @Composable
+   fun CountCharactersExample() {
+       var text by remember { mutableStateOf("") }
 
-**Explicación**:  
-- `text.length` se usa para contar los caracteres ingresados en tiempo real.
-- Cada vez que el usuario escribe en el campo de texto, el número de caracteres se actualiza y se muestra en pantalla.
+       Column(
+           modifier = Modifier.padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           OutlinedTextField(
+               value = text,
+               onValueChange = { text = it },
+               label = { Text("Ingresa texto") }
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           Text("Número de caracteres: ${text.length}")
+       }
+   }
+   ```
 
-### **Ejercicio 6: Botón para borrar el valor de entrada**
+   **Explicación**:  
+   - `text.length` se usa para contar los caracteres ingresados en tiempo real.
+   - Cada vez que el usuario escribe en el campo de texto, el número de caracteres se actualiza y se muestra en pantalla.
+</details>
 
+### **Ejercicio 4: Botón para borrar el valor de entrada**
 **Problema**: Crea una aplicación donde se borre el texto ingresado en un `OutlinedTextField` al presionar un `OutlinedButton`.
 
-#### Solución:
+**Ejemplo de diseño:**
 
-```kotlin
-@Composable
-fun ClearTextFieldExample() {
-    var text by remember { mutableStateOf("") }
+<details>
+  <summary>Ejemplo de solución</summary>
 
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        OutlinedTextField(
-            value = text,
-            onValueChange = { text = it },
-            label = { Text("Ingresa texto") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = { text = "" }) {
-            Text("Borrar")
-        }
-    }
-}
-```
+   ```kotlin
+   @Composable
+   fun ClearTextFieldExample() {
+       var text by remember { mutableStateOf("") }
 
-**Explicación**:  
-- `OutlinedTextField` guarda el valor ingresado en la variable `text` a través de `onValueChange`.
-- En el `onClick` del botón, `text` se vacía, lo que limpia el contenido del campo de texto.
+       Column(
+           modifier = Modifier.padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           OutlinedTextField(
+               value = text,
+               onValueChange = { text = it },
+               label = { Text("Ingresa texto") }
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = { text = "" }) {
+               Text("Borrar")
+           }
+       }
+   }
+   ```
+
+   **Explicación**:  
+   - `OutlinedTextField` guarda el valor ingresado en la variable `text` a través de `onValueChange`.
+   - En el `onClick` del botón, `text` se vacía, lo que limpia el contenido del campo de texto.
+</details>
+
 
 ---
-☆演習
-### **Ejercicio 7: Borrar múltiples `OutlinedTextField` con un solo botón**
 
+### **Ejercicio 5: Borrar múltiples `OutlinedTextField` con un solo botón**
 **Problema**: Crea una aplicación donde haya dos `OutlinedTextField` y un solo botón para borrar ambos campos.
 
-#### Solución:
+**Ejemplo de diseño:**
 
-```kotlin
-@Composable
-fun ClearMultipleTextFieldsExample() {
-    var text1 by remember { mutableStateOf("") }
-    var text2 by remember { mutableStateOf("") }
+<details>
+  <summary>Ejemplo de solución</summary>
 
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        OutlinedTextField(
-            value = text1,
-            onValueChange = { text1 = it },
-            label = { Text("Texto 1") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(
-            value = text2,
-            onValueChange = { text2 = it },
-            label = { Text("Texto 2") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = {
-            text1 = ""
-            text2 = ""
-        }) {
-            Text("Borrar ambos")
-        }
-    }
-}
-```
+   ```kotlin
+   @Composable
+   fun ClearMultipleTextFieldsExample() {
+       var text1 by remember { mutableStateOf("") }
+       var text2 by remember { mutableStateOf("") }
 
-**Explicación**:  
-- Dos `OutlinedTextField` están asociados con las variables `text1` y `text2`.
-- En el `onClick` del botón, ambos campos se vacían al asignar `""` a `text1` y `text2`, limpiando ambos.
+       Column(
+           modifier = Modifier.padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           OutlinedTextField(
+               value = text1,
+               onValueChange = { text1 = it },
+               label = { Text("Texto 1") }
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedTextField(
+               value = text2,
+               onValueChange = { text2 = it },
+               label = { Text("Texto 2") }
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = {
+               text1 = ""
+               text2 = ""
+           }) {
+               Text("Borrar ambos")
+           }
+       }
+   }
+   ```
+
+   **Explicación**:  
+   - Dos `OutlinedTextField` están asociados con las variables `text1` y `text2`.
+   - En el `onClick` del botón, ambos campos se vacían al asignar `""` a `text1` y `text2`, limpiando ambos.
+</details>
 
 ### **Ejercicio 6: Múltiples campos**
-
 **Problema**: Crea dos `OutlinedTextField` donde el usuario pueda ingresar su nombre y edad. Al presionar el botón de "Enviar", debería mostrarse en la pantalla: "[Nombre] tiene [Edad] años".
 
-#### Código de respuesta:
+**Ejemplo de diseño:**
 
-```kotlin
-@Composable
-fun MultipleFieldsExample() {
-    var name by remember { mutableStateOf("") }
-    var age by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf("") }
+<details>
+  <summary>Ejemplo de solución</summary>
 
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Nombre") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(
-            value = age,
-            onValueChange = { age = it },
-            label = { Text("Edad") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = {
-            result = "$name tiene $age años"
-        }) {
-            Text("Enviar")
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(result)
-    }
-}
-```
+   ```kotlin
+   @Composable
+   fun MultipleFieldsExample() {
+       var name by remember { mutableStateOf("") }
+       var age by remember { mutableStateOf("") }
+       var result by remember { mutableStateOf("") }
 
-**Explicación**:
-- `name` y `age` se utilizan para almacenar el valor ingresado en cada campo de texto.
-- Al hacer clic en el botón, se muestra el resultado basado en el nombre y la edad ingresados.
+       Column(
+           modifier = Modifier.padding(16.dp),
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           OutlinedTextField(
+               value = name,
+               onValueChange = { name = it },
+               label = { Text("Nombre") }
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedTextField(
+               value = age,
+               onValueChange = { age = it },
+               label = { Text("Edad") },
+               keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+           )
+           Spacer(modifier = Modifier.height(16.dp))
+           OutlinedButton(onClick = {
+               result = "$name tiene $age años"
+           }) {
+               Text("Enviar")
+           }
+           Spacer(modifier = Modifier.height(16.dp))
+           Text(result)
+       }
+   }
+   ```
+
+   **Explicación**:
+   - `name` y `age` se utilizan para almacenar el valor ingresado en cada campo de texto.
+   - Al hacer clic en el botón, se muestra el resultado basado en el nombre y la edad ingresados.
+</details>
