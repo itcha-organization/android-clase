@@ -8,7 +8,6 @@
 fun CardExample() {
     Card(
         modifier = Modifier.padding(16.dp),
-        elevation = 4.dp
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -21,7 +20,6 @@ fun CardExample() {
 ```
 ## Puntos clave:
 - Usa `Card` para encapsular contenido y darle una apariencia estructurada.
-- La propiedad `elevation` ajusta la sombra, agregando un efecto de elevación.
 
 ---
 
