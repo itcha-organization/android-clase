@@ -1,11 +1,12 @@
 # Scaffold
 
-`Scaffold` es un componente básico de diseño en Jetpack Compose que se utiliza para estructurar la interfaz de usuario. Facilita la creación de áreas como `topBar`, `bottomBar` y `floatingActionButton`.  
+[`Scaffold`](https://developer.android.com/develop/ui/compose/components/scaffold?hl=es-419) es un componente básico de diseño en Jetpack Compose que se utiliza para estructurar la interfaz de usuario. Facilita la creación de áreas como `topBar`, `bottomBar` y `floatingActionButton`.  
 En esta lección, aprenderemos cómo utilizar `topBar` para configurar un encabezado en la parte superior de la aplicación.
 
 ## Objetivos
 - Aprender el uso básico del componente `Scaffold`.
 - Comprender cómo configurar la barra superior (topBar) para mostrar una barra de herramientas en la parte superior de la aplicación.
+- Comprender cómo `innerPadding` funciona.
 
 ---
 
@@ -66,3 +67,48 @@ fun ScaffoldConTopBar() {
 - `TopAppBar` proporciona la barra de herramientas, donde hemos configurado un título y un color de fondo.
 - La barra se mantiene fija en la parte superior, incluso cuando el usuario se desplaza.
 
+---
+
+## ¿Qué es `innerPadding`?
+
+El `innerPadding` en `Scaffold` se utiliza principalmente para aplicar un relleno (padding) al área de contenido cuando se construyen las interfaces en Jetpack Compose. Dado que `Scaffold` suele incorporar múltiples elementos de UI, como el `topBar` o el `bottomBar`, el uso de `innerPadding` asegura que el contenido no se superponga con estos elementos.
+
+Este padding es útil cuando se agregan barras como `topBar` o `bottomBar`, ya que se ajusta automáticamente para evitar que el contenido se superponga con ellos.
+
+### Uso básico de `innerPadding`
+
+En el siguiente ejemplo, el padding se aplica al componente `Text` dentro de un `Column`, usando los valores de `innerPadding` proporcionados por el `Scaffold`:
+
+```kotlin
+@Composable
+fun ScaffoldWithInnerPaddingExample() {
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text("Ejemplo de Scaffold") })
+        },
+        content = { innerPadding ->
+            // Se aplica el innerPadding
+            Column(modifier = Modifier.padding(innerPadding)) {
+                Text(text = "Este es el contenido del Scaffold.")
+            }
+        }
+    )
+}
+```
+**Explicación:**
+- En este caso, el `topBar` del `Scaffold` usa un `TopAppBar` que aparece en la parte superior de la pantalla.
+- Dentro del bloque `content`, el `innerPadding` ajusta automáticamente el contenido, como el `Column`, aplicando un relleno que evita que el `Text` se superponga con el `TopAppBar`.
+
+### Puntos clave sobre el `innerPadding`:
+1. **Aplicación automática**: Cuando se utilizan elementos como `topBar` o `bottomBar` en el `Scaffold`, el relleno necesario se pasa automáticamente como `innerPadding` al bloque `content`.
+2. **Ajuste de la disposición**: Para asegurarse de que el contenido no se superponga con las barras de la interfaz, se debe aplicar `Modifier.padding(innerPadding)` a los componentes dentro del `content`.
+3. **Personalización posible**: Si es necesario, puedes añadir más padding además del `innerPadding` por defecto para ajustar aún más el diseño.
+
+Ejemplo de añadir padding adicional:
+```kotlin
+Column(modifier = Modifier.padding(innerPadding).padding(16.dp)) {
+    Text(text = "Con padding adicional")
+}
+```
+
+El `innerPadding` es especialmente útil para evitar que los componentes de la interfaz se superpongan con elementos fijos como las barras de la aplicación, asegurando que la disposición sea limpia y funcional.
