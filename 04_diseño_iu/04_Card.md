@@ -140,37 +140,3 @@ Utiliza una `Card` para mostrar el nombre, la edad y la dirección, organizados 
    }
    ```  
 </details>
-
----
-
-## **Ejercicio 5: Tarjeta de perfil**
-
-### Enunciado:
-Crea una `Card` para mostrar un perfil con el nombre y una breve introducción. El nombre debe aparecer en la parte superior dentro de un `Row`, y la introducción debe aparecer debajo usando `Text`.
-
-#### Ejemplo de diseño:
-![image](https://github.com/user-attachments/assets/e2fb40fd-f62e-43ca-891e-e449161ad11c)
-
-### Pista:
-- Usa un `Column` dentro de la `Card`. El nombre debe estar dentro de un `Row` en la parte superior, y la introducción debe aparecer debajo.
-
-<details>
-  <summary>Ejemplo de solución</summary>
-
-  ```kotlin
-   @Composable
-   fun PerfilCard() {
-       Card {
-           Column(modifier = Modifier.padding(16.dp)) {
-               Row {
-                   Text("Nombre: Luis")
-               }
-               Spacer(modifier = Modifier.height(8.dp))
-               Text("Breve introducción:")
-               Text("Soy un desarrollador móvil.")
-           }
-       }
-   }
-   ```  
-</details>
-
