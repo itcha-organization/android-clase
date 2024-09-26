@@ -116,7 +116,7 @@ El `innerPadding` es especialmente útil para evitar que los componentes de la i
 ## **4. Ejercicios**
 
 ### **Ejercicio 1**
-**Problema**: Modifique el siguiente código inicial para que la barra de herramientas muestre la cadena "Ejercicio 1".
+**Problema**: Modifique el siguiente código inicial para que la barra superior muestre la cadena "Ejercicio 1".
 
 **Ejemplo de diseño:**
 <br>
@@ -175,7 +175,7 @@ fun ScaffoldEjercicio1() {
 </details>
 
 ### **Ejercicio 2**
-**Problema**: Modifique el siguiente código inicial para cambiar el color de la barra ascendente a `Color.Gray`.
+**Problema**: Modifique el siguiente código inicial para cambiar el color de la barra superior a `Color.Gray`.
 
 **Ejemplo de diseño:**
 <br>
@@ -222,6 +222,57 @@ fun ScaffoldEjercicio2() {
                   )
               )
           }) { innerPadding ->
+          Text(
+              text = "Estructura básica de Scaffold",
+              modifier = Modifier
+                  .fillMaxSize()
+                  .padding(innerPadding),
+          )
+      }
+  }
+  ```
+</details>
+
+
+### **Ejercicio 3**
+**Problema**: Modifique el siguiente código inicial para agregar `TopBar`(la barra superior).
+
+**Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/5c61fb1c-021e-45d1-94ea-9591c4dc626f)
+
+```kotlin
+@Composable
+fun ScaffoldEjercicio3() {
+    Scaffold() { innerPadding ->
+        Text(
+            text = "Estructura básica de Scaffold",
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+        )
+    }
+}
+```
+
+<details>
+  <summary>Ejemplo de solución</summary>
+    
+  ```diff
+  + @OptIn(ExperimentalMaterial3Api::class)
+  @Composable
+  fun ScaffoldEjercicio3() {
+  +    Scaffold(
+  +        // Añadir una barra de herramientas en la parte superior
+  +        topBar = {
+  +            TopAppBar(
+  +                title = { Text(text = "TopBarColorMagenta", color = Color.White) },
+  +                colors = TopAppBarDefaults.topAppBarColors(
+  +                    containerColor = Color.Magenta
+  +                )
+  +            )
+  +        }
+  +    ) { innerPadding ->
           Text(
               text = "Estructura básica de Scaffold",
               modifier = Modifier
