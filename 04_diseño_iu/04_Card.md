@@ -1,7 +1,7 @@
 # Uso de componentes básicos en Jetpack Compose
 
 ## 6. **Card** – Contenedor en forma de tarjeta
-**Card** es un contenedor que enmarca su contenido con un estilo elevado.
+[**Card**](https://developer.android.com/develop/ui/compose/components/card?hl=es-419) es un contenedor que enmarca su contenido con un estilo elevado.
 
 ```kotlin
 @Composable
