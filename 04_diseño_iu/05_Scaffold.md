@@ -116,7 +116,7 @@ El `innerPadding` es especialmente útil para evitar que los componentes de la i
 ## **4. Ejercicios**
 
 ### **Ejercicio 1**
-**Problema**: Edite el siguiente código inicial para que la barra de herramientas muestre la cadena "Ejercicio 1".
+**Problema**: Modifique el siguiente código inicial para que la barra de herramientas muestre la cadena "Ejercicio 1".
 
 ```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
@@ -126,7 +126,7 @@ fun ScaffoldEjercicio1() {
         // Añadir una barra de herramientas en la parte superior
         topBar = {
             TopAppBar(
-                title = { Text(text = "Ejercicio 1", color = Color.White) },
+                title = { Text(text = "ScaffoldConTopBar", color = Color.White) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Blue
                 )
@@ -144,72 +144,83 @@ fun ScaffoldEjercicio1() {
 
 <details>
   <summary>Ejemplo de solución</summary>
-
+    
   ```diff
-   @OptIn(ExperimentalMaterial3Api::class)
-   @Composable
-   fun ScaffoldEjercicio1() {
-       Scaffold(
-           // Añadir una barra de herramientas en la parte superior
-           topBar = {
-               TopAppBar(
-   +                title = { Text(text = "ScaffoldConTopBar", color = Color.White) },
-                   colors = TopAppBarDefaults.topAppBarColors(
-                       containerColor = Color.Blue
-                   )
-               )
-           }) { innerPadding ->
-           Text(
-               text = "Estructura básica de Scaffold",
-               modifier = Modifier
-                   .fillMaxSize()
-                   .padding(innerPadding),
-           )
-       }
-   }
-   ```
+  @OptIn(ExperimentalMaterial3Api::class)
+  @Composable
+  fun ScaffoldEjercicio1() {
+      Scaffold(
+          // Añadir una barra de herramientas en la parte superior
+          topBar = {
+              TopAppBar(
+  +                title = { Text(text = "Ejercicio 1", color = Color.White) },
+                  colors = TopAppBarDefaults.topAppBarColors(
+                      containerColor = Color.Blue
+                  )
+              )
+          }) { innerPadding ->
+          Text(
+              text = "Estructura básica de Scaffold",
+              modifier = Modifier
+                  .fillMaxSize()
+                  .padding(innerPadding),
+          )
+      }
+  }
+  ```
 </details>
 
 ### **Ejercicio 2**
-**Problema**: Añade una etiqueta al `OutlinedTextField` que diga "Por favor, ingrese su nombre" y muestra el texto ingresado debajo.
+**Problema**: Modifique el siguiente código inicial para cambiar el color de la barra ascendente a `Color.Gray`.
 
-una barra de herramientas
-
-**Ejemplo de diseño:**
-<br>
-![image](https://github.com/user-attachments/assets/9f8096b3-7bec-4b98-9e20-0257242e58b0)
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ScaffoldEjercicio2() {
+    Scaffold(
+        // Añadir una barra de herramientas en la parte superior
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "ScaffoldConTopBar", color = Color.White) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Blue
+                )
+            )
+        }) { innerPadding ->
+        Text(
+            text = "Estructura básica de Scaffold",
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+        )
+    }
+}
+```
 
 <details>
   <summary>Ejemplo de solución</summary>
-
-   ```kotlin
-   @Composable
-   fun LabeledTextFieldExample() {
-       var name by remember { mutableStateOf("") }
-
-       Column(
-           modifier = Modifier
-               .fillMaxSize()
-               .padding(16.dp),
-           verticalArrangement = Arrangement.Center
-       ) {
-           // OutlinedTextField con etiqueta
-           OutlinedTextField(
-               value = name,
-               onValueChange = { newName -> name = newName },
-               label = { Text("Por favor, ingrese su nombre") },
-               modifier = Modifier.fillMaxWidth()
-           )
-
-           Spacer(modifier = Modifier.height(16.dp))
-
-           // Mostrar el nombre ingresado
-           Text(text = "Nombre ingresado: $name")
-       }
-   }
-   ```
-
-   **Explicación**:
-   - Se añade una etiqueta al `OutlinedTextField` para dar indicaciones al usuario.
-   - El nombre ingresado se muestra en el componente `Text` debajo del campo de texto.
+    
+  ```diff
+  @OptIn(ExperimentalMaterial3Api::class)
+  @Composable
+  fun ScaffoldEjercicio2() {
+      Scaffold(
+          // Añadir una barra de herramientas en la parte superior
+          topBar = {
+              TopAppBar(
+                  title = { Text(text = "ScaffoldConTopBar", color = Color.White) },
+                  colors = TopAppBarDefaults.topAppBarColors(
+  +                    containerColor = Color.Gray
+                  )
+              )
+          }) { innerPadding ->
+          Text(
+              text = "Estructura básica de Scaffold",
+              modifier = Modifier
+                  .fillMaxSize()
+                  .padding(innerPadding),
+          )
+      }
+  }
+  ```
 </details>
