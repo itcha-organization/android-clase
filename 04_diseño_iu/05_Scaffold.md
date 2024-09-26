@@ -3,14 +3,15 @@
 [`Scaffold`](https://developer.android.com/develop/ui/compose/components/scaffold?hl=es-419) es un componente básico de diseño en Jetpack Compose que se utiliza para estructurar la interfaz de usuario. Facilita la creación de áreas como `topBar`, `bottomBar` y `floatingActionButton`.  
 En esta lección, aprenderemos cómo utilizar `topBar` para configurar un encabezado en la parte superior de la aplicación.
 
-## Objetivos
+## 1. Objetivos
 - Aprender el uso básico del componente `Scaffold`.
 - Comprender cómo configurar la barra superior (topBar) para mostrar una barra de herramientas en la parte superior de la aplicación.
 - Comprender cómo `innerPadding` funciona.
 
 ---
 
-## **Paso 1: Crear la estructura básica de Scaffold**
+## 2. Uso básico: Cómo configurar la barra superior (topBar)
+### **Paso 1: Crear la estructura básica de Scaffold**
 
 Primero, crearemos un uso básico de `Scaffold` para entender su estructura.
 
@@ -34,7 +35,7 @@ fun BasicScaffoldExample() {
 
 ---
 
-## **Paso 2: Configurar `topBar`**
+### **Paso 2: Configurar `topBar`**
 
 Ahora agregaremos una barra superior (topBar) a `Scaffold` usando `TopAppBar` para crear una barra de herramientas en la parte superior de la aplicación.
 
@@ -61,7 +62,6 @@ fun ScaffoldConTopBar() {
         }
 }
 ```
-
 **Explicación**:  
 - El parámetro `topBar` define una barra en la parte superior de la pantalla.
 - `TopAppBar` proporciona la barra de herramientas, donde hemos configurado un título y un color de fondo.
