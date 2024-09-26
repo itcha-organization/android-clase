@@ -118,6 +118,10 @@ El `innerPadding` es especialmente útil para evitar que los componentes de la i
 ### **Ejercicio 1**
 **Problema**: Modifique el siguiente código inicial para que la barra de herramientas muestre la cadena "Ejercicio 1".
 
+**Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/6b83d8a7-54c4-4071-b4cf-0d45aeca3a6b)
+
 ```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -172,6 +176,10 @@ fun ScaffoldEjercicio1() {
 
 ### **Ejercicio 2**
 **Problema**: Modifique el siguiente código inicial para cambiar el color de la barra ascendente a `Color.Gray`.
+
+**Ejemplo de diseño:**
+<br>
+![image](https://github.com/user-attachments/assets/2c4a143c-6693-4070-a028-02e0ad1985f9)
 
 ```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
