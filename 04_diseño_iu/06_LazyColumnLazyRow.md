@@ -1,8 +1,8 @@
 # LazyColumn, LazyRow
 
-LazyColumn y LazyRow son componentes para la visualización eficiente de listas en Jetpack Compose.
+`LazyColumn` y `LazyRow` son componentes para la visualización eficiente de listas en Jetpack Compose.
 
-La diferencia con Column y Row es si todos los elementos se dibujan cuando se dibuja la pantalla - Column y Low dibujan todos los elementos cuando se inicializa la pantalla, mientras que LazyColumn y LazyRow sólo dibujan los elementos que son visibles en la pantalla. Los elementos ocultos sólo se dibujan cuando se hacen visibles en la pantalla debido al desplazamiento. De este modo, el sistema no se sobrecarga aunque el número de elementos sea elevado. Utilice LazyColumn y LazyRow cuando el número de elementos a mostrar sea grande o cuando el número de elementos no esté predeterminado.
+La diferencia con `Column` y `Row` es si todos los elementos se dibujan cuando se dibuja la pantalla - `Column` y `Low` dibujan todos los elementos cuando se inicializa la pantalla, mientras que `LazyColumn` y `LazyRow` sólo dibujan los elementos que son visibles en la pantalla. Los elementos ocultos sólo se dibujan cuando se hacen visibles en la pantalla debido al desplazamiento. De este modo, el sistema no se sobrecarga aunque el número de elementos sea elevado. Utilice `LazyColumn` y `LazyRow` cuando el número de elementos a mostrar sea grande o cuando el número de elementos no esté predeterminado.
 
 ---
 
@@ -93,12 +93,12 @@ fun ListaHorizontal() {
 ---
 
 ### **Ejemplo 3: Añadir espacio entre los elementos**
-Usa `LazyColumn` para mostrar 10 elementos y añade un `Spacer` de 20dp entre cada uno de ellos para separar visualmente los elementos.
+Usa `LazyColumn` para mostrar 30 elementos y añade un `Spacer` de 20dp entre cada uno de ellos para separar visualmente los elementos.
 ```kotlin
 @Composable
 fun ListaConEspaciado() {
     LazyColumn {
-        items(10) { index ->
+        items(30) { index ->
             Text(text = "Elemento $index", modifier = Modifier.padding(16.dp))
             Spacer(modifier = Modifier.height(20.dp))
         }
@@ -107,7 +107,7 @@ fun ListaConEspaciado() {
 ```
 
 ### Puntos clave:
-- La función `items(10)` define que se crearán 10 elementos en la lista. Para cada elemento, se ejecuta el bloque de código dentro de las llaves `{ index -> ... }`, generando el contenido correspondiente para cada índice.
+- La función `items(30)` define que se crearán 10 elementos en la lista. Para cada elemento, se ejecuta el bloque de código dentro de las llaves `{ index -> ... }`, generando el contenido correspondiente para cada índice.
 - El componente `Text` muestra un texto por cada elemento de la lista. El texto se adapta dinámicamente según el índice, mostrando "Elemento 0", "Elemento 1", y así sucesivamente hasta "Elemento 9". Además, el modificador `Modifier.padding(16.dp)` agrega un margen interno de 16 puntos (dp) alrededor del texto, proporcionando espacio adicional para mejorar la legibilidad.
 - El componente `Spacer` se utiliza para insertar un espacio vertical adicional entre los elementos de la lista. En este caso, se agrega un espaciado de 20 puntos (dp) de altura después de cada `Text`. Esto crea un espacio visual que separa claramente cada uno de los elementos de la lista.
 
