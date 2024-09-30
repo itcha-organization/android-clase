@@ -26,7 +26,7 @@
 ---
 ## Ejemplos: Transición simple entre pantallas
 Vamos a ver un ejemplo de transición de `HomeScreen` a `DetailsScreen`.
-1. Crea un proyecto llamado `EjemploNavegación`.
+1. Crea un proyecto llamado `EjemploNavigation`.
 2. Eliminar la función por defecto `Greeting` y su código de llamada.
 3. Copia y pega el siguiente código.
 ```kotlin
