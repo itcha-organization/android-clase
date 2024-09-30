@@ -71,7 +71,7 @@ fun DetailsScreen() {
 4. `rememberNavController()` te dará un error, así que pásate por encima, teclea `Alt` y `Enter` y añade una dependencia.
 ![image](https://github.com/user-attachments/assets/fa42a2b0-c58a-427c-bcaa-67c0c3465d4f)
 5. Importe los elementos que faltan para eliminar errores.
-6. define MyApp() en el setContent de la función onCreate para ejecutar la app.
+6. define `MyApp()` en el bloque del `setContent` de la función `onCreate` para ejecutar la app.
 
 ### Explicación.
 #### 1. Función `MyApp`
