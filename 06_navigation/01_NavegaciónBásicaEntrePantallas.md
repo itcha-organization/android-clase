@@ -8,33 +8,22 @@
 ---
 ## **Componentes principales de `Navigation`**
 - **NavController**: Controlador que gestiona las transiciones entre pantallas y el backstack.
-  - Ejemplo: `val navController = rememberNavController()`
+  - Ejemplo:
+    ```kotlin
+    val navController = rememberNavController()
+    ```
 - **NavHost**: El lugar donde se configura la navegación. Define qué pantalla se muestra.
-  - Ejemplo: `NavHost(navController = navController, startDestination = "home")`
+  - Ejemplo:
+    ```kotlin
+    NavHost(navController = navController, startDestination = "home")
+    ```
 - **composable**: Función Composable para definir cada pantalla.
-  - Ejemplo: `composable("home") { HomeScreen(navController) }`
+  - Ejemplo:
+    ```kotlin
+    composable("home") { HomeScreen(navController) }
+    ```
 
 ---
-## Flujo básico de la navegación
-1. **Creación de NavHost**:
-   - `NavHost` gestiona toda la navegación de la aplicación y es controlado por `NavController`.
-   - Ejemplo:
-     ```kotlin
-     val navController = rememberNavController()
-     NavHost(navController = navController, startDestination = "home") {
-         composable("home") { HomeScreen(navController) }
-         composable("details") { DetailsScreen(navController) }
-     }
-     ```
-
-2. **Transición entre pantallas**:
-   - Se utiliza `navController.navigate(route)` para navegar a otra pantalla.
-   - Ejemplo:
-     ```kotlin
-     navController.navigate("details")
-     ```
----
-
 ## Ejemplos: Transición simple entre pantallas
 Ejemplo de transición de `HomeScreen` a `DetailsScreen`.
 ```kotlin
@@ -76,68 +65,60 @@ fun DetailsScreen() {
     }
 }
 ```
+### Explicación.
+#### 1. Función `MyApp`
+- **`rememberNavController()`**
+  - **Punto:** `rememberNavController()` crea un `NavController` que gestiona la navegación. Este controlador se utiliza para moverse entre diferentes pantallas.
+  - **Analogía:** El `NavController` es como un mapa dentro de la aplicación que indica a dónde se debe ir en cada pantalla.
+- **`NavHost`**
+  - **Punto:** `NavHost` define la estructura de navegación de la aplicación. Especifica cuál pantalla se mostrará primero y a cuáles pantallas se puede navegar.
+  - **`startDestination`**
+    - **Punto:** `startDestination` indica la pantalla (ruta) que se mostrará primero en la aplicación. En este caso, `"home"` es la primera pantalla.
+- **`composable`**
+  - **Punto:** La función `composable` define los componentes (pantallas) que se pueden navegar. En este caso, se pueden navegar `HomeScreen` y `DetailsScreen`.
+
+#### 2. Función `HomeScreen`
+- **`Button`**
+  - **Punto:** `Button` crea un botón que los usuarios pueden hacer clic. 
+  - **`onClick = { navController.navigate("details") }`**
+    - **Punto:** Cuando se hace clic en el botón, se utiliza `navController` para navegar a la pantalla `"details"`.
+
+#### Resumen
+- **NavController:** Objeto que gestiona la navegación entre pantallas.
+- **NavHost:** Lugar donde se definen las reglas de navegación de la aplicación.
+- **Funciones Composable:** Funciones que definen elementos de la interfaz de usuario.
+- **Button:** Elemento interactivo que permite a los usuarios realizar acciones.
 
 ---
+## ¿Qué es una `Route` de `Navigation` ?
+`route` es la "ruta" que se utiliza para identificar una pantalla (Composable) al navegar dentro de la aplicación. Cada pantalla (Composable) es identificada por una `route` única, lo que permite especificar a qué pantalla se debe navegar en la aplicación.
 
-#### **Diapositiva 5: Gestión del backstack**
+### Uso básico
 
-**Título:** ¿Qué es el backstack?
-- **Función**: Recuerda la pantalla anterior cuando se navega, permitiendo al usuario regresar a la pantalla anterior al hacer clic en "volver".
-- **`popBackStack()`**: Función que elimina la pantalla actual del backstack y regresa a la pantalla anterior.
-  - Ejemplo: `navController.popBackStack()`
-- **Importancia**: Es fundamental para gestionar múltiples pantallas de manera efectiva y proporcionar una experiencia de usuario fluida.
+1. **Definición**  
+   Cada pantalla (Composable) se registra dentro del `NavHost` usando la función `composable`, donde se identifica mediante una `route`.
 
----
+   ```kotlin
+   NavHost(navController = navController, startDestination = "home") {
+       composable("home") { HomeScreen(navController) }
+       composable("details") { DetailsScreen() }
+   }
+   ```
 
-#### **Diapositiva 6: Explicación breve de los deep links**
+   En el ejemplo anterior, `"home"` y `"details"` son las `routes` que identifican a cada pantalla.
 
-**Título:** ¿Qué es un deep link?
-- Un deep link es un enlace que permite acceder directamente a una pantalla específica desde una aplicación externa o un navegador.
-- **Ejemplo de uso**:
-  - Implementación para saltar a una pantalla específica desde una app de mensajería o un sitio web.
-  - En Jetpack Compose, se puede configurar un deep link en el `NavHost`.
+2. **Navegación**  
+   Se utiliza el `NavController` para navegar a la `route` especificada.
 
-**Ejemplo de código:**
-```kotlin
-NavHost(navController = navController, startDestination = "home") {
-    composable("home") { HomeScreen(navController) }
-    composable("details/{itemId}", deepLinks = listOf(navDeepLink { uriPattern = "myapp://details/{itemId}" })) { backStackEntry ->
-        DetailsScreen(itemId = backStackEntry.arguments?.getString("itemId"))
-    }
-}
-```
+   ```kotlin
+   Button(onClick = { navController.navigate("details") }) {
+       Text("Ir a Detalles")
+   }
+   ```
 
----
+   Este código navega a la `route` `"details"` cuando se presiona el botón.
 
-#### **Diapositiva 7: Demostración de la navegación**
-
-**Título:** Demostración de una app real
-- En este punto, muestra una demostración de la navegación básica, exhibiendo el comportamiento de las transiciones de pantalla y la interacción con los botones.
-- **Contenido de la demo**:
-  1. Transición de la pantalla principal a la de detalles.
-  2. Al hacer clic en el botón de retroceso, se regresa a la pantalla principal.
-
----
-
-#### **Diapositiva 8: Preguntas y siguientes pasos**
-
-**Título:** Preguntas y resumen de lo aprendido
-- **Puntos clave**:
-  - Función de la navegación y su uso básico.
-  - Entender el rol de `NavController`, `NavHost` y las funciones `composable`.
-  - Comprender el backstack y los deep links.
-
-- **Próximos pasos**:
-  - Resolver ejercicios para reforzar el flujo de navegación.
-  - En la próxima clase, abordaremos temas más avanzados como la navegación con parámetros y la navegación con un bottom navigation.
-
----
-
-### **Puntos clave para la explicación verbal**
-- El `NavController` es como el "gestor de navegación" de toda la aplicación. Al igual que un sistema de navegación en un coche que nos guía hacia nuestro destino, el `NavController` controla la transición entre las pantallas de la aplicación.
-- El `NavHost` es como una "estación de trenes", donde cada pantalla es una estación. A medida que el tren (la aplicación) sigue su ruta, el usuario se mueve entre las estaciones.
-- La función `composable` representa cada "estación específica", es decir, la pantalla que se muestra en un momento dado.
-
----
-
-Este material puede utilizarse para una explicación más detallada y organizada del concepto de navegación en Jetpack Compose, con ejemplos claros y una estructura que facilita la comprensión paso a paso.
+### Resumen
+- **Route** es la ruta que identifica de manera única una pantalla.
+- **Definir una Route** se hace dentro del `NavHost` con la función `composable`.
+- **Navegar** se realiza usando el `NavController` para moverse a una `route`.
