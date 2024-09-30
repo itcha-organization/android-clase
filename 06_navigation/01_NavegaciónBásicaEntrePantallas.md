@@ -25,7 +25,10 @@
 
 ---
 ## Ejemplos: Transición simple entre pantallas
-Ejemplo de transición de `HomeScreen` a `DetailsScreen`.
+Vamos a ver un ejemplo de transición de `HomeScreen` a `DetailsScreen`.
+1. Crea un proyecto llamado `EjemploNavegación`.
+2. Eliminar la función por defecto `Greeting` y su código de llamada.
+3. Copia y pega el siguiente código.
 ```kotlin
 @Composable
 fun MyApp() {
@@ -65,6 +68,11 @@ fun DetailsScreen() {
     }
 }
 ```
+4. `rememberNavController()` te dará un error, así que pásate por encima, teclea `Alt` y `Enter` y añade una dependencia.
+![image](https://github.com/user-attachments/assets/fa42a2b0-c58a-427c-bcaa-67c0c3465d4f)
+5. Importe los elementos que faltan para eliminar errores.
+6. define MyApp() en el setContent de la función onCreate para ejecutar la app.
+
 ### Explicación.
 #### 1. Función `MyApp`
 - **`rememberNavController()`**
