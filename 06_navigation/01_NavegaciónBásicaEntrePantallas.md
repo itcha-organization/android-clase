@@ -130,3 +130,48 @@ fun DetailsScreen() {
 - **Route** es la ruta que identifica de manera única una pantalla.
 - **Definir una Route** se hace dentro del `NavHost` con la función `composable`.
 - **Navegar** se realiza usando el `NavController` para moverse a una `route`.
+
+
+## Ejercicio
+
+El código inicial que figura a continuación está incompleto. Por favor, corrija las secciones comentadas para completarlo.
+
+```kotlin
+@Composable
+fun MyApp2() {
+    val navController = /* TODO */
+
+    NavHost(navController = navController, startDestination = "home2") {
+        composable("home2") {
+            /* TODO */
+        }
+        composable("details2") {
+            /* TODO */
+        }
+    }
+}
+
+@Composable
+fun HomeScreen2(navController: NavController) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = { /* TODO */ }) {
+            Text("Go to Details")
+        }
+    }
+}
+
+@Composable
+fun DetailsScreen2() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("This is the Details Screen")
+    }
+}
+```
