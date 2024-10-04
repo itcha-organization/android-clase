@@ -99,6 +99,6 @@ Button(onClick = { navController.popBackStack() }) {
   - `popBackStack()` no siempre tiene éxito, especialmente si estás en la pantalla inicial.
 
 ### 2.3 Ejercicio: Añadir un botón de retroceso a la `DetailsScreen`.
-- Bajo el texto `DetailsScreen`, añade los botones del ejemplo introducido.
+- Abajo del `Text` en `DetailsScreen`, añade el boton del ejemplo introducido.
 - Añade `navController: NavController` como parámetro de `DetailsScreen`.
 - Dentro de `NavManager`, añade un argumento a la llamada a `DetailsScreen`.
