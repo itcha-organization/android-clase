@@ -81,6 +81,11 @@ Este código muestra un ejemplo sencillo de navegación y paso de parámetros ut
 - **`composable(route = "details/{nombre}")`**: La ruta `"details/{nombre}"` está asociada a la pantalla `DetailsScreen`, que recibe un parámetro llamado `nombre`.  
   - **`navArgument("nombre")`**: Define el argumento `nombre` como de tipo cadena (`StringType`).
   - **`backStackEntry`**: Contiene los argumentos de navegación. Utilizamos `backStackEntry.arguments` para obtener el parámetro `nombre` pasado desde la pantalla anterior.
+  - `?.`: Es el operador de llamada segura en Kotlin. Se utiliza para evitar un error en caso de que `arguments` sea `null`. Si `arguments` no es `null`, se llama a `getString("nombre")`; de lo contrario, el valor será `null` sin causar una excepción.
+
+  - `getString("nombre")`: Este método recupera el valor del argumento asociado con la clave `"nombre"`, que es el parámetro que se pasó al navegar. En este caso, esperamos que sea una cadena de texto.
+
+  - `?: ""`: Este es el operador Elvis (`?:`) que establece un valor predeterminado si la expresión de la izquierda es `null`. En este caso, si no se encuentra el valor de `"nombre"` o si es `null`, el código asigna una cadena vacía `""` a `nombre`.
   - **`DetailsScreen(nombre)`**: Llama a la pantalla de detalles y le pasa el valor de `nombre` para que sea mostrado.
 
 #### 2. Función `HomeScreen`
