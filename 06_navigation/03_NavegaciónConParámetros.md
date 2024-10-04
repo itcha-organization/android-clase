@@ -73,10 +73,26 @@ fun DetailsScreen(nombre: String) {
 }
 ```
 
-### **Puntos clave:**
-- `"details/{itemName}"` indica que `{itemName}` es un parámetro que se pasará a la pantalla.
-- `navArgument("itemName") { type = NavType.StringType }` especifica que `itemName` es de tipo cadena (`String`).
-- Durante la navegación, se pasa el parámetro utilizando `navController.navigate("details/Apple")`.
+### **Explicacion:**
+Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
+
+#### 1. Función `NavManager`
+
+- **`composable(route = "details/{nombre}")`**: La ruta `"details/{nombre}"` está asociada a la pantalla `DetailsScreen`, que recibe un parámetro llamado `nombre`.  
+  - **`navArgument("nombre")`**: Define el argumento `nombre` como de tipo cadena (`StringType`).
+  - **`backStackEntry`**: Contiene los argumentos de navegación. Utilizamos `backStackEntry.arguments` para obtener el parámetro `nombre` pasado desde la pantalla anterior.
+  - **`DetailsScreen(nombre)`**: Llama a la pantalla de detalles y le pasa el valor de `nombre` para que sea mostrado.
+
+#### 2. Función `HomeScreen`
+- **`var nombre by remember { mutableStateOf("") }`**: La variable `nombre` almacena el valor ingresado por el usuario. Usamos `remember` y `mutableStateOf` para conservar el estado del nombre incluso después de la recomposición de la UI.
+  
+- **`OutlinedTextField`**: Es un campo de texto donde el usuario puede ingresar su nombre. El valor del campo es controlado por la variable `nombre` y se actualiza cuando el usuario escribe.
+  
+- **`Button(onClick)`**: Al hacer clic en el botón, se navega a la pantalla `DetailsScreen` utilizando la función `navController.navigate("details/$nombre")`. El nombre ingresado es pasado como parte de la ruta.
+
+#### 3. Función `DetailsScreen`
+- **`DetailsScreen(nombre: String)`**: Esta pantalla recibe el parámetro `nombre` desde la pantalla `HomeScreen` y lo muestra en un texto.
+- **`Text("Nombre: $nombre")`**: Muestra el nombre recibido como parámetro en la pantalla.
 
 ---
 
@@ -156,5 +172,7 @@ fun DetailsScreen(nombre: String, edad: Int) {
 ```
 
 ### **Puntos clave:**
-- Para pasar múltiples parámetros, especificamos `"profile/{userName}/{userId}"` en la ruta.
+- Para pasar múltiples parámetros, especificamos `"details/{nombre}/{edad}"` en la ruta.
 - Usamos `navArgument` para definir el tipo de cada parámetro.
+
+
