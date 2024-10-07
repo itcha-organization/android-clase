@@ -148,7 +148,7 @@ fun NavManager() {
 }
 ```
 #### 2. Función `HomeScreen`
-```kotlin
+```diff
 @Composable
 fun HomeScreen(navController: NavController) {
     var nombre by remember { mutableStateOf("") }
@@ -185,7 +185,7 @@ fun HomeScreen(navController: NavController) {
 }
 ```
 #### 3. Función `DetailsScreen`
-```kotlin
+```diff
 @Composable
 + fun DetailsScreen(nombre: String, edad: Int) {
     Column(
@@ -202,3 +202,28 @@ fun HomeScreen(navController: NavController) {
 ### **Puntos clave:**
 - Para pasar múltiples parámetros, especificamos `"details/{nombre}/{edad}"` en la ruta.
 - Usamos `navArgument` para definir el tipo de cada parámetro.
+
+## Ejercicios
+### Ejercicio1
+1. Crear un archivo Kotlin `SaludoScreen` en el paquete `components`.
+2. `SaludoScreen`Pegue el siguiente código en `SaludoScreen`.
+   ```kotlin
+   @Composable
+   fun SaludoScreen(nombre: String, edad: Int) {
+       Column(
+           modifier = Modifier.fillMaxSize(),
+           verticalArrangement = Arrangement.Center,
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           Text("Hola, soy $nombre. Tengo $edad años.")
+       }
+   }
+   ```
+3. Modifique el código para que los valores introducidos en la `HomeScreen` se muestren en la `SaludoScreen`, como se muestra en el siguiente diagrama.
+   - Dentro de `NavHost` de `NavManager`, añade una llamada a la función `composable` para definir la navegación a la `SaludoScreen`.
+   - Añade un botón a la `HomeScreen` para navegar a la `SaludoScreen`.
+   ![image](https://github.com/user-attachments/assets/a24320ac-0c03-407a-ac10-3765e5c55fa6)
+
+### Ejercicio2
+1. Añade un campo de apellido a la `PantallaInicio` y modifícalo para que el apellido introducido se muestre en la `PantallaSaludo`, como se muestra en el siguiente diagrama.
+![image](https://github.com/user-attachments/assets/c3ecbf2d-771b-4806-bbdc-a3af08976da9)
