@@ -17,9 +17,21 @@ El objetivo de este material es aprender cómo utilizar `navArgument` en Jetpack
 
 Primero, aprenderemos cómo pasar parámetros de una pantalla a otra utilizando `navArgument`. En este ejemplo, se pasará un parámetro de texto desde una pantalla A a una pantalla B.
 
-Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
+### Pasos para implementar
+1. **Define una `ruta` con parámetros para una función `composable` en NavHost**.
+   <br>
+   Define una pantalla (componente) utilizando la función `composable`. En este caso, especifica el nombre del parámetro encerrándolo con {} en la `route`. Pasa una lista de pares nombre/tipo de parámetro (`NavType`) a `navArgument` y especifica el tipo de datos de cada parámetro.
+
+2. **Define la lógica de obtención de parámetros desde `backStackEntry.arguments` en el bloque de la función `composable`**.
+   <br>
+   Definir la lógica en el bloque de la función `composable` para obtener los valores de los parámetros desde `backStackEntry.arguments` y pasarlos a la pantalla a la que se va a realizar la transició
+
+3. **Pasar argumentos al pasar de una pantalla a otra**.
+  <br>
+  Utiliza el método `navigate()` del `NavController` en el momento de la transición para incrustar parámetros en `route`.
 
 ### **Ejemplo de código:**
+Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
 
 #### 1. Función `NavManager`
 ```kotlin
@@ -51,6 +63,7 @@ fun NavManager() {
   - **`DetailsScreen(nombre)`**: Llama a la pantalla de detalles y le pasa el valor de `nombre` para que sea mostrado.
 
 > [!NOTE]
+> Operadores para seguridad nula
 > - `?.`: Es el operador de llamada segura en Kotlin. Se utiliza para evitar un error en caso de que `arguments` sea `null`. Si `arguments` no es `null`, se llama a `getString("nombre")`; de lo contrario, el valor será `null` sin causar una excepción.
 > - `?: ""`: Este es el operador Elvis (`?:`) que establece un valor predeterminado si la expresión de la izquierda es `null`. En este caso, si no se encuentra el valor de `"nombre"` o si es `null`, el código asigna una cadena vacía `""` a `nombre`.
 
