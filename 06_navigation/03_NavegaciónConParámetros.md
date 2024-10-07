@@ -230,4 +230,5 @@ fun HomeScreen(navController: NavController) {
    - Dentro de `NavHost` de `NavManager, modificar la definición de navegación a la `SaludoScreen`.
    - En `HomeScreen`, modificar el botón para navegar a la `SaludoScreen`.
    - Añade el apellido al parámetro `SaludoScreen` y modifícalo para mostrarlo.
+
 ![image](https://github.com/user-attachments/assets/c3ecbf2d-771b-4806-bbdc-a3af08976da9)
