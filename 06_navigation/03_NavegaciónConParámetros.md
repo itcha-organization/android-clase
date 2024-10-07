@@ -13,11 +13,15 @@ El objetivo de este material es aprender cómo utilizar `navArgument` en Jetpack
 
 ---
 
-## **1. Sintaxis básica y pasar parámetros**
+## **1. Sintaxis básica y pasos para implementar la navegación con `navArgument`**
 
 Primero, aprenderemos cómo pasar parámetros de una pantalla a otra utilizando `navArgument`. En este ejemplo, se pasará un parámetro de texto desde una pantalla A a una pantalla B.
 
+Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
+
 ### **Ejemplo de código:**
+
+#### 1. Función `NavManager`
 ```kotlin
 @Composable
 fun NavManager() {
@@ -36,7 +40,22 @@ fun NavManager() {
         }
     }
 }
+```
+- **Especificar el parámetro y tipo de dado dentro del método `composable`.**
+  - **`composable(route = "details/{nombre}")`**: La ruta `"details/{nombre}"` está asociada a la pantalla `DetailsScreen`, que recibe un parámetro llamado `nombre`.
+  - **`navArgument("nombre")`**: Define el argumento `nombre` como de tipo cadena (`StringType`).
 
+- **Definir la lógica de recuperación de parámetros utilizando el objeto `backStackEntry`.**
+  - **`backStackEntry`**: Contiene los argumentos de navegación. Utilizamos `backStackEntry.arguments` para obtener el parámetro `nombre` pasado desde la pantalla anterior.
+  - `getString("nombre")`: Este método recupera el valor del argumento asociado con la clave `"nombre"`, que es el parámetro que se pasó al navegar. En este caso, esperamos que sea una cadena de texto.
+  - **`DetailsScreen(nombre)`**: Llama a la pantalla de detalles y le pasa el valor de `nombre` para que sea mostrado.
+
+> [!NOTE]
+> - `?.`: Es el operador de llamada segura en Kotlin. Se utiliza para evitar un error en caso de que `arguments` sea `null`. Si `arguments` no es `null`, se llama a `getString("nombre")`; de lo contrario, el valor será `null` sin causar una excepción.
+> - `?: ""`: Este es el operador Elvis (`?:`) que establece un valor predeterminado si la expresión de la izquierda es `null`. En este caso, si no se encuentra el valor de `"nombre"` o si es `null`, el código asigna una cadena vacía `""` a `nombre`.
+
+#### 2. Función `HomeScreen`
+```kotlin
 @Composable
 fun HomeScreen(navController: NavController) {
     var nombre by remember { mutableStateOf("") }
@@ -60,7 +79,12 @@ fun HomeScreen(navController: NavController) {
         }
     }
 }
+```
+- **Pasar los valores de los argumentos desde la pantalla de origen como parte de la ruta.**
+  - **`Button(onClick)`**: Al hacer clic en el botón, se navega a la pantalla `DetailsScreen` utilizando la función `navController.navigate("details/$nombre")`. El nombre ingresado es pasado como parte de la ruta.
 
+#### 3. Función `DetailsScreen`
+```kotlin
 @Composable
 fun DetailsScreen(nombre: String) {
     Column(
@@ -72,32 +96,7 @@ fun DetailsScreen(nombre: String) {
     }
 }
 ```
-
-### **Explicacion:**
-Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
-
-#### 1. Función `NavManager`
-
-- **`composable(route = "details/{nombre}")`**: La ruta `"details/{nombre}"` está asociada a la pantalla `DetailsScreen`, que recibe un parámetro llamado `nombre`.  
-  - **`navArgument("nombre")`**: Define el argumento `nombre` como de tipo cadena (`StringType`).
-  - **`backStackEntry`**: Contiene los argumentos de navegación. Utilizamos `backStackEntry.arguments` para obtener el parámetro `nombre` pasado desde la pantalla anterior.
-  - `?.`: Es el operador de llamada segura en Kotlin. Se utiliza para evitar un error en caso de que `arguments` sea `null`. Si `arguments` no es `null`, se llama a `getString("nombre")`; de lo contrario, el valor será `null` sin causar una excepción.
-
-  - `getString("nombre")`: Este método recupera el valor del argumento asociado con la clave `"nombre"`, que es el parámetro que se pasó al navegar. En este caso, esperamos que sea una cadena de texto.
-
-  - `?: ""`: Este es el operador Elvis (`?:`) que establece un valor predeterminado si la expresión de la izquierda es `null`. En este caso, si no se encuentra el valor de `"nombre"` o si es `null`, el código asigna una cadena vacía `""` a `nombre`.
-  - **`DetailsScreen(nombre)`**: Llama a la pantalla de detalles y le pasa el valor de `nombre` para que sea mostrado.
-
-#### 2. Función `HomeScreen`
-- **`var nombre by remember { mutableStateOf("") }`**: La variable `nombre` almacena el valor ingresado por el usuario. Usamos `remember` y `mutableStateOf` para conservar el estado del nombre incluso después de la recomposición de la UI.
-  
-- **`OutlinedTextField`**: Es un campo de texto donde el usuario puede ingresar su nombre. El valor del campo es controlado por la variable `nombre` y se actualiza cuando el usuario escribe.
-  
-- **`Button(onClick)`**: Al hacer clic en el botón, se navega a la pantalla `DetailsScreen` utilizando la función `navController.navigate("details/$nombre")`. El nombre ingresado es pasado como parte de la ruta.
-
-#### 3. Función `DetailsScreen`
 - **`DetailsScreen(nombre: String)`**: Esta pantalla recibe el parámetro `nombre` desde la pantalla `HomeScreen` y lo muestra en un texto.
-- **`Text("Nombre: $nombre")`**: Muestra el nombre recibido como parámetro en la pantalla.
 
 ---
 
