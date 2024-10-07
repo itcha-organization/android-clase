@@ -225,5 +225,9 @@ fun HomeScreen(navController: NavController) {
    ![image](https://github.com/user-attachments/assets/a24320ac-0c03-407a-ac10-3765e5c55fa6)
 
 ### Ejercicio2
-1. Añade un campo de apellido a la `PantallaInicio` y modifícalo para que el apellido introducido se muestre en la `PantallaSaludo`, como se muestra en el siguiente diagrama.
+1. Modifique el código para que el apellido introducido en la `HomeScreen` se muestre en la `SaludoScreen`, como se muestra en el siguiente diagrama.
+   - Añadir un campo de apellido a la `HomeScreen`.
+   - Dentro de `NavHost` de `NavManager, modificar la definición de navegación a la `SaludoScreen`.
+   - En `HomeScreen`, modificar el botón para navegar a la `SaludoScreen`.
+   - Añade el apellido al parámetro `SaludoScreen` y modifícalo para mostrarlo.
 ![image](https://github.com/user-attachments/assets/c3ecbf2d-771b-4806-bbdc-a3af08976da9)
