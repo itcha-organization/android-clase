@@ -27,8 +27,8 @@ Primero, aprenderemos cómo pasar parámetros de una pantalla a otra utilizando 
    Definir la lógica en el bloque de la función `composable` para obtener los valores de los parámetros desde `backStackEntry.arguments` y pasarlos a la pantalla a la que se va a realizar la transició
 
 3. **Pasar argumentos al pasar de una pantalla a otra**.
-  <br>
-  Utiliza el método `navigate()` del `NavController` en el momento de la transición para incrustar parámetros en `route`.
+   <br>
+   Utiliza el método `navigate()` del `NavController` en el momento de la transición para incrustar parámetros en `route`.
 
 ### **Ejemplo de código:**
 Este código muestra un ejemplo sencillo de navegación y paso de parámetros utilizando Jetpack Compose. La función `NavManager` gestiona toda la navegación de la aplicación, donde se ingresa un nombre en la pantalla principal (`HomeScreen`) y se pasa a la pantalla de detalles (`DetailsScreen`) para ser mostrado. A continuación, se explica cada parte del código:
