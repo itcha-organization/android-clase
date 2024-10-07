@@ -114,11 +114,17 @@ fun DetailsScreen(nombre: String) {
 ---
 
 ## **2. Pasar múltiples parámetros**
+Ahora aprenderemos cómo pasar múltiples parámetros entre pantallas. En este caso, pasaremos el nombre y el edad.
 
-Ahora aprenderemos cómo pasar múltiples parámetros entre pantallas. En este caso, pasaremos el nombre y el ID de un usuario.
+### Repaso: Pasos para implementar
+Básicamente, se pueden definir múltiples parámetros utilizando el mismo paso de implementación que cuando sólo hay un parámetro durante la navegación.
+1. **Define una `ruta` con parámetros para una función `composable` en NavHost**.
+2. **Define la lógica de obtención de parámetros desde `backStackEntry.arguments` en el bloque de la función `composable`**.
+3. **Pasar argumentos al pasar de una pantalla a otra**.
 
 ### **Ejemplo de código:**
-```kotlin
+#### 1. Función `NavManager`
+```diff
 @Composable
 fun NavManager() {
     val navController = rememberNavController()
@@ -128,23 +134,25 @@ fun NavManager() {
             HomeScreen(navController)
         }
         composable(
-            route = "details/{nombre}/{edad}",
++            route = "details/{nombre}/{edad}",
             arguments = listOf(
                 navArgument("nombre") { type = NavType.StringType },
-                navArgument("edad") { type = NavType.IntType }
++                navArgument("edad") { type = NavType.IntType }
             )
         ) { backStackEntry ->
             val nombre = backStackEntry.arguments?.getString("nombre") ?: ""
-            val edad = backStackEntry.arguments?.getInt("edad") ?: 0
-            DetailsScreen(nombre, edad)
++            val edad = backStackEntry.arguments?.getInt("edad") ?: 0
++            DetailsScreen(nombre, edad)
         }
     }
 }
-
+```
+#### 2. Función `HomeScreen`
+```kotlin
 @Composable
 fun HomeScreen(navController: NavController) {
     var nombre by remember { mutableStateOf("") }
-    var edad by remember { mutableStateOf("") }
++    var edad by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -160,30 +168,33 @@ fun HomeScreen(navController: NavController) {
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 12.dp)
         )
-        OutlinedTextField(
-            value = edad,
-            onValueChange = {edad = it},
-            label = { Text(text = "Edad")},
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .padding(bottom = 12.dp)
-        )
-        Button(onClick = { navController.navigate("details/$nombre/$edad") }) {
++        OutlinedTextField(
++            value = edad,
++            onValueChange = {edad = it},
++            label = { Text(text = "Edad")},
++            modifier = Modifier
++                .fillMaxWidth()
++                .padding(horizontal = 16.dp)
++                .padding(bottom = 12.dp)
++        )
+
++        Button(onClick = { navController.navigate("details/$nombre/$edad") }) {
             Text("Go to Details")
         }
     }
 }
-
+```
+#### 3. Función `DetailsScreen`
+```kotlin
 @Composable
-fun DetailsScreen(nombre: String, edad: Int) {
++ fun DetailsScreen(nombre: String, edad: Int) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("Nombre: $nombre")
-        Text("Edad: $edad")
++        Text("Edad: $edad")
     }
 }
 ```
@@ -191,5 +202,3 @@ fun DetailsScreen(nombre: String, edad: Int) {
 ### **Puntos clave:**
 - Para pasar múltiples parámetros, especificamos `"details/{nombre}/{edad}"` en la ruta.
 - Usamos `navArgument` para definir el tipo de cada parámetro.
-
-
