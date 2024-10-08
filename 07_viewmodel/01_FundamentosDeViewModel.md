@@ -138,13 +138,54 @@ fun PantallaContadorSinViewModel() {
 ### Ejercicio1
 Debajo del componente `Text` del contador, añada un componente `Text` que muestre el valor del contador de diez veces.
 
+<details>
+  <summary>Ejemplo de solución</summary>
+
+  ```kotlin
+  // Mostrar el valor del contador　multiplicado por diez
+  Text(text = "Contador multiplicado por diez: ${viewModel.contador * 10}")
+  ```
+</details>
+
 ### Ejercicio2
 - Debajo del botón para incrementar el contador, añade un botón para disminuir el contador.
 - En el `ContadorViewModel`, añade también el método correspondiente.
 
+<details>
+  <summary>Ejemplo de solución</summary>
+
+  ```kotlin
+  // Botón para decrementar el contador
+  Button(onClick = { viewModel.decrementarContador() }) {
+      Text(text = "Decrementar Contador")
+  }
+
+  // Función para decrementar el contador
+  fun decrementarContador() {
+      contador--
+  }
+  ```
+</details>
+
 ### Ejercicio3
 - Debajo del botón del ejercicio2, añade un botón para reiniciar el contador.
 - En el `ContadorViewModel`, añade también el método correspondiente.
+
+<details>
+  <summary>Ejemplo de solución</summary>
+
+  ```kotlin
+  // Botón para reiniciar el contador
+  Button(onClick = { viewModel.reiniciarContador() }) {
+      Text(text = "Reiniciar Contador")
+  }
+
+  // Función para reiniciar el contador
+  fun reiniciarContador() {
+      contador = 0
+  }
+  ```
+</details>
 
 **Ejemplos de diseño:**
 
