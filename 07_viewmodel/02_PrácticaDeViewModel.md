@@ -2,10 +2,12 @@
 
 ## Creación de paquetes y archivos.
 
-
+- Crear los paquetes `components`, `navigation` y `viewmodels`.
+- Crear los archivos `PrimeraPantalla` y `SegundaPantalla` en el paquete `components`.
+- Crear los archivos `NavManager` en el paquete `navigation`.
+- Crear los archivos `VistaCompartidaViewModel` en el paquete `viewmodels`.
 
 ![image](https://github.com/user-attachments/assets/1b91006c-35ef-486d-aa86-6fc10fca7ce7)
-
 
 ## Crear la clase ViewModel
 
