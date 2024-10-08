@@ -72,7 +72,7 @@ Este `ViewModel` puede ser utilizado en una aplicación que gestione mensajes o 
 ```kotlin
 @Composable
 fun PrimeraPantalla(
-    viewModel: VistaCompartidaViewModel = viewModel(),
+    viewModel: VistaCompartidaViewModel,
     navController: NavController
 ) {
     Column(
@@ -126,7 +126,7 @@ fun PrimeraPantalla(
 ```kotlin
 @Composable
 fun SegundaPantalla(
-    viewModel: VistaCompartidaViewModel = viewModel(),
+    viewModel: VistaCompartidaViewModel,
     navController: NavController
 ) {
     Column(
@@ -181,17 +181,17 @@ fun SegundaPantalla(
 
 ```kotlin
 @Composable
-fun NavManager() {
+fun NavManager(viewModel: VistaCompartidaViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "primera") {
         composable(route = "primera") {
-            PrimeraPantalla(navController = navController)
+            PrimeraPantalla(viewModel, navController)
         }
         composable(
             route = "segunda",
         ) {
-            SegundaPantalla(navController = navController)
+            SegundaPantalla(viewModel, navController)
         }
     }
 }
@@ -204,7 +204,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ViewModelSampleTheme {
-+                NavManager()
++                val viewModel: VistaCompartidaViewModel = viewModel()
++                NavManager(viewModel)
             }
         }
     }
