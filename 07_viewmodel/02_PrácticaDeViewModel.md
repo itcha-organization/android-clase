@@ -133,7 +133,7 @@ fun SegundaPantalla(
 
 ## Configurar la navegación para mostrar las funciones Composable que usa ViewModel en la aplicación
 
-```kolin
+```kotlin
 @Composable
 fun NavManager() {
     val navController = rememberNavController()
