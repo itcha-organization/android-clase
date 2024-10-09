@@ -2,7 +2,7 @@
 
 Room es una biblioteca de persistencias. Es una capa de abstracción que se ubica sobre una base de datos SQLite.En lugar de usar SQLite directamente, Room simplifica las tareas de configuración de la base de datos, así como las interacciones con la app. 
 
-### Componentes principales de Room
+## Componentes principales de Room
 Room está compuesto por tres componentes clave:
 
 1. **Entidad (Entity)**: Es una clase que define una tabla en la base de datos. Cada instancia representa una fila dentro de la tabla de la base de datos.
@@ -11,16 +11,16 @@ Room está compuesto por tres componentes clave:
 
 3. **Base de Datos (Database)**: Es la clase principal que crea la base de datos y proporciona acceso a los DAOs.
 
-### Pasos para implementar app con Room
+## Pasos para implementar app con Room
 
 Existen varios protocolos para crear aplicaciones vinculadas a bases de datos utilizando Room.
 Revise el procedimiento mientras crea una aplicación que almacena una lista de usuarios en una base de datos.
 
 ![image](https://github.com/user-attachments/assets/0d3df638-56f9-481d-bf7c-53ae84891457)
 
-0. **Crear un Proyecto `EjemploRoom`**
+### 0. **Crear un Proyecto `EjemploRoom`**
 
-1. **Agregar plug-in y dependencias**
+### 1. **Agregar plug-in y dependencias**
 
 Primero, necesitas agregar plug-in.
 Abre `libs.versions.toml` y comprueba que la versión de kotlin es `1.9.0`.
@@ -61,7 +61,7 @@ dependencies {
 Haz clic en `Sync Now` para sincronizar.
 ![image](https://github.com/user-attachments/assets/85874ffe-2187-451f-94f1-ba4e9a29018c)
 
-2. **Crear Entity**
+### 2. **Crear Entity**
 
 Utiliza la anotación `@Entity` para definir la tabla de la base de datos. Por ejemplo, para crear una tabla llamada `Usuario`:
 
@@ -76,8 +76,10 @@ data class Usuario(
     val edad: Int
 )
 ```
+- **`@PrimaryKey(autoGenerate = true)`**
+  - Al especificar `autoGenerate = true`, se indica que cuando se crea un nuevo objeto Usuario, este `id` se generará automáticamente. Esto significa que el desarrollador no necesita establecer manualmente el valor de `id`.
 
-3. **Crear DAO**
+### 3. **Crear DAO**
 
 Define los métodos de acceso a la base de datos (CRUD). Por ejemplo, un DAO para insertar y obtener usuarios sería:
 
@@ -104,8 +106,14 @@ interface UsuarioDao {
     suspend fun update(usuario: Usuario)
 }
 ```
-- **`@Dao`**: indica que esta interfaz es un Data Access Object (DAO).La interfaz `UsuarioDao` define métodos para interactuar con la tabla `tabla_usuario` de la base de datos.
-- **suspend**: Al utilizar `suspend`, estos métodos pueden ejecutarse de forma asíncrona sin bloquear el hilo principal de la aplicación, mejorando la eficiencia de la aplicación.
+- **`@Dao`**:
+  - Indica que esta interfaz es un Data Access Object (DAO).La interfaz `UsuarioDao` define métodos para interactuar con la tabla `tabla_usuario` de la base de datos.
+- **suspend**:
+  - Al utilizar `suspend`, estos métodos pueden ejecutarse de forma asíncrona sin bloquear el hilo principal de la aplicación, mejorando la eficiencia de la aplicación.
+
+- **Flow<List<Usuario>>**:
+  - **`Flow`** es tipo de la programación reactiva, lo que significa que puede monitorear cambios en los datos y notificarlos cuando estos ocurren.
+  - Al devolver un **`Flow`** en el método `getAll()`, puedes obtener actualizaciones en tiempo real de los datos dentro de la tabla `tabla_usuario`. Cada vez que los datos cambien (por ejemplo, si se inserta o elimina un usuario), la lista se actualizará automáticamente
 
 4. **Crear clase de Base de Datos**
 
@@ -137,7 +145,7 @@ abstract class UsuarioDatabase: RoomDatabase() {
 - **¿Qué es un DAO?**
   - El DAO (Data Access Object) es la interfaz que realiza las operaciones sobre la base de datos (lectura, escritura, etc.). Por ejemplo, puedes definir métodos como `insert()` o `getAll()` en el DAO, y usar estos métodos para interactuar con la base de datos.
 
-5. **Conectar con ViewModel**
+### 5. **Conectar con ViewModel**
 
 Room se puede integrar con ViewModel para gestionar correctamente el ciclo de vida de los datos.
 
@@ -170,10 +178,11 @@ class UsuarioViewModel(
     }
 }
 ```
-- **`viewModelScope.launch{ }`**: Utiliza `viewModelScope.launch{ }` para iniciar un procesamiento asíncrono. Este ámbito está asociado al ciclo de vida del ViewModel, permitiendo así que las corrutinas se ejecuten en función de este ciclo de vida.
+- **`viewModelScope.launch{ }`**:
+  - Utiliza `viewModelScope.launch{ }` para iniciar un procesamiento asíncrono. Este ámbito está asociado al ciclo de vida del ViewModel, permitiendo así que las corrutinas se ejecuten en función de este ciclo de vida.
 
 
-6. **Construir la UI con Jetpack Compose**
+### 6. **Construir la UI con Jetpack Compose**
 Crear una pantalla de registro de usuarios.Los componentes de interfaz de usuario pueden realizar el registro de la base de datos a través de `ViewModel`.
 
 ```kotlin
@@ -252,7 +261,7 @@ fun ListaUsuariosView(viewModel: UsuarioViewModel) {
 }
 ```
 
-7. **Construir la UI con Jetpack Compose**
+### 7. **Construir la UI con Jetpack Compose**
 Finalmente, debes crear una instancia de la base de datos, que se usará durante todo el ciclo de vida de la aplicación.
 ```kotlin
 class MainActivity : ComponentActivity() {
