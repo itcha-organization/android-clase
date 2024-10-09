@@ -1,7 +1,10 @@
-# ViewModel en la práctica
+# Práctica:Compartir una Lista en varias pantallas usando ViewModel
+
+Creamos una aplicación que comparta una lista de texto entre dos pantallas utilizando un `ViewModel`, como se muestra a continuación.
+
+![image](https://github.com/user-attachments/assets/9d7794a7-5487-432d-a551-f2a950bb77ba)
 
 ## Creación de paquetes y archivos.
-
 - Crear los paquetes `components`, `navigation` y `viewmodels`.
 - Crear los archivos `PrimeraPantalla` y `SegundaPantalla` en el paquete `components`.
 - Crear los archivos `NavManager` en el paquete `navigation`.
@@ -10,7 +13,8 @@
 ![image](https://github.com/user-attachments/assets/1b91006c-35ef-486d-aa86-6fc10fca7ce7)
 
 ## Crear la clase ViewModel
-
+Deje la declaración del paquete en la línea 1.
+Pegue el siguiente código en el archivo que ha creado.
 ```kotlin
 class VistaCompartidaViewModel : ViewModel() {
 
@@ -66,9 +70,55 @@ Este `ViewModel` puede ser utilizado en una aplicación que gestione mensajes o 
 - La variable `textos` es inmutable desde fuera del `ViewModel`, lo que garantiza una gestión segura del estado.
 - La función `addTexto` permite agregar nuevos textos a la lista de manera controlada, asegurando que la UI se actualice automáticamente cuando los datos cambian.
 
+## Configurar la navegación para mostrar las funcies componibles que usan `ViewModel` en la aplicación
+Deje la declaración del paquete en la línea 1.
+Pegue el siguiente código en el archivo que ha creado.
+```kotlin
+@Composable
+fun NavManager(viewModel: VistaCompartidaViewModel) {
+    val navController = rememberNavController()
 
-## Usar ViewModel en funciones Composable
+    NavHost(navController = navController, startDestination = "primera") {
+        composable(route = "primera") {
+            PrimeraPantalla(viewModel, navController)
+        }
+        composable(
+            route = "segunda",
+        ) {
+            SegundaPantalla(viewModel, navController)
+        }
+    }
+}
+```
+Este código es una función que gestiona la navegación entre pantallas usando la función de `Navigation` Jetpack Compose. La navegación se realiza utilizando `NavController`, `NavHost` y funcion `composable`. Aquí se gestiona la transición entre dos pantallas (PrimeraPantalla y SegundaPantalla).
 
+NavManager recibe una instancia de `ViewModel` como un parametro y la pasa a las dos pantallas.
+Por lo tanto, no se definen parámetros durante la navegación, pero **las dos pantallas pueden acceder a la misma lista a través del `ViewModel`**.
+
+## Crea una instancia de `ViewModel` y pásala a funcies componibles a través de `NavManager`
+
+```diff
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ViewModelSampleTheme {
++                val viewModel: VistaCompartidaViewModel = viewModel()
++                NavManager(viewModel)
+            }
+        }
+    }
+}
+```
+En `MainActivity`, puedes crear una instancia de `ViewModel` y llamar a `NavManager` para compartir la misma instancia.
+
+El método `viewModel()` se puede utilizar para crear una instancia `ViewModel`.
+En este caso, no se puede omitir la especificación del tipo de datos.
+
+## Usar ViewModel en funciones componibles
+Deje la declaración del paquete en la línea 1.
+Pegue el siguiente código en el archivo que ha creado.
 ```kotlin
 @Composable
 fun PrimeraPantalla(
@@ -176,38 +226,9 @@ fun SegundaPantalla(
     }
 }
 ```
+Se implementa una interfaz de usuario en la que el usuario introduce texto y pulsa un botón para añadir ese texto al `ViewModel` o para pasar a otra pantalla.
 
-## Configurar la navegación para mostrar las funciones Composable que usa ViewModel en la aplicación
-
-```kotlin
-@Composable
-fun NavManager(viewModel: VistaCompartidaViewModel) {
-    val navController = rememberNavController()
-
-    NavHost(navController = navController, startDestination = "primera") {
-        composable(route = "primera") {
-            PrimeraPantalla(viewModel, navController)
-        }
-        composable(
-            route = "segunda",
-        ) {
-            SegundaPantalla(viewModel, navController)
-        }
-    }
-}
-```
-
-```diff
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            ViewModelSampleTheme {
-+                val viewModel: VistaCompartidaViewModel = viewModel()
-+                NavManager(viewModel)
-            }
-        }
-    }
-}
-```
+> [!NOTE]
+> La función `items` utilizada dentro de `LazyColumn` toma los elementos de una lista dada uno a uno y crea un componente UI con ellos.
+> En este ejemplo, cada elemento de `viewModel.textos` se muestra como un componente `Text`.
+> En este ejemplo, las cadenas de la lista `viewModel.textos` se muestran como componentes `Text`, pero otros componentes de interfaz de usuario pueden mostrar listas del mismo modo.
