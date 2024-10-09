@@ -115,7 +115,7 @@ interface UsuarioDao {
   - **`Flow`** es tipo de la programación reactiva, lo que significa que puede monitorear cambios en los datos y notificarlos cuando estos ocurren.
   - Al devolver un **`Flow`** en el método `getAll()`, puedes obtener actualizaciones en tiempo real de los datos dentro de la tabla `tabla_usuario`. Cada vez que los datos cambien (por ejemplo, si se inserta o elimina un usuario), la lista se actualizará automáticamente
 
-4. **Crear clase de Base de Datos**
+### 4. **Crear clase de Base de Datos**
 
 Extiende la clase `RoomDatabase` y define la base de datos. Se recomienda que esta clase tenga una única instancia en toda la aplicación.
 
