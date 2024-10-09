@@ -23,31 +23,27 @@ Revise el procedimiento mientras crea una aplicación que almacena una lista de 
 1. **Agregar plug-in y dependencias**
 
 Primero, necesitas agregar plug-in. Añade siguiente codigo en tu archivo build.gradle.kts (:app).
-```diff
+```kotlin
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-
-+    id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+    ...Arriba omitido...
+    id("com.google.devtools.ksp") version "1.9.0-1.0.12"
 }
 ```
-
+Haz clic en `Sync Now` para sincronizar.
 ![image](https://github.com/user-attachments/assets/958888f1-9a14-4cba-b0e5-fae6214b8ff7)
 
 Necesitas agregar dependencias. Añade siguiente codigo en tu archivo build.gradle.kts (:app).
-```diff
+```kotlin
 dependencies {
     ...Arriba omitido...
-+    val room_version = "2.6.1"
-+    implementation("androidx.room:room-runtime:$room_version")
-+    ksp("androidx.room:room-compiler:$room_version")
-+    implementation("androidx.room:room-ktx:$room_version")
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 }
 ```
-
+Haz clic en `Sync Now` para sincronizar.
 ![image](https://github.com/user-attachments/assets/85874ffe-2187-451f-94f1-ba4e9a29018c)
-
 
 2. **Crear Entity**
 
@@ -151,7 +147,7 @@ class UsuarioViewModel(
         }
     }
 
-    fun addTarea(usuario: Usuario) = viewModelScope.launch {
+    fun addUsuario(usuario: Usuario) = viewModelScope.launch {
         dao.insert(usuario)
     }
 }
@@ -193,7 +189,7 @@ fun ListaUsuariosView(viewModel: UsuarioViewModel) {
             .padding(top = 50.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //OutlinedTextField para capturar nombre de tarea
+        //OutlinedTextField para capturar nombre de usuario
         OutlinedTextField(
             value = nombre,
             onValueChange = {nombre = it},
@@ -215,7 +211,7 @@ fun ListaUsuariosView(viewModel: UsuarioViewModel) {
         Button(
             onClick = {
                 val usuario = Usuario(nombre = nombre, edad = edad.toInt())
-                viewModel.addTarea(usuario)
+                viewModel.addUsuario(usuario)
                 nombre = ""
                 edad = ""
             },
