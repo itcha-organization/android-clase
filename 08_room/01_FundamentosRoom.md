@@ -264,5 +264,5 @@ class MainActivity : ComponentActivity() {
 - **`Room.databaseBuilder()`**:
   - Se utiliza el método `databaseBuilder()` de la clase `Room` para construir una instancia de la base de datos. Esto se hace proporcionando el contexto de la aplicación y la clase de base de datos (en este caso, `UsuarioDatabase::class.java`), que se usará para crear la base de datos.
 
-- **`"app_database"`**:
+- **`"db_usuarios"`**:
   - Este es el nombre que se le da a la base de datos, y bajo este nombre se almacenará el archivo de la base de datos en el almacenamiento del dispositivo.
