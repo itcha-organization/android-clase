@@ -182,7 +182,8 @@ class UsuarioViewModel(
   - Utiliza `viewModelScope.launch{ }` para iniciar un procesamiento asíncrono. Este ámbito está asociado al ciclo de vida del ViewModel, permitiendo así que las corrutinas se ejecuten en función de este ciclo de vida.
 
 - **`dao.getAll().collectLatest`**:
-  - obtiene la lista de usuarios de la base de datos y actualiza `listaUsuario` cada vez que se recibe una nueva lista. Al usar `collectLatest`, se optimiza la actualización de datos, cancelando automáticamente los datos antiguos para mantener siempre el estado más reciente.
+  - obtiene la lista de usuarios de la base de datos y actualiza `listaUsuario` cada vez que se recibe una nueva lista.
+  - Al usar `collectLatest`, se optimiza la actualización de datos, manteniendo siempre el estado más reciente.
 
 ### 6. **Construir la UI con Jetpack Compose**
 Crear una pantalla de registro de usuarios.Los componentes de interfaz de usuario pueden realizar el registro de la base de datos a través de `ViewModel`.
