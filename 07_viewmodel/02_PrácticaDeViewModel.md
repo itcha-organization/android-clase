@@ -16,6 +16,11 @@ Creamos una aplicación que comparta una lista de texto entre dos pantallas util
 Deje la declaración del paquete en la línea 1.
 Pegue el siguiente código en el archivo que ha creado.
 ```kotlin
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+
 class VistaCompartidaViewModel : ViewModel() {
 
     var textos by mutableStateOf(listOf<String>())
@@ -74,12 +79,20 @@ Este `ViewModel` puede ser utilizado en una aplicación que gestione mensajes o 
 Deje la declaración del paquete en la línea 1.
 Pegue el siguiente código en el archivo que ha creado.
 ```kotlin
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+
 @Composable
 fun NavManager(viewModel: VistaCompartidaViewModel) {
+    // Recibe una instancia de ViewModel
+    // y la pasa a las dos pantallas para compartir misma lista
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "primera") {
-        composable(route = "primera") {
+        composable(
+            route = "primera"
+        ) {
             PrimeraPantalla(viewModel, navController)
         }
         composable(
@@ -120,8 +133,20 @@ En este caso, no se puede omitir la especificación del tipo de datos.
 Deje la declaración del paquete en la línea 1.
 Pegue el siguiente código en el archivo que ha creado.
 ```kotlin
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.Text
+
+
 @Composable
 fun PrimeraPantalla(
+    // Este parámetro recibe una instancia de `VistaCompartidaViewModel`,
+    // que se utiliza para gestionar y actualizar el estado de la pantalla
     viewModel: VistaCompartidaViewModel,
     navController: NavController
 ) {
@@ -148,6 +173,8 @@ fun PrimeraPantalla(
             )
             OutlinedButton(
                 onClick = {
+                    // Llama a la función `addTexto` en el `ViewModel`,
+                    // lo que añade el texto al estado gestionado por `viewModel`
                     viewModel.addTexto(texto)
                     texto = ""
                 },
@@ -164,6 +191,8 @@ fun PrimeraPantalla(
             Text("Navegar a la Segunda")
         }
         HorizontalDivider(thickness = 4.dp, color = Color.Black)
+        // Accede a la lista de textos almacenada en el `ViewModel`
+        // y muestra cada texto en la lista.
         LazyColumn {
             items(viewModel.textos) { texto: String ->
                 Text(texto, fontSize = 20.sp)
@@ -174,8 +203,19 @@ fun PrimeraPantalla(
 ```
 
 ```kotlin
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.Text
+
 @Composable
 fun SegundaPantalla(
+    // Este parámetro recibe una instancia de `VistaCompartidaViewModel`,
+    // que se utiliza para gestionar y actualizar el estado de la pantalla
     viewModel: VistaCompartidaViewModel,
     navController: NavController
 ) {
@@ -202,6 +242,8 @@ fun SegundaPantalla(
             )
             OutlinedButton(
                 onClick = {
+                    // Llama a la función `addTexto` en el `ViewModel`,
+                    // lo que añade el texto al estado gestionado por `viewModel`
                     viewModel.addTexto(texto)
                     texto = ""
                 },
@@ -218,6 +260,8 @@ fun SegundaPantalla(
             Text("Navegar a la Primera")
         }
         HorizontalDivider(thickness = 4.dp, color = Color.Black)
+        // Accede a la lista de textos almacenada en el `ViewModel`
+        // y muestra cada texto en la lista.
         LazyColumn {
             items(viewModel.textos) { texto: String ->
                 Text(text = texto)
