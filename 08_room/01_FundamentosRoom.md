@@ -99,6 +99,8 @@ interface UsuarioDao {
     suspend fun update(usuario: Usuario)
 }
 ```
+- **`@Dao`**: indica que esta interfaz es un Data Access Object (DAO).La interfaz `UsuarioDao` define métodos para interactuar con la tabla `tabla_usuario` de la base de datos.
+- **suspend**: Al utilizar `suspend`, estos métodos pueden ejecutarse de forma asíncrona sin bloquear el hilo principal de la aplicación, mejorando la eficiencia de la aplicación.
 
 4. **Crear clase de Base de Datos**
 
@@ -163,6 +165,8 @@ class UsuarioViewModel(
     }
 }
 ```
+- **`viewModelScope.launch{ }`**: Utiliza `viewModelScope.launch{ }` para iniciar un procesamiento asíncrono. Este ámbito está asociado al ciclo de vida del ViewModel, permitiendo así que las corrutinas se ejecuten en función de este ciclo de vida.
+
 
 6. **Construir la UI con Jetpack Compose**
 Crear una pantalla de registro de usuarios.Los componentes de interfaz de usuario pueden realizar el registro de la base de datos a través de `ViewModel`.
