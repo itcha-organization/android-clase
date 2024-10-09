@@ -18,6 +18,7 @@ Revise el procedimiento mientras crea una aplicación que almacena una lista de 
 
 ![image](https://github.com/user-attachments/assets/0d3df638-56f9-481d-bf7c-53ae84891457)
 
+0. **Crear un Proyecto `EjemploRoom`**
 
 1. **Agregar plug-in y dependencias**
 
@@ -106,7 +107,7 @@ abstract class UsuarioDatabase: RoomDatabase() {
 }
 ```
 - **`entities = [Usuario::class]`**:
-  - Aquí se especifica qué **entidades (tablas)** se utilizarán en la base de datos. En este ejemplo, la clase `Item` es la entidad. La clase `Item` representa una tabla en la base de datos, con cada columna (campo) definida como una propiedad.
+  - Aquí se especifica qué **entidades (tablas)** se utilizarán en la base de datos. En este ejemplo, la clase `Usuario` es la entidad. La clase `Usuario` representa una tabla en la base de datos, con cada columna (campo) definida como una propiedad.
   
   - Si quieres especificar varias tablas, puedes añadir más clases en el array `entities`.
 
@@ -120,7 +121,7 @@ abstract class UsuarioDatabase: RoomDatabase() {
   - Este método devuelve una instancia de `UsuarioDao` (Data Access Object). El DAO es la interfaz que realiza las operaciones sobre la base de datos (consultas, inserciones, eliminaciones, etc.). Room genera automáticamente la implementación del DAO basado en este método abstracto.
 
 - **¿Qué es un DAO?**
-  - El DAO (Data Access Object) es la interfaz que realiza las operaciones sobre la base de datos (lectura, escritura, etc.). Por ejemplo, puedes definir métodos como `insert()` o `getAllItems()` en el DAO, y usar estos métodos para interactuar con la base de datos.
+  - El DAO (Data Access Object) es la interfaz que realiza las operaciones sobre la base de datos (lectura, escritura, etc.). Por ejemplo, puedes definir métodos como `insert()` o `getAll()` en el DAO, y usar estos métodos para interactuar con la base de datos.
 
 5. **Conectar con ViewModel**
 
@@ -156,7 +157,7 @@ class UsuarioViewModel(
 }
 ```
 
-7. **Construir la UI con Jetpack Compose**
+6. **Construir la UI con Jetpack Compose**
 Crear una pantalla de registro de usuarios.Los componentes de interfaz de usuario pueden realizar el registro de la base de datos a través de `ViewModel`.
 
 ```kotlin
