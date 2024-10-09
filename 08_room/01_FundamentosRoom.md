@@ -29,6 +29,17 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.0-1.0.12"
 }
 ```
+<details>
+  <summary>Si utilizas Kotlin versión `2.0.0`</summary>
+
+  ```kotlin
+  plugins {
+      ...Arriba omitido...
+      id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+  }
+  ```
+</details>
+
 Haz clic en `Sync Now` para sincronizar.
 ![image](https://github.com/user-attachments/assets/958888f1-9a14-4cba-b0e5-fae6214b8ff7)
 
