@@ -22,7 +22,12 @@ Revise el procedimiento mientras crea una aplicación que almacena una lista de 
 
 1. **Agregar plug-in y dependencias**
 
-Primero, necesitas agregar plug-in. Añade siguiente codigo en tu archivo build.gradle.kts (:app).
+Primero, necesitas agregar plug-in.
+Abre `libs.versions.toml` y comprueba que la versión de kotlin es `1.9.0`.
+
+![image](https://github.com/user-attachments/assets/56dade67-21e5-4f0f-a154-1851146de0ba)
+
+Si la versión de Kotlin es `1.9.0`, añade siguiente codigo en tu archivo `build.gradle.kts` (:app).
 ```kotlin
 plugins {
     ...Arriba omitido...
@@ -30,7 +35,7 @@ plugins {
 }
 ```
 <details>
-  <summary>Si utilizas Kotlin versión `2.0.0`</summary>
+  <summary>Si Kotlin versión es `2.0.0`</summary>
 
   ```kotlin
   plugins {
