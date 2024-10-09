@@ -108,10 +108,10 @@ interface UsuarioDao {
 ```
 - **`@Dao`**:
   - Indica que esta interfaz es un Data Access Object (DAO).La interfaz `UsuarioDao` define métodos para interactuar con la tabla `tabla_usuario` de la base de datos.
-- **suspend**:
+- **`suspend`**:
   - Al utilizar `suspend`, estos métodos pueden ejecutarse de forma asíncrona sin bloquear el hilo principal de la aplicación, mejorando la eficiencia de la aplicación.
 
-- **Flow<List<Usuario>>**:
+- **`Flow<List<Usuario>>`**:
   - **`Flow`** es tipo de la programación reactiva, lo que significa que puede monitorear cambios en los datos y notificarlos cuando estos ocurren.
   - Al devolver un **`Flow`** en el método `getAll()`, puedes obtener actualizaciones en tiempo real de los datos dentro de la tabla `tabla_usuario`. Cada vez que los datos cambien (por ejemplo, si se inserta o elimina un usuario), la lista se actualizará automáticamente
 
