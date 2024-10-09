@@ -23,7 +23,7 @@ Revise el procedimiento mientras crea una aplicación que almacena una lista de 
 1. **Agregar plug-in y dependencias**
 
 Primero, necesitas agregar plug-in. Añade siguiente codigo en tu archivo build.gradle.kts (:app).
-```kotlin
+```diff
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -36,7 +36,7 @@ plugins {
 ![image](https://github.com/user-attachments/assets/958888f1-9a14-4cba-b0e5-fae6214b8ff7)
 
 Necesitas agregar dependencias. Añade siguiente codigo en tu archivo build.gradle.kts (:app).
-```kotlin
+```diff
 dependencies {
     ...Arriba omitido...
 +    val room_version = "2.6.1"
