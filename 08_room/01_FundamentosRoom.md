@@ -306,3 +306,82 @@ Se puede utilizar `AppInspection` para comprobar los datos almacenados en la BD.
 Active `Actualizaciones en directo` para observar las actualizaciones de datos en tiempo real.
 
 ![image](https://github.com/user-attachments/assets/175a7cd1-2cc8-465c-bd31-907e38c4afa5)
+
+## Añadir funcionalidad a la aplicación
+
+### Uso de componentes `Card` para mejorar el diseño
+
+Utilice el componente `Card` para mejorar el diseño de los elementos de la lista de la siguiente manera.
+
+![image](https://github.com/user-attachments/assets/41badd90-8d46-4361-af24-e1ca16beee9b)
+
+Abre `ListaUsuariosView` y cambia el código del componente UI en el bloque del método `items` de la `LazyColumn` como sigue.
+
+```kotlin
+LazyColumn {
+    items(usuarios) { usuario: Usuario ->
+        Card(
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(8.dp)
+            ) {
+                Text(text = "Nombre: ${usuario.nombre}", fontWeight = FontWeight.Bold)
+                Text(text = "Edad: ${usuario.edad}")
+            }
+        }
+
+    }
+}
+```
+
+### Añade una función de borrado.
+
+Añade un botón con el icono de eliminar como se muestra en el diagrama de abajo.
+
+![image](https://github.com/user-attachments/assets/001db441-d240-4652-bf36-365d7a48083a)
+
+Añade `Row` e `IconButton` a `ListaUsuariosView`.
+
+```diff
+LazyColumn {
+    items(usuarios) { usuario: Usuario ->
+        Card(
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
+        ) {
++            Row(
++                modifier = Modifier.fillMaxWidth(),
++                horizontalArrangement = Arrangement.SpaceBetween
++            ){
+                Column(
+                    modifier = Modifier.padding(8.dp)
+                ) {
+                    Text(text = "Nombre: ${usuario.nombre}", fontWeight = FontWeight.Bold)
+                    Text(text = "Edad: ${usuario.edad}")
+                }
++                IconButton(
++                    onClick = { viewModel.deleteUsuario(usuario) }
++                ) {
++                    Icon(
++                        imageVector = Icons.Default.Delete,
++                        contentDescription = "delete"
++                    )
++                }
+            }
+        }
+    }
+}
+```
+
+Añade un método al `UsuarioViewModel` para acceder al método de borrado del DAO.
+
+```kotlin
+// delete
+fun deleteUsuario(usuario: Usuario) = viewModelScope.launch {
+    dao.delete(usuario)
+}
+```
