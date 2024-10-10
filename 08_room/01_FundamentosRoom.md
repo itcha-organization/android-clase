@@ -294,3 +294,15 @@ class MainActivity : ComponentActivity() {
 
 - **`"db_usuarios"`**:
   - Este es el nombre que se le da a la base de datos, y bajo este nombre se almacenará el archivo de la base de datos en el almacenamiento del dispositivo.
+
+## Visualización del contenido de la BD en las herramientas de AndroidStudio
+
+### Comprobación del contenido de la BD con `AppInspection`.
+
+Se puede utilizar `AppInspection` para comprobar los datos almacenados en la BD.
+
+![image](https://github.com/user-attachments/assets/55401840-2f75-445f-9485-89d2b78becfd)
+
+Active `Actualizaciones en directo` para observar las actualizaciones de datos en tiempo real.
+
+![image](https://github.com/user-attachments/assets/175a7cd1-2cc8-465c-bd31-907e38c4afa5)
