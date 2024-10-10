@@ -388,6 +388,7 @@ fun deleteUsuario(usuario: Usuario) = viewModelScope.launch {
 
 ## Añadir una barra de búsqueda
 
+![image](https://github.com/user-attachments/assets/587beb1c-cd40-47ba-8277-522ef333fcb9)
 
 Añadir campo de texto y estado para la barra de búsqueda.
 
