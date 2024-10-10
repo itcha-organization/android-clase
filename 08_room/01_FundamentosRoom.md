@@ -371,7 +371,7 @@ LazyColumn {
 +                        contentDescription = "delete"
 +                    )
 +                }
-            }
++            }
         }
     }
 }
@@ -384,4 +384,45 @@ Añade un método al `UsuarioViewModel` para acceder al método de borrado del D
 fun deleteUsuario(usuario: Usuario) = viewModelScope.launch {
     dao.delete(usuario)
 }
+```
+
+## Añadir una barra de búsqueda
+
+
+Añadir campo de texto y estado para la barra de búsqueda.
+
+```kotlin
+// estado de consulta de búsqueda.
+var consulta by remember { mutableStateOf("") }
+```
+
+```kotlin
+// barra de búsqueda
+TextField(
+    value = consulta,
+    onValueChange = { consulta = it },
+    modifier = Modifier.fillMaxWidth(),
+    label = { Text("Búsqueda") },
+    leadingIcon = {
+        Icon(
+            Icons.Sharp.Search,
+            contentDescription = "búsqueda",
+        )
+    },
+)
+```
+
+Filtra la lista y pasa la lista de usuarios filtrada a `items` en la `LazyColumn`.
+
+```kotlin
+// Filtrar los listados en función de los términos de búsqueda.
+val filteredList = usuarios.filter {
+    it.nombre.contains(consulta, ignoreCase = true)
+}
+```
+
+```diff
+LazyColumn {
++    items(filteredList) { usuario: Usuario ->
+        Card(
 ```
