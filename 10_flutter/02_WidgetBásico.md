@@ -56,6 +56,39 @@ class ColumnEjemplo extends StatelessWidget {
 - `mainAxisAlignment`: Especifica la alineación de los widgets secundarios en el eje principal (vertical).
 - `crossAxisAlignment`: Especifica la alineación en el eje cruzado (horizontal).
 
+**a**
+```dart
+class ColumnEjemplo2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Este es el primer texto'),
+          )
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Este es el segundo texto'),
+
+          )
+        ),
+        Text('Este es el tercer texto'),
+      ],
+    );
+  }
+}
+```
+
+
 ### 4. Row
 El widget `Row` organiza widgets secundarios en una fila (de forma horizontal).
 
