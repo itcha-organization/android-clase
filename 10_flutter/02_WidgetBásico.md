@@ -325,7 +325,7 @@ class ResumenEjemplo extends StatelessWidget {
   <summary>Respuesta</summary>
    
    ```dart
-   class Ejercicio7Widget extends StatelessWidget {
+   class Ejercicio4Widget extends StatelessWidget {
      @override
      Widget build(BuildContext context) {
        return Column(
@@ -360,7 +360,7 @@ class ResumenEjemplo extends StatelessWidget {
   <summary>Respuesta</summary>
    
    ```dart
-   class Ejercicio8Widget extends StatelessWidget {
+   class Ejercicio5Widget extends StatelessWidget {
      @override
      Widget build(BuildContext context) {
        return Row(
@@ -390,7 +390,7 @@ class ResumenEjemplo extends StatelessWidget {
   <summary>Respuesta</summary>
 
    ```dart
-   class Ejercicio9Widget extends StatelessWidget {
+   class Ejercicio6Widget extends StatelessWidget {
      @override
      Widget build(BuildContext context) {
        return Column(
