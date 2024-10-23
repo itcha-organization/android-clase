@@ -56,13 +56,14 @@ class ColumnEjemplo extends StatelessWidget {
 - `mainAxisAlignment`: Especifica la alineación de los widgets secundarios en el eje principal (vertical).
 - `crossAxisAlignment`: Especifica la alineación en el eje cruzado (horizontal).
 
-**a**
+**Maximizar el espacio para los elementos hijos:**
 ```dart
 class ColumnEjemplo2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        // Maximizar el espacio en la dirección del eje principal(vertical).
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
@@ -71,6 +72,7 @@ class ColumnEjemplo2 extends StatelessWidget {
             child: Text('Este es el primer texto'),
           )
         ),
+        // Maximizar el espacio en la dirección del eje cruzado (horizontal).
         SizedBox(
           width: double.infinity,
           child: Container(
@@ -113,7 +115,7 @@ class RowEjemplo extends StatelessWidget {
 - `mainAxisAlignment`: Alineación de los widgets en el eje principal (horizontal).
 - `crossAxisAlignment`: Alineación en el eje cruzado (vertical).
 
-Uso avanzado.
+**Maximizar el espacio para los elementos hijos:**
 ```dart
 class RowEjemplo2 extends StatelessWidget {
   @override
