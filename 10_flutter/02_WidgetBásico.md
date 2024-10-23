@@ -74,6 +74,8 @@ class ColumnEjemplo extends StatelessWidget {
 - `crossAxisAlignment`: Especifica la alineación en el eje cruzado (horizontal).
 
 **Maximizar el espacio para los elementos hijos:**
+- En la dirección del eje principal (vertical), utilice `Expanded` para maximizar el espacio.
+- En la dirección del eje cruzado (horizontal), utilice `SizedBox` con `width: double.infinity` para maximizar el espacio.
 ```dart
 class ColumnEjemplo2 extends StatelessWidget {
   @override
@@ -133,6 +135,8 @@ class RowEjemplo extends StatelessWidget {
 - `crossAxisAlignment`: Alineación en el eje cruzado (vertical).
 
 **Maximizar el espacio para los elementos hijos:**
+- En la dirección del eje principal (horizontal), utilice `Expanded` para maximizar el espacio.
+- En la dirección del eje cruzado (vertical), utilice `SizedBox` con `height: double.infinity` para maximizar el espacio.
 ```dart
 class RowEjemplo2 extends StatelessWidget {
   @override
