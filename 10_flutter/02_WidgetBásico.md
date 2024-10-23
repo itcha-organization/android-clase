@@ -354,7 +354,7 @@ class ResumenEjemplo extends StatelessWidget {
    - Dentro de un `Row`, coloca un widget de `Text` en el extremo izquierdo, un widget de `Text` con `Padding` en el centro, y otro widget de `Text` en el extremo derecho.
    - Agrega un `SizedBox` para crear espacio entre los textos.
 
-![image](https://github.com/user-attachments/assets/86b6af35-67db-4752-8e0d-1f108c1dbc62)
+![image](https://github.com/user-attachments/assets/b16e16eb-7652-4043-b72b-67aaa5240825)
 
 <details>
   <summary>Respuesta</summary>
@@ -367,10 +367,6 @@ class ResumenEjemplo extends StatelessWidget {
          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
          children: [
            Text('Texto Izquierdo'),
-           Padding(
-             padding: const EdgeInsets.all(8.0), 
-             child: Text('Texto Central'),
-           ),
            Text('Texto Derecho'),
          ],
        );
