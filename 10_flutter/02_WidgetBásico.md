@@ -32,6 +32,23 @@ SizedBox(
 - Para añadir espacio entre widgets.
 - Para cambiar el tamaño de un widget de forma explícita.
 
+**Ejemplo: Cambiar el tamaño de un widget de forma explícita**
+```dart
+class SizeBoxWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 100,
+      height: 20,
+      child: Text(
+        '¡Hola, Flutter!',
+        style: TextStyle(fontSize: 24, color: Colors.blue),
+      ),
+    );
+  }
+}
+```
+
 ### 3. Column
 El widget `Column` organiza widgets secundarios en una columna (de forma vertical).
 
@@ -210,3 +227,188 @@ class ResumenEjemplo extends StatelessWidget {
   }
 }
 ```
+## Ejercicios
+
+1. **Ejercicio 1**
+   - Coloca 3 widgets de `Text` dentro de un `Column`.
+   - Agrega un `SizedBox` entre cada `Text` para crear un espacio uniforme.
+
+![image](https://github.com/user-attachments/assets/37c10d27-ef64-4b41-a60e-5fb420dce867)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio1Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Text('Texto 1'),
+           SizedBox(height: 20), // Añade espacio
+           Text('Texto 2'),
+           SizedBox(height: 20), // Añade espacio
+           Text('Texto 3'),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+2. **Ejercicio 2**
+   - Coloca 2 widgets de `Text` dentro de un `Row`.
+   - Agrega `Padding` al primer widget de `Text` para ajustar el espacio de 24 píxeles.
+
+![image](https://github.com/user-attachments/assets/3d1db61f-51d4-457b-a318-7d9a13d8a771)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio2Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Row(
+         children: [
+           Padding(
+             padding: EdgeInsets.all(24.0),
+             child: Text('Texto 1'),
+           ),
+           Text('Texto 2'),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+3. **Ejercicio 3**
+   - Utiliza un `Column` para colocar 5 widgets de `Text` en forma vertical.
+   - Inserta un `SizedBox` entre cada texto para crear un espacio uniforme.
+
+![image](https://github.com/user-attachments/assets/4cf47d1b-d123-4979-a6c6-c323dc2b68eb)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio3Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Text('Texto 1'),
+           SizedBox(height: 10),
+           Text('Texto 2'),
+           SizedBox(height: 10),
+           Text('Texto 3'),
+           SizedBox(height: 10),
+           Text('Texto 4'),
+           SizedBox(height: 10),
+           Text('Texto 5'),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+4. **Ejercicio 4**
+   - Coloca 3 widgets de `Text` diferentes dentro de un `Column`.
+   - Agrega `Padding` alrededor de cada texto para crear espacio adicional.
+   - Además, coloca un `SizedBox` grande debajo del primer texto para crear un espacio más grande.
+
+![image](https://github.com/user-attachments/assets/4dea0e75-aa29-4e36-bfc1-bba57dcf5195)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio7Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Padding(
+             padding: const EdgeInsets.all(8.0), 
+             child: Text('Texto 1'),
+           ),
+           SizedBox(height: 30),
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text('Texto 2'),
+           ),
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text('Texto 3'),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+5. **Ejercicio 5**
+   - Dentro de un `Row`, coloca un widget de `Text` en el extremo izquierdo, un widget de `Text` con `Padding` en el centro, y otro widget de `Text` en el extremo derecho.
+   - Agrega un `SizedBox` para crear espacio entre los textos.
+
+![image](https://github.com/user-attachments/assets/86b6af35-67db-4752-8e0d-1f108c1dbc62)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio8Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+         children: [
+           Text('Texto Izquierdo'),
+           Padding(
+             padding: const EdgeInsets.all(8.0), 
+             child: Text('Texto Central'),
+           ),
+           Text('Texto Derecho'),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+6. **Ejercicio 6**
+   - Crea un `Column` con un `Text` en la parte superior, seguido de un `SizedBox` para agregar espacio.
+   - Luego, añade otro `Column` debajo con 2 widgets de `Text`.
+   - Configura el `Padding` en el `Column` interno para ajustar los márgenes.
+
+![image](https://github.com/user-attachments/assets/8fdfe7e4-1b76-4d40-b0a2-338caf3eb27e)
+
+<details>
+  <summary>Respuesta</summary>
+
+   ```dart
+   class Ejercicio9Widget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Text('Texto Superior'),
+           SizedBox(height: 20), 
+           Padding(
+             padding: const EdgeInsets.all(8.0), 
+             child: Column(
+               children: [
+                 Text('Texto 1'),
+                 Text('Texto 2'),
+               ],
+             ),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
