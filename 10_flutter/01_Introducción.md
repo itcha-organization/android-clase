@@ -1,7 +1,7 @@
 # Introducción de Flutter
 
 Flutter es un software development kit para interfaces de usuario de código abierto creado por Google.<br>
-Se usa para desarrollar aplicaciones cross platform desde una sola base de código para web, Android, iOS, Fuchsia, Linux, macOS y Windows.
+Se usa para desarrollar aplicaciones cross platform desde una sola base de código para web, Android, iOS, Linux, macOS y Windows.
 
 ## Características principales
 
@@ -11,8 +11,8 @@ Estas características hacen de Flutter una opción muy poderosa para el desarro
    - Con una sola base de código, es posible crear aplicaciones para iOS, Android, Web, Windows, macOS y Linux, lo que permite desarrollar aplicaciones para múltiples plataformas de manera eficiente.
    - No es necesario realizar desarrollos separados para cada plataforma, lo que reduce el tiempo de mantenimiento y actualización.
 
-### 2. **Alto rendimiento**
-   - Flutter se compila en código nativo, lo que minimiza los problemas de rendimiento que suelen tener las herramientas de desarrollo multiplataforma.
+### 2. **Uso del lenguaje Dart**
+   - Flutter utiliza el lenguaje Dart, que es simple y fácil de aprender, con una sintaxis similar a C# o Java, lo que facilita su adopción por desarrolladores con experiencia en estos lenguajes.
 
 ### 3. **Hot Reload (Recarga en caliente)**
    - Durante el desarrollo, cualquier cambio en el código se refleja de inmediato en la aplicación sin perder su estado actual. Esto facilita la ajuste de la interfaz de usuario y la depuración de errores.
@@ -22,8 +22,8 @@ Estas características hacen de Flutter una opción muy poderosa para el desarro
    - Flutter es un framework basado en widgets y ofrece una variedad de ellos, desde componentes básicos de interfaz de usuario hasta widgets personalizados avanzados.
    - Soporta de manera nativa widgets de Material Design y estilo iOS, lo que facilita la creación de interfaces adaptadas a cada plataforma.
 
-### 5. **Uso del lenguaje Dart**
-   - Flutter utiliza el lenguaje Dart, que es simple y fácil de aprender, con una sintaxis similar a C# o Java, lo que facilita su adopción por desarrolladores con experiencia en estos lenguajes.
+### 5. **Alto rendimiento**
+   - Flutter se compila en código nativo, lo que minimiza los problemas de rendimiento que suelen tener las herramientas de desarrollo multiplataforma.
 
 ## Experimente el widget
 
