@@ -113,6 +113,38 @@ class RowEjemplo extends StatelessWidget {
 - `mainAxisAlignment`: Alineación de los widgets en el eje principal (horizontal).
 - `crossAxisAlignment`: Alineación en el eje cruzado (vertical).
 
+Uso avanzado.
+```dart
+class RowEjemplo2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Este es el primer texto'),
+          )
+        ),
+        SizedBox(
+          height: double.infinity,
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Este es el segundo texto'),
+
+          )
+        ),
+        Text('Este es el tercer texto'),
+      ],
+    );
+  }
+}
+```
+
 ### 5. Padding
 El widget `Padding` se usa para añadir espacio alrededor de un widget.
 
