@@ -411,3 +411,227 @@ class ResumenEjemplo extends StatelessWidget {
    }
    ```
 </details>
+
+
+### 6. `Card`
+
+El widget `Card` representa un componente de tarjeta en el diseño de Material Design. El widget `Card` es útil para mostrar contenido visualmente separado.
+
+#### Estructura básica del `Card`
+
+El widget `Card` generalmente contiene otros widgets (por ejemplo, `Text`) como hijos. Además, se pueden configurar la redondez de las esquinas (`borderRadius`) y la sombra (`elevation`) para aplicar un estilo acorde al diseño.
+
+#### Propiedades principales
+
+- **`elevation`**: Establece la profundidad de la sombra de la tarjeta. Cuanto mayor sea el valor, más oscura será la sombra.
+- **`shape`**: Define la forma de la tarjeta. Normalmente, se usa `RoundedRectangleBorder` para especificar el redondeo de las esquinas.
+- **`margin`**: Establece el margen exterior de la tarjeta.
+- **`color`**: Configura el color de fondo de la tarjeta.
+
+#### Ejemplo básico de uso
+
+El siguiente código muestra cómo utilizar `Card`. En este ejemplo, se coloca un widget `Text` dentro de la tarjeta y se configuran la sombra (`elevation`) y el redondeo de las esquinas (`shape`).
+
+```dart
+class CardWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4.0, // Configuración de la sombra
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0), // Configuración del redondeo
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text('¡Hola, esto es una tarjeta!'),
+      ),
+    );
+  }
+}
+```
+
+## Ejercicios
+
+### Ejercicio 1: Diseño simple con tarjeta
+- Crea un widget `Card` y dentro de él utiliza un widget `Text` para mostrar el mensaje "Bienvenido a Flutter".
+- Agrega `Padding` para añadir espacio alrededor del texto.
+
+![image](https://github.com/user-attachments/assets/74f18d83-6a80-4741-ae40-8a1c918dda8a)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio1 extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Card(
+         child: Padding(
+           padding: EdgeInsets.all(16.0), // Espacio alrededor del texto
+           child: Text('Bienvenido a Flutter'),
+         ),
+       );
+     }
+   }
+   ```
+</details>
+
+### Ejercicio 2: Colocar elementos en fila dentro de una tarjeta
+- Dentro del `Card`, utiliza un `Row` para alinear dos widgets `Text` de forma horizontal.
+- Añade `Padding` alrededor de la `Row` para crear un espacio de 16 píxeles.
+- Añade `Padding` alrededor de cada texto para crear espacio.
+
+![image](https://github.com/user-attachments/assets/21727b25-dd93-4afb-b083-3e4ffb8ba85d)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Exercise2 extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Card(
+         child: Padding(
+           padding: EdgeInsets.all(16.0),
+           child: Row(
+             children: [
+               Padding(
+                 padding: EdgeInsets.only(right: 8.0),
+                 child: Text('Hello'),
+               ),
+               Padding(
+                 padding: EdgeInsets.only(left: 8.0),
+                 child: Text('World'),
+               ),
+             ],
+           ),
+         ),
+       );
+     }
+   }
+   ```
+</details>
+
+### Ejercicio 3: Colocar múltiples tarjetas en forma vertical
+- Coloca tres widgets `Card` diferentes dentro de un `Column` para alinearlos de manera vertical.
+- Cada `Card` debe mostrar un texto diferente y tener `Padding` alrededor del texto para crear espacio.
+- Añade un `SizedBox` y deja un espacio entre cada `Card`.
+
+![image](https://github.com/user-attachments/assets/950219b6-a6bf-4d5a-834a-a31de1a5c35d)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio3 extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Card(
+             child: Padding(
+               padding: EdgeInsets.all(16.0),
+               child: Text('Tarjeta 1'),
+             ),
+           ),
+           SizedBox(height: 10), // Espacio entre las tarjetas
+           Card(
+             child: Padding(
+               padding: EdgeInsets.all(16.0),
+               child: Text('Tarjeta 2'),
+             ),
+           ),
+           SizedBox(height: 10),
+           Card(
+             child: Padding(
+               padding: EdgeInsets.all(16.0),
+               child: Text('Tarjeta 3'),
+             ),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+
+### Ejercicio 4: Crear un diseño anidado dentro de la tarjeta
+- Dentro del `Card`, coloca un `Column` y luego combina un `Row` y un `Column` para crear un diseño complejo anidado.
+- Agrega `Padding` a cada elemento para ajustar el diseño general.
+- Cambia el color de fondo estableciendo `Colours.amber` a la propiedad `color` de la `Card`.
+
+![image](https://github.com/user-attachments/assets/a9343a6c-617f-495b-a553-945ab89d98e8)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio4 extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Card(
+         color: Colors.amber,
+         child: Padding(
+           padding: EdgeInsets.all(16.0),
+           child: Column(
+             children: [
+               Row(
+                 children: [
+                   Text('Fila 1, Elemento 1'),
+                   SizedBox(width: 10),
+                   Text('Fila 1, Elemento 2'),
+                 ],
+               ),
+               SizedBox(height: 10),
+               Column(
+                 children: [
+                   Text('Columna 1, Elemento 1'),
+                   SizedBox(height: 5),
+                   Text('Columna 1, Elemento 2'),
+                 ],
+               ),
+             ],
+           ),
+         ),
+       );
+     }
+   }
+   ```
+</details>
+
+### Ejercicio 5: Cambiar el color de fondo de la tarjeta
+- Utiliza la propiedad `color` del widget `Card` para crear varias tarjetas con diferentes colores de fondo y colócalas en un `Column` de forma vertical.
+- Cada tarjeta debe mostrar un texto diferente y tener `Padding` para hacer el diseño más legible.
+
+![image](https://github.com/user-attachments/assets/4de78711-8660-44d2-86a6-3bb7d92830c7)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio5 extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Card(
+             color: Colors.lightBlueAccent, // Cambio del color de fondo
+             child: Padding(
+               padding: EdgeInsets.all(16.0),
+               child: Text('Tarjeta con fondo azul'),
+             ),
+           ),
+           SizedBox(height: 10),
+           Card(
+             color: Colors.greenAccent,
+             child: Padding(
+               padding: EdgeInsets.all(16.0),
+               child: Text('Tarjeta con fondo verde'),
+             ),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
