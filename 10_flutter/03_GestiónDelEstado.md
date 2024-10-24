@@ -97,3 +97,142 @@ class _ContadorWidgetState extends State<ContadorWidget> {
      );
    }
    ```
+
+## Ejemplos
+### **Ejemplo: Crear un campo de texto básico**
+Crea un campo de texto simple utilizando `TextField` y muestra en tiempo real el texto que el usuario ingresa en la pantalla.
+```dart
+class MyTextField extends StatefulWidget {
+  @override
+  State<MyTextField> createState() => _MyTextFieldState();
+}
+
+class _MyTextFieldState extends State<MyTextField> {
+  String text = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextField(
+          onChanged: (value) {
+            setState(() {
+              text = value;
+            });
+          },
+          decoration: InputDecoration(
+            labelText: 'Introduce aquí',
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text('Texto ingresado: $text'),
+      ],
+    );
+  }
+}
+```
+
+### **Ejemplo: Restablecer el contenido del campo de texto**
+Crea un campo de texto y un botón de "Restablecer". Al hacer clic en el botón, el contenido del campo de texto debe quedar vacío.
+
+```dart
+class ResetTextField extends StatefulWidget {
+  @override
+  State<ResetTextField> createState() => _ResetTextFieldState();
+}
+
+class _ResetTextFieldState extends State<ResetTextField> {
+  String text = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextField(
+          controller:
+              TextEditingController(text: text), // Pre-fill with initial text
+          onChanged: (value) {
+            setState(() {
+              text = value;
+            });
+          },
+          decoration: InputDecoration(
+            labelText: 'Ingresa texto',
+          ),
+        ),
+        const SizedBox(height: 16),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              text = "";
+            });
+          },
+          child: const Text('Restablecer'),
+        ),
+      ],
+    );
+  }
+}
+```
+
+### **Ejemplo: Múltiples campos**
+Crea dos `OutlinedTextField` donde el usuario pueda ingresar su nombre y edad. Al presionar el botón de "Enviar", debería mostrarse en la pantalla: "[Nombre] tiene [Edad] años".
+
+```dart
+class MultipleFieldsExample extends StatefulWidget {
+  @override
+  _MultipleFieldsExampleState createState() => _MultipleFieldsExampleState();
+}
+
+class _MultipleFieldsExampleState extends State<MultipleFieldsExample> {
+  String name = '';
+  String age = '';
+  String result = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        TextField(
+          onChanged: (text) {
+            setState(() {
+              name = text;
+            });
+          },
+          decoration: InputDecoration(
+            labelText: 'Nombre',
+          ),
+        ),
+        SizedBox(height: 16),
+        TextField(
+          onChanged: (text) {
+            setState(() {
+              age = text;
+            });
+          },
+          decoration: InputDecoration(
+            labelText: 'Edad',
+          ),
+          keyboardType: TextInputType.number,
+        ),
+        SizedBox(height: 16),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              result = '$name tiene $age años';
+            });
+          },
+          child: Text('Enviar'),
+        ),
+        SizedBox(height: 16),
+        Text(result),
+      ],
+    );
+  }
+}
+```
+
+## Ejercicios
