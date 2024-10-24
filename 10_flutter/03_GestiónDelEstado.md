@@ -236,3 +236,234 @@ class _MultipleFieldsExampleState extends State<MultipleFieldsExample> {
 ```
 
 ## Ejercicios
+
+### Ejercicio 1: Entrada de texto simple y visualización
+
+1. crear un `StatefulWidget` y permitir al usuario introducir texto utilizando `TextField`.
+2. definir variables para almacenar el valor introducido en el `TextField` y el valor a mostrar en el `Text`.
+3. crear un `ElevatedButton` para reflejar el contenido del TextField en el `Text` cuando se pulse el botón.
+
+![image](https://github.com/user-attachments/assets/e98bd74d-bdec-4a78-a091-f1881cf03d50)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio1 extends StatefulWidget {
+     @override
+     _Ejercicio1State createState() => _Ejercicio1State();
+   }
+
+   class _Ejercicio1State extends State<Ejercicio1> {
+     String _textoIngresado = ''; // Guardar el texto introducido en variables.
+     String _textoMostrado = ''; // Guardar el texto introducido en variables.
+
+     @override
+     Widget build(BuildContext context) {
+       return Padding(
+         padding: const EdgeInsets.all(16.0),
+         child: Column(
+           children: [
+             TextField(
+               onChanged: (texto) {
+                 setState(() {
+                   _textoIngresado = texto; // Actualizar texto de entrada.
+                 });
+               },
+               decoration: InputDecoration(
+                 labelText: 'Ingrese texto',
+               ),
+             ),
+             SizedBox(height: 20),
+             ElevatedButton(
+               onPressed: () {
+                 setState(() {
+                   _textoMostrado =
+                       _textoIngresado; // Actualizar texto para mostrar.
+                 });
+               },
+               child: Text('Mostrar texto'),
+             ),
+             const SizedBox(height: 16),
+             Text('Texto ingresado: $_textoMostrado'),
+           ],
+         ),
+       );
+     }
+   }
+
+   ```
+</details>
+---
+
+### Ejercicio 2: Función de conteo ascendente
+
+1. Crea un StatefulWidget que contenga un ElevatedButton para una aplicación de conteo ascendente.
+2. Cada vez que se presione el botón, el contador debe incrementarse en 1 y mostrarse en pantalla.
+3. Establece el valor inicial del contador en 0.
+
+![image](https://github.com/user-attachments/assets/79a1d51b-9232-408d-8a83-e020fd9f39b3)
+
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio2 extends StatefulWidget {
+     @override
+     _Ejercicio2State createState() => _Ejercicio2State();
+   }
+
+   class _Ejercicio2State extends State<Ejercicio2> {
+     int _contador = 0;
+
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           Text('Contador: $_contador'),
+           SizedBox(height: 20),
+           ElevatedButton(
+             onPressed: () {
+               setState(() {
+                 _contador++;
+               });
+             },
+             child: Text('Incrementar'),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+---
+
+### Ejercicio 3: Función de limpieza de texto
+
+1. crear un `StatefulWidget` y permitir al usuario introducir texto utilizando `TextField`.
+2. definir variables para almacenar el valor introducido en el `TextField` y el valor a mostrar en el `Text`.
+3. crear un `ElevatedButton` para reflejar el contenido del TextField en el `Text` cuando se pulse el botón.
+4. Añade otro botón e implementa una función para borrar la cadena mostrada en `Text` cuando se pulse el botón. (La cadena en el `TextField` no tiene que ser borrada).
+
+![image](https://github.com/user-attachments/assets/bdc9d931-e080-4a18-bdd8-f358b41f72eb)
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio3 extends StatefulWidget {
+     @override
+     _Ejercicio3State createState() => _Ejercicio3State();
+   }
+
+   class _Ejercicio3State extends State<Ejercicio3> {
+     String _textoIngresado = '';
+     String _textoMostrado = '';
+
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           TextField(
+             onChanged: (texto) {
+               setState(() {
+                 _textoIngresado = texto;
+               });
+             },
+             decoration: InputDecoration(
+               labelText: 'Ingrese texto',
+             ),
+           ),
+           SizedBox(height: 16),
+           Text('Texto ingresado: $_textoMostrado'),
+           SizedBox(height: 20),
+           ElevatedButton(
+             onPressed: () {
+               setState(() {
+                 _textoMostrado = _textoIngresado;
+               });
+             },
+             child: Text('Mostrar texto'),
+           ),
+           SizedBox(height: 20),
+           ElevatedButton(
+             onPressed: () {
+               setState(() {
+                 _textoMostrado = '';
+               });
+             },
+             child: Text('Limpiar texto mostrado'),
+           ),
+         ],
+       );
+     }
+   }
+   ```
+</details>
+---
+
+### Ejercicio 4: Múltiples entradas y visualización
+
+1. Crea un StatefulWidget que contenga dos TextField (por ejemplo, uno para nombre y otro para correo electrónico).
+2. crear un `ElevatedButton` y mostrar el contenido de ambos campos de texto en un `Text` situado debajo del botón cuando éste se pulse.
+3. La visualización debe tener el formato: "Nombre: [nombre], Correo: [correo electrónico]".
+
+![image](https://github.com/user-attachments/assets/717aaa2e-7313-47b9-ab62-49b2dce31bfa)
+
+
+<details>
+  <summary>Respuesta</summary>
+   
+   ```dart
+   class Ejercicio4 extends StatefulWidget {
+     @override
+     _Ejercicio4State createState() => _Ejercicio4State();
+   }
+
+   class _Ejercicio4State extends State<Ejercicio4> {
+     String _nombre = '';
+     String _correo = '';
+     String _result = '';
+
+     @override
+     Widget build(BuildContext context) {
+       return Column(
+         children: [
+           TextField(
+             onChanged: (texto) {
+               setState(() {
+                 _nombre = texto;
+               });
+             },
+             decoration: InputDecoration(
+               labelText: 'Ingrese su nombre',
+             ),
+           ),
+           TextField(
+             onChanged: (texto) {
+               setState(() {
+                 _correo = texto;
+               });
+             },
+             decoration: InputDecoration(
+               labelText: 'Ingrese su correo',
+             ),
+           ),
+           SizedBox(height: 20),
+           ElevatedButton(
+             onPressed: () {
+               setState(() {
+                 _result = 'Nombre: $_nombre, Correo: $_correo';
+               });
+             },
+             child: Text('Mostrar información'),
+           ),
+           SizedBox(height: 16),
+           Text(_result),
+         ],
+       );
+     }
+   }
+   ```
+</details>
