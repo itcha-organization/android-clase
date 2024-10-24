@@ -55,7 +55,7 @@ class _ContadorWidgetState extends State<ContadorWidget> {
 
 ## 2. Pasos para Implementar un StatefulWidget
 
-1. **Definir el StatefulWidget**
+1. **Definir el `StatefulWidget`**
    - Crea una clase que extienda de `StatefulWidget`. Esta clase será responsable de construir el widget.
    - Implementa el método `createState`, que debe devolver una instancia de la clase `State` asociada.
 
@@ -66,7 +66,7 @@ class _ContadorWidgetState extends State<ContadorWidget> {
    }
    ```
 
-2. **Definir el Estado**
+2. **Definir el `State`**
    - Crea una clase que extienda de `State<MiWidgetStateful>`. Esta clase manejará el estado y la lógica del widget.
    - Define las variables que representarán el estado.
 
@@ -77,7 +77,7 @@ class _ContadorWidgetState extends State<ContadorWidget> {
    ```
 
 3. **Construir el Método build**
-   - Implementa el método `build` dentro de la clase de estado. Este método es donde se construye la UI del widget y se actualiza cuando cambia el estado.
+   - Implementa el método `build` dentro de la clase de `State`. Este método es donde se construye la UI del widget y se actualiza cuando cambia el estado.
 
    ```dart
    @override
