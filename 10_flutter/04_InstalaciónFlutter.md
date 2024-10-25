@@ -14,21 +14,26 @@
 - Busque `variables` y abre `Editar las variables de entorno del sistema`.
   ![image](https://github.com/user-attachments/assets/0fa4ba19-10a5-4ec6-ab0f-7eafa99400c4)
 - Haga clic en `variables de entorno`.
-  ![image](https://github.com/user-attachments/assets/53fdb662-6cb7-4aab-94d4-30f0fa0b1122)
+  <br>![image](https://github.com/user-attachments/assets/53fdb662-6cb7-4aab-94d4-30f0fa0b1122)
 - Seleccione `Path` y haga clic en `Editar`.
-  ![image](https://github.com/user-attachments/assets/b402cef5-312f-4225-81fe-380f7acac224)
+  <br>![image](https://github.com/user-attachments/assets/b402cef5-312f-4225-81fe-380f7acac224)
 - Haga clic en `Nuevo`.
-  ![image](https://github.com/user-attachments/assets/c9b95574-d0e6-42ea-b3e0-b7f9984ce5de)
+  <br>![image](https://github.com/user-attachments/assets/c9b95574-d0e6-42ea-b3e0-b7f9984ce5de)
 - Introduzca `C:\flutter\bin` y haga clic en `Aceptar`. **Se recomienda copiar y pegar lo para no equivocarse.**
   ![image](https://github.com/user-attachments/assets/9edb2d29-6fce-4a45-88a2-28853c51d8c6)
 - Haga clic en `Aceptar`.
-  ![image](https://github.com/user-attachments/assets/bc80ef5d-34dc-4780-a8dd-bede3154ab3c)
+  <br>![image](https://github.com/user-attachments/assets/bc80ef5d-34dc-4780-a8dd-bede3154ab3c)
 
 ## Configuración inicial en AndroidStudio
 - Inicia AndroidStudio. **Si ya se ha iniciado, ciérrelo y vuelva a iniciarlo.**
 - Abra el Terminal (Windows PowerShell) haciendo clic en el icono situado en la parte inferior izquierda de la pantalla.
 - Ejecute el comando `flutter` y compruebe que no se producen errores.
   ![image](https://github.com/user-attachments/assets/6aaec25f-2f24-476e-8415-9d77cb6c875c)
+  > [!NOTE]  
+  > Si obtienes un error `Error: Unable to find git in your PATH.`, ejecuta el siguiente comando para excluir `C:\flutter\` de la seguridad de Git.
+  > ```
+  > git config --global --add safe.directory C:\flutter
+  > ```
 - Ejecuta el comando `flutter doctor`. Configuraremos los ajustes para que los resultados de esta ejecución sean todos completos✅.
   ![image](https://github.com/user-attachments/assets/c8d8c89e-05c7-4aff-a1cb-a09dd1496f3e)
 - Haga clic en el icono de configuración⚙ y abre el `SDK Manager`.
@@ -41,6 +46,15 @@
   ![image](https://github.com/user-attachments/assets/07c857bb-b754-4abf-95c4-9daec5f41b97)
 - Ejecuta el comando `flutter doctor` y asegúrese de que todo está ajustado a completo✅.
   ![image](https://github.com/user-attachments/assets/c9345ef9-8668-4335-b05f-505a8a40e88f)
+  > [!NOTE]  
+  > Los elementos que no se hayan completado✅ deben seguir instalándose.
+  > 
+  > **VisualStudio:**
+  > <br>Instalador de visual studio: https://learn.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-170#step-2---download-visual-studio
+  > <br>Hay que instarar visual studio de opcion `Desktop development with C++`.Esto es para obtener algunos componentes que Flutter necesita para funcionar.
+  > ![image](https://github.com/user-attachments/assets/64899eed-62d2-46fb-be30-63c0aa799839)
+
+
 
 ## Instalar plug-in en AndroidStudio
 - Haga clic en el icono de configuración⚙ y abre el `Plugins`.
@@ -52,9 +66,9 @@
 
 ## Cree un proyecto Flutter.
 - Cierra el proyecto en AndroidStudio y muestra la pantalla `Welcome`.
-  ![image](https://github.com/user-attachments/assets/005696a8-3154-42ce-b063-4aa964a92b91)
+  <br>![image](https://github.com/user-attachments/assets/005696a8-3154-42ce-b063-4aa964a92b91)
 - Haga clic en `New Flutter Project`.
-  ![image](https://github.com/user-attachments/assets/e98e972d-be51-460f-81a1-7b6dec57331d)
+  <br>![image](https://github.com/user-attachments/assets/e98e972d-be51-460f-81a1-7b6dec57331d)
 - Seleccione `Flutter` en el menú de la izquierda.Introduzca `C:\flutter` en el campo de Flutter SDK path y haga clic en `Next`.**Se recomienda copiar y pegar lo para no equivocarse.**
   ![image](https://github.com/user-attachments/assets/aa5cf0f2-970f-4c49-8d3d-8546e3e403e8)
 - Introduzca `test_drive + INICIALES` (Ejemplo: `test_driveCJZR`) como nombre del proyecto.
