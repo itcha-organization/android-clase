@@ -52,9 +52,7 @@
   > **VisualStudio:**
   > <br>Instalador de visual studio: https://learn.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-170#step-2---download-visual-studio
   > <br>Hay que instarar visual studio de opcion `Desktop development with C++`.Esto es para obtener algunos componentes que Flutter necesita para funcionar.
-  > ![image](https://github.com/user-attachments/assets/64899eed-62d2-46fb-be30-63c0aa799839)
-
-
+  > ![image](https://github.com/user-attachments/assets/cd0022b4-ce51-42b1-9f71-33a08e4a9a37)
 
 ## Instalar plug-in en AndroidStudio
 - Haga clic en el icono de configuración⚙ y abre el `Plugins`.
