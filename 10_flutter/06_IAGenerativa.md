@@ -1,6 +1,31 @@
 # Crea aplicaciones con IA con Flutter y Gemini
 Vamos a probar una aplicación de chat simple en Flutter que se conecte a la API de Gemini para generar respuestas de IA a los mensajes del usuario.
 
+## Generar clave API.
+
+https://ai.google.dev/pricing?hl=es-419#1_5flash
+
+![image](https://github.com/user-attachments/assets/786d5cb6-56bf-49a8-a622-14991639040a)
+
+Inicia sesión.
+
+![image](https://github.com/user-attachments/assets/f95fe743-5406-4c2a-bd68-d4bcf8f52903)
+
+![image](https://github.com/user-attachments/assets/fcd75a82-09b4-419b-8754-33254becd0f8)
+
+![image](https://github.com/user-attachments/assets/d695f024-64da-465c-ab97-a12a26a75d9b)
+
+![image](https://github.com/user-attachments/assets/552efe6d-98f6-49f8-8856-ccfb5d2b251d)
+
+![image](https://github.com/user-attachments/assets/70c134b6-ab49-4e0f-9a4f-e66bd50543ad)
+
+![image](https://github.com/user-attachments/assets/cb84ceb1-66ea-45c7-b14b-502bf6d3294b)
+
+![image](https://github.com/user-attachments/assets/7fd1eab8-bab3-4f7e-b65e-06a573d5284d)
+
+![image](https://github.com/user-attachments/assets/84cc552e-d1b3-4f94-8367-9d73f8e36137)
+
+
 ### Paso 1: Crear un Proyecto de Flutter
 
 1. Crea un proyecto en Flutter con nombre `gemini_chat` en AndroidStudio.
