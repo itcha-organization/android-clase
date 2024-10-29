@@ -7,11 +7,13 @@ https://ai.google.dev/pricing?hl=es-419#1_5flash
 
 ![image](https://github.com/user-attachments/assets/786d5cb6-56bf-49a8-a622-14991639040a)
 
-Inicia sesión.
+Inicia sesión de Google.
 
 ![image](https://github.com/user-attachments/assets/f95fe743-5406-4c2a-bd68-d4bcf8f52903)
 
 ![image](https://github.com/user-attachments/assets/fcd75a82-09b4-419b-8754-33254becd0f8)
+
+![image](https://github.com/user-attachments/assets/29e522b1-556f-4647-a97c-124ca59e4d86)
 
 ![image](https://github.com/user-attachments/assets/d695f024-64da-465c-ab97-a12a26a75d9b)
 
@@ -146,6 +148,15 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+```
+
+2. Cambia `Text` de la propiedad `body` del `Scaffold` por la `ChatScreen` que acaba de crear.
+
+```diff
+home: Scaffold(
+   appBar: AppBar(title: Text('AI Chat con Gemini API')),
++   body: ChatScreen(),
+));
 ```
 
 ### Paso 5: Implementa el método `_sendMessage`.
