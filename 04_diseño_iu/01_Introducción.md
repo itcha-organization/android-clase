@@ -220,3 +220,79 @@ Para ejecutar la aplicación y comprobar el componente creado, debe ser llamado 
 
 - JetpackCompose te permite crear plantillas de colores y estilos para unificar el diseño en tu aplicación.
 - `XXXTheme` es un componente para aplicar plantillas de color y estilo.
+
+## **5. ¿Qué es Modifier en Jetpack Compose?**
+`Modifier` en Jetpack Compose es una herramienta que te permite personalizar y ajustar la apariencia y el comportamiento de los elementos de la interfaz de usuario (**Composables**). 
+
+Es un mecanismo flexible que se usa para tareas como:
+- Cambiar el tamaño o posición.
+- Agregar márgenes o relleno.
+- Aplicar colores de fondo.
+- Detectar eventos como clics.
+
+---
+
+### **Sintaxis básica**
+Se aplica un `Modifier` directamente a un Composable:
+
+```kotlin
+Text(
+    text = "¡Hola, Modifier!",
+    modifier = Modifier
+        .padding(16.dp) // Relleno
+        .background(Color.Cyan) // Color de fondo
+)
+```
+
+### **Ejemplos comunes de Modifier**
+
+#### 1. **Relativo al diseño (Layout)**
+- **padding**: Agrega espacio interno alrededor del contenido.
+  ```kotlin
+  Modifier.padding(8.dp)
+  ```
+- **size**: Define un tamaño fijo para el Composable.
+  ```kotlin
+  Modifier.size(100.dp)
+  ```
+- **fillMaxSize / fillMaxWidth / fillMaxHeight**: Expande el Composable para ocupar todo el espacio disponible.
+  ```kotlin
+  Modifier.fillMaxSize()
+  ```
+
+#### 2. **Decoración**
+- **background**: Define un color o una imagen de fondo.
+  ```kotlin
+  Modifier.background(Color.Red)
+  ```
+- **border**: Agrega un borde al Composable.
+  ```kotlin
+  Modifier.border(2.dp, Color.Black)
+  ```
+---
+
+### **¿A qué equivale `Modifier` en JavaScript?**
+En el contexto de JavaScript, `Modificador` es una equivalente de las **propiedades CSS**.
+`Modifier` se utiliza para ajustar el **estilo y el diseño** de los elementos de la interfaz, algo muy similar a lo que hacemos con CSS. 
+
+#### Jetpack Compose (`Modifier`)
+```kotlin
+Box(
+    modifier = Modifier
+        .size(100.dp)
+        .padding(16.dp)
+        .background(Color.Gray)
+)
+```
+
+#### HTML + CSS
+```html
+<div style="
+    width: 100px;
+    height: 100px;
+    padding: 16px;
+    background-color: gray;
+"></div>
+```
+
+En este caso, las funciones de `Modifier` como `size`, `padding` o `background` se asemejan a las propiedades CSS para definir tamaño, márgenes internos y color de fondo.
