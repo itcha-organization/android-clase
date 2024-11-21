@@ -1,5 +1,3 @@
----
-
 ### **Encuesta: Tecnologías Utilizadas en las Empresas de Informática en El Salvador**
 
 **Introducción**  
