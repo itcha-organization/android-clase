@@ -8,7 +8,7 @@ Me gustaría introducir los tres cambios siguientes en el plan de actividades.
 ### Motivacion
 Los perfiles de competencias y los mapas funcionales se validan y actualizan cada dos años.
 <br>
-Sin embargo, no ha sido posible investigar qué tecnologías(lenguajes de programación, framework) son los más demandados en la práctica.
+Sin embargo, no ha sido posible investigar con exactidud qué tecnologías(lenguajes de programación, framework) son los más demandados en la práctica.
 <br>
 Me gustaría investigarlas para considerar los temas de capacitación para el próximo año.
 
@@ -37,6 +37,9 @@ Realizar encuestas en forma de cuestionarios o entrevistas con empresas que han 
 
 #### **5. Presentación de resultados**
 Al finalizar la investigación, agradecer la colaboración de las empresas y les enviar un informe breve o resumen con los hallazgos más relevantes. Esto ayudará a fortalecer las relaciones y abrirá oportunidades para futuras colaboraciones.
+
+#### **6. Planificar la capacitación para ITCHA**
+Los resultados se analizan y se utilizan para ayudar a determinar los temas de la capacitación.Los resultados también se compartirán con los docentes de Técnico en Ingeniería en Computación.
 
 ## 3.Impartir capacitación a otras instituciones educativas y ONG
 Qusiera impartir capacitación a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
