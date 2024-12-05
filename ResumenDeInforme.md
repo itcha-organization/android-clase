@@ -5,7 +5,13 @@
 職歴
 前職は、システムエンジニアです。
 大学学部卒業後、3年間弱企業向けのWebアプリの開発と保守に携わりました。
-Java、JavaScript、Pythonといったプログラミング言語を使っていました。
+プログラミング言語は、Java、JavaScript、Pythonを使っていました。
+フレームワークは、GWT、SpringBoot、React.js、Flaskを使っていました。
+バージョン管理には、Git、GitLabを使っていました。
+IDEは、eclipse、InteliJ、VScodeを使っていました。
+Kubernetes、ArgoCDの管理も少しだけ担当しました。
+
+
 サイバーセキュリティとクラウドコンピューティングにはとても興味があり勉強中です。
 ・スポーツ
 好きなスポーツは、マラソンです。
