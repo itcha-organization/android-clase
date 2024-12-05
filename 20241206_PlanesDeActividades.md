@@ -24,6 +24,10 @@ Se utilizarán las siguientes fuentes
 - Las empresas en las que trabajan los graduados
 - Las empresas en las que los alumnos han realizado PP
 - Pedir a las asociaciones promoviendo el uso de las Tecnologías de la información y las Comunicaciones (TIC) que le recomienden empresas.
+  1. [ASOCIACIÓN CONEXION](https://conexion.sv/inicio/)
+  2. [CasaTIC](https://www.casatic.org/index)
+  3. [Fundación Comunicándonos](https://comunicandonos.org.sv/inicio/)
+  4. [ASPROC](https://www.facebook.com/ASPROC.ORG/about)
 
 #### **3. Envío de correos electrónicos**
 Enviar un correo electrónico a las empresas aprobadas de la lista, solicitando un cuestionarios y permiso para una entrevista.
