@@ -3,7 +3,7 @@ Me gustaría introducir los tres cambios siguientes en el plan de actividades.
 
 ## 1.Ampliarse la duración de la capacitacion de Android hasta mayo de 2025
 
-## 2.rearizar la Investigación sobre tecnologías demandadas en las empresas de TI
+## 2.Realizar la Investigación sobre tecnologías demandadas en las empresas de TI
 
 ### Motivacion
 Los perfiles de competencias y los mapas funcionales se validan y actualizan cada dos años.
