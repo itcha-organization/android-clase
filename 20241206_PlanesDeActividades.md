@@ -15,7 +15,7 @@ Me gustaría investigarlas para considerar los temas de capacitación para el pr
 
 ### Procedimiento específico
 <details>
-  <summary>Respuesta</summary>
+  <summary></summary>
   
    #### 1. **Elaborar un documento explicativo breve**  
       - Ejemplo:  
