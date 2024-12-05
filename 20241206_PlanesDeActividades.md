@@ -4,8 +4,35 @@ Me gustaría introducir los tres cambios siguientes en el plan de actividades.
 ## 1.Ampliarse la duración de la capacitacion de Android hasta mayo de 2025
 
 ## 2.rearizar la Investigación sobre tecnologías demandadas en las empresas de TI
+
 ### Motivacion
-Investigar las tecnologías utilizadas en la práctica por las empresas de TI y utilizar esta información para considerar los temas de capacitación para el próximo año.
+Los perfiles de competencias y los mapas funcionales se validan y actualizan cada dos años.
+<br>
+Sin embargo, no ha sido posible investigar qué tecnologías(lenguajes de programación, framework) son los más demandados en la práctica.
+<br>
+Me gustaría investigarlas para considerar los temas de capacitación para el próximo año.
+
+### Procedimiento específico
+#### 1. **Elaborar un documento explicativo breve**  
+   - Ejemplo:  
+     > *"Nuestro objetivo es identificar las tecnologías y habilidades más relevantes en el mercado actual para mejorar nuestros programas educativos y preparar mejor a los estudiantes para integrarse al mundo laboral. Su participación nos permitirá alinear nuestras iniciativas con las necesidades reales de la industria."*
+
+#### 2. **Crear una lista de empresas objetivo**  
+Enumerar las empresas a las que hay que dirigirse y pedir a los directores que las revisen.
+<br>
+Se utilizarán las siguientes fuentes
+- Las empresas en las que trabajan los graduados
+- Las empresas en las que los alumnos han realizado PP
+- Pedir a las asociaciones promoviendo el uso de las Tecnologías de la información y las Comunicaciones (TIC) que le recomienden empresas.
+
+#### **3. Envío de correos electrónicos**
+Enviar un correo electrónico a las empresas aprobadas de la lista, solicitando un cuestionarios y permiso para una entrevista.
+
+#### **4. Realización de la investigación.**
+Realizar encuestas en forma de cuestionarios o entrevistas con empresas que han accedido a la solicitud.
+
+#### **5. Presentación de resultados**
+Al finalizar la investigación, agradecer la colaboración de las empresas y les enviar un informe breve o resumen con los hallazgos más relevantes. Esto ayudará a fortalecer las relaciones y abrirá oportunidades para futuras colaboraciones.
 
 ## 3.Impartir capacitación a otras instituciones educativas y ONG
 Qusiera impartir capacitación a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
