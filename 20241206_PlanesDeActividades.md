@@ -43,8 +43,8 @@ Al finalizar la investigación, agradecer la colaboración de las empresas y les
 Los resultados se analizan y se utilizan para ayudar a determinar los temas de la capacitación.Los resultados también se compartirán con los docentes de Técnico en Ingeniería en Computación.
 ___
 
-## 3.Impartir capacitación a otras instituciones educativas y ONG
-Qusiera impartir capacitación a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
+## 3.Repetir capacitaciones realizadas en ITCHA a otras instituciones educativas y ONG
+Qusiera repetir las capacitaciones realizadas en ITCHA a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
 <br>
 Por ejemplo, proponer capacitación a las inituciones educativas y ONG donde trabajan otros voluntarios de JICA.
 
@@ -55,5 +55,5 @@ Quisiera compartir mis conocimientos con el mayor número posible de personas y 
 
 ### Condiciones
 - La capacitación será coordinada por voluntarios y participantes.
-- El horario no debe entrar en conflicto con las actividades de ITCHA (PJs de mejora, capacitación), y el CP debe ser consultado para obtener permiso.
+- El horario no debe entrar en conflicto con las actividades de ITCHA (Proyecto de mejora, capacitación), y el CP debe ser consultado para obtener permiso.
 - Transporte en autobús. Los participantes proporcionarán su propio transporte. (En principio, no se pedirá a ITCHA que proporcione transporte).
