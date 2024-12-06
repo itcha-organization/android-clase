@@ -6,7 +6,7 @@ ___
 ## 2.Realizar la Investigación sobre tecnologías demandadas en las empresas de TI
 
 ### Motivacion
-Los perfiles de competencias y los mapas funcionales se validan y actualizan cada dos años.
+El perfil de competencias y el mapa funcional se validan y actualizan cada dos años.
 <br>
 Sin embargo, no ha sido posible investigar con exactidud qué tecnologías(lenguajes de programación, framework) son los más demandados en la práctica.
 <br>
