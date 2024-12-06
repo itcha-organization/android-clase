@@ -37,14 +37,14 @@ Enviar un correo electrónico a las empresas aprobadas de la lista, solicitando 
 Realizar encuestas en forma de cuestionarios o entrevistas con empresas que han accedido a la solicitud.
 
 #### **5. Presentación de resultados**
-Al finalizar la investigación, agradecer la colaboración de las empresas y les enviar un informe breve o resumen con los hallazgos más relevantes. Esto ayudará a fortalecer las relaciones y abrirá oportunidades para futuras colaboraciones.
+Al finalizar la investigación, agradecer la colaboración de las empresas y enviarles un informe breve o resumen con los hallazgos más relevantes. Esto ayudará a fortalecer las relaciones y abrirá oportunidades para futuras colaboraciones.
 
 #### **6. Planificar la capacitación para ITCHA**
 Los resultados se analizan y se utilizan para ayudar a determinar los temas de la capacitación.Los resultados también se compartirán con los docentes de Técnico en Ingeniería en Computación.
 ___
 
 ## 3.Repetir capacitaciones realizadas en ITCHA a otras instituciones educativas y ONG
-Qusiera repetir las capacitaciones realizadas en ITCHA a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
+Quisiera repetir las capacitaciones realizadas en ITCHA a otras instituciones educativas y ONG del mismo modo que se hizo anteriormente con la ESFE.
 <br>
 Por ejemplo, proponer capacitación a las inituciones educativas y ONG donde trabajan otros voluntarios de JICA.
 
