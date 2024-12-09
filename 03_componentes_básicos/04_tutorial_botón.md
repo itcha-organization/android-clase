@@ -246,6 +246,6 @@ Crea un botón que simule una acción de larga duración, como cargar datos. Mie
 
 
 
-## プレビューのインタラクティブモード
+## Modo interactivo de previsualización.
 
-## デバッガーを利用する
+##Uso del depurador
