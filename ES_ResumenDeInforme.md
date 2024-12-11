@@ -59,7 +59,7 @@ Tengo tres misiones principales:
 ## Actividades y logros del primer año  
 
 ### Actividad 1: Incrementar los conocimientos en desarrollo de aplicaciones Android  
-Para alcanzar este objetivo, realicé dos tipos de capacitaciones:  
+Mejorar los conocimientos de desarrollo de aplicaciones Android, he orgtanizado dos tipos de capacitaciones:  
 1. Una sobre desarrollo de aplicaciones Android utilizando el lenguaje Kotlin y el framework Jetpack Compose.  
    Jetpack Compose es un framework moderno lanzado en 2021, y su demanda está en aumento.  
 2. Una introducción al desarrollo con el framework Flutter, que permite crear aplicaciones multiplataforma (iOS, Android y Web).  
@@ -84,11 +84,12 @@ Para introducir nuevas tecnologías, realicé capacitaciones sobre el uso de Git
 
 #### Actividad 2-1: Capacitaciones para personal  
 Realicé 7 sesiones de 3 horas cada una para el personal del área de tecnología.  
-El objetivo era mejorar la eficiencia en el proyecto de desarrollo de aplicaciones web del equipo de IT, compuesto por 6 miembros.  
+El objetivo era mejorar la eficiencia en el proyecto de desarrollo de aplicaciones web del personal, compuesto por 6 miembros.  
 
 #### Actividad 2-2: Capacitaciones para alumnos  
 Realicé 6 sesiones de 2 horas cada una para alumnos.  
-El objetivo era enseñar a los alumnos a usar GitHub en sus proyectos de graduación, que suelen realizarse en equipos de 5 o 6 personas.  
+Los alumnos desarrollan la aplicación en equipos de cinco o seis personas como proyecto de graduación.
+Al igual que en el proyecto del personal, el objetivo era mejorar la eficiencia en sus proyectos de graduación
 
 #### Actividad 2-X: Capacitaciones en la ESFE  
 También impartí una capacitación sobre GitHub para 10 docentes de la Escuela Superior Franciscana Especializada (ESFE) en el departamento de Sonsonate.  
@@ -96,7 +97,7 @@ No se por que razon, pero el director general también me pasó una diploma, Aun
 
 ---
 
-### Actividad 3: Incrementar la productividad de los alumnos  
+### Actividad 3: Incrementar la productividad de los alumnos
 Para mejorar la productividad, realicé talleres de mecanografía utilizando plataformas gratuitas como typing.com y TypingClub.  
 En total, hize 20 talleres.  
 
@@ -104,24 +105,41 @@ En total, hize 20 talleres.
 
 ### Logros del primer año  
 1. Desarrollé materiales educativos para el módulo de desarrollo de aplicaciones Android, que podrán ser reutilizados y actualizados en el futuro, reduciendo la carga de trabajo para los docentes.  
-2. Logré que el 90 % de los alumnos usaran GitHub en sus proyectos de graduación, superando la meta inicial del 50 %.  
+2. El objetivo era que el 50% de los alumnos utilizaran GitHub para su proyecto de graduación.Como resultado de la capacitacion de GitHub, el 90% utilizó GitHub.
 
 ---
 
 ### Desafíos  
-Uno de los problemas es no tener claridad sobre las tecnologías más demandadas en las empresas locales.  
-ITCHA revisa y actualiza sus planes de estudio cada dos años, pero este mecanismo no identifica herramientas específicas como lenguajes de programación o frameworks.  
-Es necesario enfocarse en tecnologías relevantes y descartar las obsoletas.  
+En mi opinión, el problema es no saber identificar las tecnologías que demandan las empresas. 
+ITCHA revisa y actualiza sus planes de estudio cada dos años, pero este mecanismo no identifica tecnologías específicas como lenguajes de programación o frameworks.  
+Como ya he dicho, hay muchísimas tecnologías, Algunas de estas tecnologías están obsoletas.
+Es necesario concentrarse en las tecnologías demandadas y descartar las obsoletas.
+
+Pero, no se preocupe.
+El problema es el potencial de crecimiento.
+La solaución se explicará en lasPlanes a futuro.
 
 ---
 
 ## Planes a futuro  
-Planeo realizar una encuesta para identificar las tecnologías más demandadas en las empresas de IT en El Salvador.  
-Además, reconstruiré la aplicación móvil de ITCHA, que fue eliminada de la tienda debido al uso de tecnologías desactualizadas.  
 
-Finalmente, la nueva versión de la app estará disponible pronto. ¡Espero que puedan probarla!  
+Pues bien, este año en El Salvador, por primera vez en 17 años, se ha realizado un censo.
+Los resultados del censo serán de gran ayuda para la elaboración de políticas y la planificación.
+La utilización de datos puede ser muy útil para una planificación eficaz.
+
+Planeo realizar una investigación para identificar las tecnologías más demandadas en las empresas de IT en El Salvador.  
+Los resultados de la investigación me ayudarán a diseñar mi capacitacion futura.
+
+Presento otra actividad prevista.
+La aplicación para Android de ITCHA existía, pero fue retirada de la tienda por un mantenimiento deficiente.
+Como las tecnologías utilizadas en la aplicación antigua están obsoletas, la reconstruiré utilizando tecnologías nuevas.
+Finalmente, la nueva versión de la app estará disponible pronto. ¡Espero que puedan probarla!
+
+Mi informe sobre las actividades de tecnología informatica ha concluido. Muchas gracias por su amable atención.
+Pero Aquí empieza el tiempo extra.
 
 ---
+
 
 ### Bonus: Actividades relacionadas con sushi  
 Fuera de mis objetivos principales, también promoví el sushi con varias actividades:  
