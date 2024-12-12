@@ -4,7 +4,7 @@ Nuevamente buenos días en español.
 Muchas gracias por venir hoy. 
 Me llamo Kyo Onuma y soy voluntaria de tecnología informática trabajando en Chalatenango.
 
-Según esta agenda, les informaré.
+Según esta agenda, les informaré las actividades.
 
 ## Introducción personal (incluyendo breve trayectoria)  
 *"Querer es poder".*  
