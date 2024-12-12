@@ -41,12 +41,12 @@ Desde que llegué a El Salvador, este fue el momento más difícil para mí.
 
 ### Información sobre mi lugar de trabajo  
 Trabajo en el **Instituto Tecnológico de Chalatenango (ITCHA)**.  
-Para que conozcan más sobre ITCHA, les invito a ver este video:  
+Para que conozcan más sobre ITCHA, vamos a ver video:  
 https://www.youtube.com/watch?v=QfUGp2OvVwQ  
 
 Actualmente estamos recibiendo solicitudes para el ciclo 2025. ¡Esperamos sus aplicaciones!  
 
-Pertenezco a la Carrera de Computación. Hay tres docentes y unos 100 alumnos en la carrera. Apoyo a los docentes y a los alumnos.
+Pertenezco a la Carrera de Computación.  En la carrera hay tres docentes y unos 100 alumnos. Apoyo a los docentes y a los alumnos.
 Además, apoyo un proyecto de aplicación web del personal de tecnología informatica.
 
 ---
@@ -61,6 +61,8 @@ Tengo tres misiones principales:
 
 ## Actividades y logros del primer año  
 
+
+Ya informo actividades del primer ano.
 ### Actividad 1: Incrementar los conocimientos en desarrollo de aplicaciones Android  
 Para mejorar los conocimientos de desarrollo de aplicaciones Android, he orgaizado dos tipos de capacitaciones:  
 1. Una sobre desarrollo de aplicaciones Android utilizando el lenguaje Kotlin y el framework Jetpack Compose.  
@@ -69,30 +71,35 @@ Para mejorar los conocimientos de desarrollo de aplicaciones Android, he orgaiza
    Una vez que domines Flutter, podrás crear apps para múltiples plataformas, por ejemplo iOS, Android, Web.
    Asi que aprender Flutter puede ampliar las oportunidades profesionales de los alumnos.
 
-#### Actividad 1-1: Capacitaciones para docentes  
-Para docentes, he realizado 15 sesiones de 3 horas cada una, enfocadas en el desarrollo de aplicaciones Android.
+Presento actividades realizadas.
+#### Actividad 1-1: Capacitaciones para docentes
+Para docentes, he realizado 15 sesiones de capacitación de 3 horas cada una, enfocadas en el desarrollo de aplicaciones Android.
 
 #### Actividad 1-2: Clases para alumnos  
 En colaboración con mi contraparte, impartí el módulo de desarrollo de aplicaciones Android.  
 En total, me encargué de 20 de las 30 clases del módulo, trabajando con dos grupos de alumnos.  
 
-Los temas incluyeron Android y Flutter. Aquí algunos ejemplos de aplicaciones creadas en clase: un juego y un chatbot con inteligencia artificial.  
+Los temas eran Android y Flutter. Aquí algunos ejemplos de aplicaciones creadas en clase:
+Hago pequeno demostracion.
+Juego.
+He pedido recomendaciones sobre lugares turísticos.
 
 #### Actividad 1-X: Clase especial en la UMOAR  
-En mi tiempo libre, impartí una clase basica de Flutter en la Universidad Monseñor Óscar Arnulfo Romero, también ubicada en Chalatenango.  
+En mi tiempo libre, impartí una clase basica de Flutter en una universidad (UMOAR) en Chalatenango.  
 
 ---
 
 ### Actividad 2: Introducción de nuevas tecnologías (Git)  
-Para introducir nuevas tecnologías, realicé capacitaciones sobre el uso de GitHub.
+Para la segunda mision introducir nuevas tecnologías, realicé capacitaciones sobre el uso de GitHub.
 GitHub es una herramienta clave para el desarrollo colaborativo de software.  
 
+Presento las Actividad realizadas.
 #### Actividad 2-1: Capacitaciones para personal  
-Para el personal de tecnología informatica, Realicé 7 sesiones de 3 horas cada una.  
+Para el personal de tecnología informatica, Realicé 7 sesiones de capacitación de 3 horas cada una.  
 El objetivo era mejorar la eficiencia en el proyecto de desarrollo de aplicaciones web del personal de tecnología informatica.
 
 #### Actividad 2-2: Capacitaciones para alumnos  
-Para alumnos realicé 6 sesiones de 2 horas cada una.  
+Para alumnos realicé 6 sesiones de capacitación de 2 horas cada una.  
 Los alumnos desarrollan la aplicación en equipos de cinco o seis personas como proyecto de graduación.
 Al igual que en el proyecto del personal, el objetivo era mejorar la eficiencia en sus proyectos de graduación
 
@@ -109,6 +116,7 @@ En total, hize 20 talleres.
 ---
 
 ### Logros del primer año  
+Presento 2 Logros del primer año
 1. Desarrollé materiales educativos para el módulo de desarrollo de aplicaciones Android, que podrán ser reutilizados y actualizados en el futuro, reduciendo la carga de trabajo para los docentes.
 2. El objetivo de difusión de GitHub se ha cumplido.
    La meta era que el 50% de los alumnos utilizaran GitHub para su proyecto de graduación.Como resultado de la capacitacion de GitHub, el 90% utilizó GitHub.
@@ -121,6 +129,7 @@ ITCHA revisa y actualiza sus planes de estudio cada dos años, pero este mecanis
 Como ya he dicho, hay muchísimas tecnologías. Y algunas de estas tecnologías están obsoletas.
 Es necesario concentrarse en las tecnologías demandadas y quitar las obsoletas.
 
+Esta es problema de ITCHA y mia.
 Pero, no se preocupe.
 El problema es el potencial de crecimiento.
 La solaución se explicará en las planes a futuro.
@@ -130,7 +139,7 @@ La solaución se explicará en las planes a futuro.
 ## Planes a futuro  
 
 Pues bien, este año en El Salvador, por primera vez en 17 años, se ha realizado un censo.
-Los resultados del censo serán de gran ayuda para la elaboración de políticas y la planificación.
+Los resultados del censo serán de gran ayuda para la planificación.
 La utilización de datos puede ser muy útil para una planificación eficaz.
 
 Planeo realizar una investigación para identificar las tecnologías más demandadas en las empresas de tecnología informatica en El Salvador.  
