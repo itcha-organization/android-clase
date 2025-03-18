@@ -53,7 +53,7 @@ Para una mejor visibilidad, crea paquetes y mueve el código a archivos separado
   ![image](https://github.com/user-attachments/assets/22516a52-10d3-47f2-8859-b1cb808de121)
   ![image](https://github.com/user-attachments/assets/11bfb61e-0021-4858-9eba-286e20753515)
 
-- Primero creamos el archivo `DetailsScreen`
+- Segundo creamos el archivo `DetailsScreen`
   ![image](https://github.com/user-attachments/assets/ee397418-7563-4f2b-897d-b0139a81d142)
   ![image](https://github.com/user-attachments/assets/98143053-4e0b-4c64-b239-f91108a9d51b)
 
