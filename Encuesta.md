@@ -131,3 +131,6 @@ Esta encuesta tiene como objetivo identificar las tecnologías más utilizadas e
     - Respuesta abierta: _____________________________  
 
 ---
+
+#### **Sección 7: Chat**
+@TODO
