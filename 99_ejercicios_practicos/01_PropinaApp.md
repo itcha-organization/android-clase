@@ -25,3 +25,11 @@ Cree una aplicación móvil que cumpla los siguientes criterios.
 ## Criterios extras
 
 1. Crear un ViewModel y mover los estados y métodos de manipulación de estados al ViewModel.
+
+
+<details>
+  <summary>Ejemplo de solución</summary>
+
+  https://github.com/itcha-organization/propina-app/tree/vercion-viewmodel/app/src/main/java/com/example/propinaapp
+
+</details>
