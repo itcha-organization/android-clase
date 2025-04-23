@@ -36,18 +36,57 @@ fun main() {
 }
 ```
 
-## Pasos para realizar tareas asíncronas en ViewModel (5 pasos)
+¡Claro! Aquí tienes la explicación en español:
 
----
+### 1. **Comparación con el procesamiento asíncrono en C# (`async`/`await`)**
+
+En C#, el procesamiento asíncrono se maneja utilizando las palabras clave `async` y `await`. Esta estructura es muy similar a las funciones `launch` y `suspend` en Kotlin Coroutines, ya que ambas permiten escribir operaciones asíncronas de manera secuencial y fácil de leer.
+
+#### Ejemplo en C#:
+```csharp
+public async Task FetchDataAsync()
+{
+    var result = await GetDataFromNetworkAsync();
+    Console.WriteLine(result);
+}
+
+public async Task<string> GetDataFromNetworkAsync()
+{
+    await Task.Delay(1000);  // Operación asíncrona
+    return "Data fetched";
+}
+```
+
+#### Ejemplo en Kotlin Coroutines:
+```kotlin
+suspend fun fetchData() {
+    val result = getDataFromNetwork()
+    println(result)
+}
+
+suspend fun getDataFromNetwork(): String {
+    delay(1000)  // Operación asíncrona
+    return "Data fetched"
+}
+```
+
+**Puntos de correspondencia**:
+- En C#, `async` y `await` son muy similares a las funciones `suspend` en Kotlin, ya que ambas permiten escribir operaciones asíncronas de manera secuencial.
+- Ambas estructuras permiten esperar una operación asíncrona de manera intuitiva.
+
+## Pasos para realizar tareas asíncronas en ViewModel (5 pasos)
 
 ### ✅ Paso 1: Configurar el entorno de Coroutines en `ViewModel`
 
-`ViewModel` ya tiene `viewModelScope` listo para usar, lo cual permite lanzar corutinas de manera segura.
+Crea una clase `CargarDatoViewModel` y añade las importaciones necesarias.
 
 ```kotlin
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+
+class CargarDatoViewModel : ViewModel() {
+}
 ```
 
 ---
@@ -128,7 +167,7 @@ fun obtenerDatos() {
 ## 📦 Código completo del `ViewModel`
 
 ```kotlin
-class MiViewModel : ViewModel() {
+class CargarDatoViewModel : ViewModel() {
 
     private val _mensaje = MutableStateFlow("Estado inicial")
     val mensaje: StateFlow<String> = _mensaje
@@ -153,12 +192,22 @@ class MiViewModel : ViewModel() {
 ## 💡 Uso en la UI (Jetpack Compose)
 
 ```kotlin
-val viewModel: MiViewModel = viewModel()
-val mensaje by viewModel.mensaje.collectAsState()
+@Composable
+fun CargarDatoScreen(viewModel: CargarDatoViewModel = viewModel()) {
+    // collectAsState()` convierte el valor de `StateFlow` en un `State`.
+    // Cada vez que cambia el valor de `StateFlow`, se refleja en `State`.
+    val mensaje by viewModel.mensaje.collectAsState()
 
-Text(text = mensaje)
-Button(onClick = { viewModel.obtenerDatos() }) {
-    Text("Obtener datos")
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = mensaje, fontSize = 24.sp)
+        Button(onClick = { viewModel.obtenerDatos() }) {
+            Text("Obtener datos")
+        }
+    }
 }
 ```
 
