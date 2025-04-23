@@ -72,7 +72,71 @@ suspend fun getDataFromNetwork(): String {
 - En C#, `async` y `await` son muy similares a las funciones `suspend` en Kotlin, ya que ambas permiten escribir operaciones asíncronas de manera secuencial.
 - Ambas estructuras permiten esperar una operación asíncrona de manera intuitiva.
 
-## Pasos para realizar tareas asíncronas en ViewModel (5 pasos)
+## Pasos para realizar tareas asíncronas en ViewModel
+
+### Preparación previa: Crear `ViewModel` de ejemplo sin procesamiento asíncrono.
+
+- Primero, necesitas agregar la biblioteca para utilizar `ViewModel`. Añade lo siguiente a las dependencias en tu archivo `build.gradle.kts` (:app).
+
+```diff
+dependencies {
+    ...
+
++    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+}
+```
+
+- Crea una clase Kotlin `CargarDatoViewModel` y un archivo Kotlin `CargarDatoScreen` y pega lo siguiente.
+
+```
+class CargarDatoViewModel : ViewModel() {
+
+    var mensaje by mutableStateOf("Estado inicial")
+        private set
+
+    fun obtenerDatos() {
+        mensaje = "Cargando..."
+        val resultado = cargarDatos()
+        mensaje = resultado
+    }
+
+    fun cargarDatos(): String {
+        // Se detiene durante 2 segundos
+        // para representar el tiempo de espera de una conexión a Internet.
+//        delay(2000)
+        return "Datos cargados"
+    }
+}
+```
+```
+@Composable
+fun CargarDatoScreen(viewModel: CargarDatoViewModel = viewModel()) {
+    val mensaje = viewModel.mensaje
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = mensaje, fontSize = 24.sp)
+        Button(onClick = { viewModel.obtenerDatos() }) {
+            Text("Obtener datos")
+        }
+    }
+}
+```diff
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            EjemploAsincrono2Theme {
++                CargarDatoScreen()
+            }
+        }
+    }
+}
+
 
 ### ✅ Paso 1: Configurar el entorno de Coroutines en `ViewModel`
 
