@@ -36,20 +36,7 @@ fun main() {
 }
 ```
 
-## Realización de tareas asíncronas en ViewModel
-
-もちろん、スペイン語に翻訳した教材を作成します！以下がスペイン語での説明です。
-
----
-
-## 🎯 Objetivo
-
-- Ejecutar tareas pesadas (como solicitudes de red o acceso a base de datos) de manera asincrónica en el `ViewModel` sin bloquear el hilo principal (UI).
-- Gestionar el estado y notificar a la UI cuando cambie.
-
----
-
-## 🪜 Pasos (5 pasos)
+## Pasos para realizar tareas asíncronas en ViewModel (5 pasos)
 
 ---
 
