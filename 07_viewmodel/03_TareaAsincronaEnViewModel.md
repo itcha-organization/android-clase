@@ -38,93 +38,151 @@ fun main() {
 
 ## Realización de tareas asíncronas en ViewModel
 
-### Repaso: Pantallas simples usando ViewModel.
+もちろん、スペイン語に翻訳した教材を作成します！以下がスペイン語での説明です。
 
-#### 0. Crea un nuevo proyecto llamado `EjemploAsincrona`.
-Crea un nuevo proyecto. Una vez compilado, elimina la función por defecto `Greeting` y su punto de llamada en la `MainActivity`.
+---
 
-#### 1. **Agregar dependencias de ViewModel al proyecto**  
-Primero, necesitas agregar la biblioteca para utilizar `ViewModel`. Añade lo siguiente a las dependencias en tu archivo `build.gradle.kts` (:app).
+## 🎯 Objetivo
 
-```diff
-dependencies {
-    ...
+- Ejecutar tareas pesadas (como solicitudes de red o acceso a base de datos) de manera asincrónica en el `ViewModel` sin bloquear el hilo principal (UI).
+- Gestionar el estado y notificar a la UI cuando cambie.
 
-+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+---
+
+## 🪜 Pasos (5 pasos)
+
+---
+
+### ✅ Paso 1: Configurar el entorno de Coroutines en `ViewModel`
+
+`ViewModel` ya tiene `viewModelScope` listo para usar, lo cual permite lanzar corutinas de manera segura.
+
+```kotlin
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+```
+
+---
+
+### ✅ Paso 2: Hacer las funciones de procesamiento asincrónico `suspend`
+
+Funciones como `delay()` o las que involucran solicitudes de red deben ser declaradas como `suspend` para que puedan ejecutarse de manera asincrónica.
+
+```kotlin
+suspend fun cargarDatos(): String {
+    delay(2000) // Espera de 2 segundos
+    return "Datos cargados"
 }
 ```
 
-#### 2. **Crear la clase ViewModel**  
-A continuación, crea una clase `ViewModel` para mantener los datos necesarios.
+---
+
+### ✅ Paso 3: Llamar la función `suspend` en `launch`
+
+Como las funciones `suspend` no se pueden ejecutar directamente en un hilo normal, usaremos `viewModelScope.launch {}` para ejecutarlas dentro del `ViewModel`.
 
 ```kotlin
-// Clase ViewModel
-class CargarDatoViewModel : ViewModel() {
-    // Mantener el estado del contador
-    var contador by mutableStateOf(0)
-        private set
-
-    // Función para incrementar el contador
-    fun incrementarContador() {
-        contador++
+fun obtenerDatos() {
+    viewModelScope.launch {
+        val resultado = cargarDatos()
+        // Actualizar el estado para mostrarlo en la UI
     }
 }
 ```
-#### Explicación:
-- Se crea la clase `ViewModel` y se define la variable entera `contador` utilizando `mutableStateOf`. Esto permite que Compose redibuje la interfaz automáticamente.
-- La función `incrementarContador()` incrementa el valor de `contador`.
 
-### 3. **Usar ViewModel en una función Composable**  
-Ahora, utiliza `ViewModel` dentro de una función `Composable`. Se puede obtener una instancia del `ViewModel` usando la función `viewModel()`.
+---
+
+### ✅ Paso 4: Usar `withContext` para cambiar de hilo si es necesario
+
+Si la tarea requiere cambiar de hilo, por ejemplo para acceso a red o a base de datos, usaremos `withContext` con el `Dispatchers.IO`.
+
 ```kotlin
-// Utilizar ViewModel dentro de una función Composable.
-// Se puede obtener una instancia del ViewModel usando la función viewModel()
-@Composable
-fun PantallaContador(viewModel: ContadorViewModel = viewModel()) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        // Mostrar el valor del contador
-        Text(text = "Contador: ${viewModel.contador}", fontSize = 32.sp)
-        Spacer(modifier = Modifier.height(16.dp))
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-        // Botón para incrementar el contador
-        Button(onClick = { viewModel.incrementarContador() }) {
-            Text(text = "Incrementar Contador")
+fun obtenerDatos() {
+    viewModelScope.launch {
+        val resultado = withContext(Dispatchers.IO) {
+            cargarDatos()
         }
     }
 }
 ```
-#### Explicación:
-- Se usa `viewModel()` para obtener una instancia de `ContadorViewModel`.
-- La función `Text` muestra el valor de `viewModel.contador` y el botón llama a `incrementarContador()` para incrementar el contador.
-- Al usar la función `viewModel()` en Compose, el estado se mantiene incluso cuando se producen eventos como la rotación de la pantalla o el redibujado.
 
-### 4. **Mostrar la función Composable que usa ViewModel en la aplicación**  
-Finalmente, incluye la función `PantallaContador` en la actividad o en otras funciones `Composable` para mostrarla en la aplicación.
+---
+
+### ✅ Paso 5: Notificar el estado a la UI con `StateFlow`
+
+Usamos `MutableStateFlow` para manejar el estado (como el mensaje que se muestra en la UI), y lo exponemos como `StateFlow` para que sea solo de lectura.
+
 ```kotlin
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            EjemploViewModelTheme {
-                PantallaContador()
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
+private val _mensaje = MutableStateFlow("Estado inicial")
+val mensaje: StateFlow<String> = _mensaje
+
+fun obtenerDatos() {
+    viewModelScope.launch {
+        _mensaje.value = "Cargando..."
+
+        val resultado = withContext(Dispatchers.IO) {
+            cargarDatos()
+        }
+
+        _mensaje.value = resultado
+    }
+}
+```
+
+---
+
+## 📦 Código completo del `ViewModel`
+
+```kotlin
+class MiViewModel : ViewModel() {
+
+    private val _mensaje = MutableStateFlow("Estado inicial")
+    val mensaje: StateFlow<String> = _mensaje
+
+    fun obtenerDatos() {
+        viewModelScope.launch {
+            _mensaje.value = "Cargando..."
+
+            val resultado = withContext(Dispatchers.IO) {
+                delay(2000) // Simulamos una tarea pesada
+                "¡Datos cargados!"
             }
+
+            _mensaje.value = resultado
         }
     }
 }
 ```
-#### Explicación:
-- Dentro de la clase `MainActivity`, se utiliza `setContent` para mostrar `PantallaContador`.
-- Argumento por defecto `PantallaContador`, establecido para asignar el valor de retorno del método `viewModel()`. Por lo tanto, el constructor puede ser llamado sin argumentos.
 
-### Resumen
+---
 
-- **Creación de ViewModel**: Se crea una clase `ViewModel` y se definen las variables de estado y funciones para operar sobre ellas.
-- **Uso de ViewModel en Composable**: Se utiliza la función `viewModel()` para aprovechar el `ViewModel` dentro de las funciones `Composable`.
-- **Retención de estado**: Usando `ViewModel`, el estado se mantiene incluso durante eventos del ciclo de vida como la rotación de la pantalla o redibujos.
+## 💡 Uso en la UI (Jetpack Compose)
+
+```kotlin
+val viewModel: MiViewModel = viewModel()
+val mensaje by viewModel.mensaje.collectAsState()
+
+Text(text = mensaje)
+Button(onClick = { viewModel.obtenerDatos() }) {
+    Text("Obtener datos")
+}
+```
+
+---
+
+## ✅ Resumen
+
+| Elemento                        | Descripción |
+|----------------------------------|-------------|
+| `viewModelScope.launch`          | Lanza una corutina (dentro del ciclo de vida del `ViewModel`) |
+| Función `suspend`                | Define tareas asincrónicas, puede usar `delay()` o procesos que no bloquean el hilo principal |
+| `withContext(Dispatchers.IO)`    | Ejecuta tareas en un hilo de entrada/salida (para redes, bases de datos) |
+| `MutableStateFlow` / `StateFlow` | Gestiona el estado de manera reactiva, manteniendo los datos actualizados para la UI |
+| `collectAsState()`               | Suscribe la UI a un `Flow` para observar cambios en los datos |
