@@ -87,7 +87,7 @@ dependencies {
 ```
 
 - Crea una clase Kotlin `CargarDatoViewModel` y un archivo Kotlin `CargarDatoScreen` y pega lo siguiente.
-
+- Llama a `CargarDatoScreen` en `MainActivity`.
 ```
 class CargarDatoViewModel : ViewModel() {
 
@@ -124,6 +124,7 @@ fun CargarDatoScreen(viewModel: CargarDatoViewModel = viewModel()) {
         }
     }
 }
+```
 ```diff
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -136,11 +137,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+```
 
 ### ✅ Paso 1: Configurar el entorno de Coroutines en `ViewModel`
 
-Crea una clase `CargarDatoViewModel` y añade las importaciones necesarias.
+Añade las importaciones necesarias.
 
 ```kotlin
 import androidx.lifecycle.ViewModel
@@ -148,6 +149,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class CargarDatoViewModel : ViewModel() {
+...
 }
 ```
 
@@ -158,8 +160,11 @@ class CargarDatoViewModel : ViewModel() {
 Funciones como `delay()` o las que involucran solicitudes de red deben ser declaradas como `suspend` para que puedan ejecutarse de manera asincrónica.
 
 ```kotlin
+// Definir suspend para funciones de procesamiento asíncrono.
 suspend fun cargarDatos(): String {
-    delay(2000) // Espera de 2 segundos
+    // Se detiene durante 2 segundos
+    // para representar el tiempo de espera de una conexión a Internet.
+    delay(2000)
     return "Datos cargados"
 }
 ```
@@ -172,55 +177,27 @@ Como las funciones `suspend` no se pueden ejecutar directamente en un hilo norma
 
 ```kotlin
 fun obtenerDatos() {
+    // La función　con `suspend` se puede ejecutar dentro del bloque `viewModelScope.launch`
     viewModelScope.launch {
+        _mensaje.value = "Cargando..."
         val resultado = cargarDatos()
-        // Actualizar el estado para mostrarlo en la UI
+        _mensaje.value = resultado
     }
 }
 ```
 
 ---
 
-### ✅ Paso 4: Usar `withContext` para cambiar de hilo si es necesario
-
-Si la tarea requiere cambiar de hilo, por ejemplo para acceso a red o a base de datos, usaremos `withContext` con el `Dispatchers.IO`.
-
-```kotlin
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-
-fun obtenerDatos() {
-    viewModelScope.launch {
-        val resultado = withContext(Dispatchers.IO) {
-            cargarDatos()
-        }
-    }
-}
-```
-
----
-
-### ✅ Paso 5: Notificar el estado a la UI con `StateFlow`
+### ✅ Paso 4: Notificar el estado a la UI con `StateFlow`
 
 Usamos `MutableStateFlow` para manejar el estado (como el mensaje que se muestra en la UI), y lo exponemos como `StateFlow` para que sea solo de lectura.
 
 ```kotlin
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-
-private val _mensaje = MutableStateFlow("Estado inicial")
-val mensaje: StateFlow<String> = _mensaje
+    private val _mensaje = MutableStateFlow("Estado inicial") // Variable privada modificable
+    val mensaje: StateFlow<String> = _mensaje // Variable de publicación de sólo lectura
 
 fun obtenerDatos() {
-    viewModelScope.launch {
-        _mensaje.value = "Cargando..."
-
-        val resultado = withContext(Dispatchers.IO) {
-            cargarDatos()
-        }
-
-        _mensaje.value = resultado
-    }
+...
 }
 ```
 
@@ -231,20 +208,24 @@ fun obtenerDatos() {
 ```kotlin
 class CargarDatoViewModel : ViewModel() {
 
-    private val _mensaje = MutableStateFlow("Estado inicial")
-    val mensaje: StateFlow<String> = _mensaje
+    private val _mensaje = MutableStateFlow("Estado inicial") // Variable privada modificable
+    val mensaje: StateFlow<String> = _mensaje // Variable de publicación de sólo lectura
 
     fun obtenerDatos() {
+        // La función　con `suspend` se puede ejecutar dentro del bloque `viewModelScope.launch`
         viewModelScope.launch {
             _mensaje.value = "Cargando..."
-
-            val resultado = withContext(Dispatchers.IO) {
-                delay(2000) // Simulamos una tarea pesada
-                "¡Datos cargados!"
-            }
-
+            val resultado = cargarDatos()
             _mensaje.value = resultado
         }
+    }
+
+    // Definir suspend para funciones de procesamiento asíncrono.
+    suspend fun cargarDatos(): String {
+        // Se detiene durante 2 segundos
+        // para representar el tiempo de espera de una conexión a Internet.
+        delay(2000)
+        return "Datos cargados"
     }
 }
 ```
