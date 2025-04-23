@@ -153,7 +153,7 @@ class CargarDatoViewModel : ViewModel() {
 }
 ```
 
----
+
 
 ### ✅ Paso 2: Hacer las funciones de procesamiento asincrónico `suspend`
 
@@ -169,7 +169,7 @@ suspend fun cargarDatos(): String {
 }
 ```
 
----
+
 
 ### ✅ Paso 3: Llamar la función `suspend` en `launch`
 
@@ -186,25 +186,27 @@ fun obtenerDatos() {
 }
 ```
 
----
+
 
 ### ✅ Paso 4: Notificar el estado a la UI con `StateFlow`
 
 Usamos `MutableStateFlow` para manejar el estado (como el mensaje que se muestra en la UI), y lo exponemos como `StateFlow` para que sea solo de lectura.
 
 ```kotlin
-    private val _mensaje = MutableStateFlow("Estado inicial") // Variable privada modificable
-    val mensaje: StateFlow<String> = _mensaje // Variable de publicación de sólo lectura
+private val _mensaje = MutableStateFlow("Estado inicial") // Variable privada modificable
+val mensaje: StateFlow<String> = _mensaje // Variable de publicación de sólo lectura
 
 fun obtenerDatos() {
 ...
 }
 ```
 
----
 
-## 📦 Código completo del `ViewModel`
 
+
+<details>
+  <summary>📦Código completo del `ViewModel`</summary>
+    
 ```kotlin
 class CargarDatoViewModel : ViewModel() {
 
@@ -230,7 +232,8 @@ class CargarDatoViewModel : ViewModel() {
 }
 ```
 
----
+</details>
+
 
 ## 💡 Uso en la UI (Jetpack Compose)
 
@@ -254,12 +257,12 @@ fun CargarDatoScreen(viewModel: CargarDatoViewModel = viewModel()) {
 }
 ```
 
----
+
 
 ## ✅ Resumen
 
 | Elemento                        | Descripción |
-|----------------------------------|-------------|
+|-|-|
 | `viewModelScope.launch`          | Lanza una corutina (dentro del ciclo de vida del `ViewModel`) |
 | Función `suspend`                | Define tareas asincrónicas, puede usar `delay()` o procesos que no bloquean el hilo principal |
 | `withContext(Dispatchers.IO)`    | Ejecuta tareas en un hilo de entrada/salida (para redes, bases de datos) |
