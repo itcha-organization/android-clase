@@ -36,8 +36,6 @@ fun main() {
 }
 ```
 
-¡Claro! Aquí tienes la explicación en español:
-
 ### 1. **Comparación con el procesamiento asíncrono en C# (`async`/`await`)**
 
 En C#, el procesamiento asíncrono se maneja utilizando las palabras clave `async` y `await`. Esta estructura es muy similar a las funciones `launch` y `suspend` en Kotlin Coroutines, ya que ambas permiten escribir operaciones asíncronas de manera secuencial y fácil de leer.
