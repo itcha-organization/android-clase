@@ -31,3 +31,57 @@ Gradle Android Compiler
 
 
 </details>
+
+
+ベースライン
+https://scans.gradle.com/s/bvj5rd2qirzye
+https://scans.gradle.com/s/yhpe55iggjuk6
+
+
+
+
+https://androidguru.one/760/
+Compiler（JVMのオプション＝Command-line Options？）
+「Build, Execution, Deployment」→「Compiler」→「Command-line Options」
+ここで、「-Xmx」オプションを使用してHeap Sizeを指定することができます。たとえば、「-Xmx2048m」と入力すると、Heap Sizeを2048MBに設定することができます。
+
+※マルチモジュールのプロジェクトのみで有効(デフォルトではモジュールはappのみ)
+Build, Execution, Deployment > Compiler > Compile independent modules in parallelのチェックボックスにチェックを入れる必要があります。この設定を有効にすることで、コンパイルプロセスが並列化され、コンパイル速度が向上します。
+
+
+Gradle（ビルドツール）
+Gradleの設定方法として、Gradle VM optionsを確認することが挙げられます。Gradle VM optionsは、Gradleが使用するメモリーの量を調整することができます。デフォルトでは、Gradleは512MBのメモリーを使用しますが、この量を増やすことでビルド速度を向上させることができます。たとえば、1024MBや2048MBに設定することで、ビルド速度を向上させることができます。
+
+ Android Studioの起動に使用されるJVM/Android Studio自体がどれだけのメモリを消費するかを決定
+studio.vmoptions/studio64.exe.vmoptions
+2. Increase IDE heap size to Max ( IDE performance enhancement)
+As an Android developer, you already know that Android Studio requires a lot of RAM to run; if you haven't, the whole Android Studio/editor will lag. But if you already have enough RAM and are still facing a laggy editor issue, you can reduce the default heap size to max.
+Go to: Settings → Appearance & Behavior → System Settings → Memory Settings → Select IDE max heap size.
+I recommend choosing max heap size according to your RAM range from 2048MB to 4096MB.
+
+gradle.properties
+gradleのJVMオプション、gradleのビルドコマンドのパラメータを設定できる
+
+
+プラグイン管理
+Wajahat Karim Feb 20, 2019
+https://medium.com/android-news/is-your-android-studio-always-slow-heres-how-to-speed-up-immediately-326ef9238024
+最終更新日 2018年09月26日
+https://qiita.com/ikemura23/items/0b370d638c20e081bc96
+
+ビルド最適化
+AndroidStudioでビルドを高速化するTIPSを試してみる（公式の検証）
+https://qiita.com/etet-etet/items/29d58bd34f95763fd171
+スキャンの見方など
+https://www.freecodecamp.org/news/how-to-improve-the-build-speed-of-your-android-projects-bd49029d8602/
+android.enableBuildCache=true and org.gradle.caching=true
+https://punchthrough.com/android-studio/
+
+トラブルシューティング
+ファイル > キャッシュを無効化/再起動
+https://stackoverflow.com/questions/42679475/android-studio-slow-performance
+
+未読
+https://tekidroid.tokyo/android-studio%E3%81%AE%E9%87%8D%E3%81%95%E3%82%92%E8%A7%A3%E6%B6%88%EF%BC%81/
+https://www.droidcon.com/2025/05/06/how-to-reduce-android-studio-memory-usage/
+https://www.blog.finotes.com/post/tips-to-speed-up-android-studio-boost-your-development-workflow-today
