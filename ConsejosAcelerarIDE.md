@@ -73,3 +73,23 @@ https://stackoverflow.com/questions/42679475/android-studio-slow-performance
 
 未読
 https://tekidroid.tokyo/android-studio%E3%81%AE%E9%87%8D%E3%81%95%E3%82%92%E8%A7%A3%E6%B6%88%EF%BC%81/
+
+
+ベースライン
+https://scans.gradle.com/s/bvj5rd2qirzye
+https://scans.gradle.com/s/yhpe55iggjuk6
+
+JVM 並列ガベージ コレクタを試す
+https://developer.android.com/build/optimize-your-build?hl=ja#experiment-with-the-jvm-parallel-garbage-collector
+https://gradle.com/s/zdd4m5ishfgny
+https://gradle.com/s/uvulj5q7hdvbm
+
+ビルドキャッシュ
+https://medium.com/glovo-engineering/accelerate-your-android-development-top-techniques-to-reduce-gradle-build-time-part-i-of-ii-4f35aa4a1a17
+https://gradle.com/s/blsoqzegegmn4
+https://gradle.com/s/xm7p5k3iu7lz4
+
+構成キャッシュ
+org.gradle.configuration-cache=true 
+https://gradle.com/s/awqrllqc22eok
+https://gradle.com/s/ek3scfufx4xwi
