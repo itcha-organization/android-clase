@@ -18,7 +18,105 @@ Revise el procedimiento mientras crea una aplicación que almacena una lista de 
 
 ![image](https://github.com/user-attachments/assets/0d3df638-56f9-481d-bf7c-53ae84891457)
 
-### 0. **Crear un Proyecto `EjemploRoom`**
+### Preparación Previa: Creación de una aplicación de vista de lista sin base de datos.
+- Crear un Proyecto `EjemploRoom`.
+- Crear un paquete `components` bajo `ui`.
+- Crear una clase `UsuarioViewModel` y un archivo `ListaUsuariosView` en el paquete `components`
+- Añadir lo siguiente a las dependencias en su archivo `build.gradle.kts (:app)` y hacer clic en `Sync Now`.
+```diff
+dependencies {
+    ...
+
++    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+}
+```
+- Pegar el siguiente código en el `UsuarioViewModel`.
+    ```
+    class UsuarioViewModel() : ViewModel() {
+        // Estado para gestionar la lista de usuario
+        var listaUsuario by mutableStateOf(listOf<Usuario>())
+    
+        init {
+            listaUsuario = listOf(Usuario("Juan", 25), Usuario("Maria", 30))
+        }
+    
+        fun addUsuario(usuario: Usuario) {
+            listaUsuario = listaUsuario + usuario
+        }
+    }
+    
+    data class Usuario(val nombre: String, val edad: Int)
+    ```
+- Pegar el siguiente código en el `ListaUsuariosView`.
+    ```
+    @Composable
+    fun ListaUsuariosView(viewModel: UsuarioViewModel) {
+        val usuarios = viewModel.listaUsuario
+        var nombre by remember { mutableStateOf("") }
+        var edad by remember { mutableStateOf("") }
+    
+        Column(
+            modifier = Modifier
+                .padding(top = 50.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            //OutlinedTextField para capturar nombre de usuario
+            OutlinedTextField(
+                value = nombre,
+                onValueChange = {nombre = it},
+                label = { Text(text = "Usuario") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
+            )
+            //OutlinedTextField para capturar el edad
+            OutlinedTextField(
+                value = edad,
+                onValueChange = {edad = it},
+                label = { Text(text = "Edad") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+            Button(
+                onClick = {
+                    val usuario = Usuario(nombre = nombre, edad = edad.toInt())
+                    viewModel.addUsuario(usuario)
+                    nombre = ""
+                    edad = ""
+                },
+                enabled = nombre.isNotBlank() && edad.isNotBlank()
+            ) {
+                Text(text = "Agregar", color = Color.Blue)
+            }
+            HorizontalDivider(thickness = 4.dp, color = Color.Blue)
+            LazyColumn {
+                items(usuarios) { usuario: Usuario ->
+                    Text(
+                        text = "Nombre:${usuario.nombre}, Edad:${usuario.edad}"
+                    )
+                    HorizontalDivider(thickness = 1.dp, color = Color.Black)
+                }
+            }
+        }
+    }
+    ```
+- Modificar `MainActivity` como sigue y ejecutar la aplicación.
+    ```
+    class MainActivity : ComponentActivity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            enableEdgeToEdge()
+            setContent {
+                EjemploRoom20250513Theme {
+                    val viewModel: UsuarioViewModel = viewModel()
+                    ListaUsuariosView(viewModel)
+                }
+            }
+        }
+    }
+    ```
 
 ### 1. **Agregar plug-in y dependencias**
 
