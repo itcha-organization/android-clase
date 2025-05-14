@@ -119,15 +119,15 @@ dependencies {
 ## 1. **Agregar plug-in y dependencias**
 
 Primero, necesitas agregar plug-in.
-Abre `libs.versions.toml` y comprueba que la versión de kotlin es `2.0.0` o superior.
+Abre `libs.versions.toml` y comprueba que la versión de kotlin es `2.0.21`.
 
 ![image](https://github.com/user-attachments/assets/3e17132b-c808-4275-98ca-79bc439ced53)
 
-Si la versión de Kotlin es `2.0.0` o superior, añade siguiente codigo en tu archivo `build.gradle.kts` (:app).
+Si la versión de Kotlin es `2.0.21`, añade siguiente codigo en tu archivo `build.gradle.kts` (:app).
 ```kotlin
 plugins {
   ...Arriba omitido...
-  id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+  id("com.google.devtools.ksp") version "2.0.21-1.0.28"
 }
 ```
 <details>
@@ -257,7 +257,7 @@ class UsuarioViewModel(
 +        }
     }
 
-    fun addUsuario(usuario: Usuario) = viewModelScope.launch {
+    fun addUsuario(usuario: Usuario) {
 +        viewModelScope.launch {
 +            dao.insert(usuario)
 +        }
