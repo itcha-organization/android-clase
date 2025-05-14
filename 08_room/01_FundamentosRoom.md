@@ -126,7 +126,6 @@ dependencies {
 +    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 }
 ```
-
 ## 1. **Agregar plug-in y dependencias**
 
 Primero, necesitas agregar plug-in.
@@ -184,6 +183,10 @@ data class Usuario(
     val edad: Int
 )
 ```
+- **`@Entity(tableName = "tabla_usuario")`**
+    - Indica que esta clase representa una tabla en la base de datos.
+    - El atributo tableName define el nombre real de la tabla: "tabla_usuario".
+      > Si no se especifica, se usará el nombre de la clase por defecto (Usuario).
 - **`@PrimaryKey(autoGenerate = true)`**
   - Al especificar `autoGenerate = true`, se indica que cuando se crea un nuevo objeto Usuario, este `id` se generará automáticamente. Esto significa que el desarrollador no necesita establecer manualmente el valor de `id`.
 
@@ -216,11 +219,10 @@ interface UsuarioDao {
   - Indica que esta interfaz es un Data Access Object (DAO).La interfaz `UsuarioDao` define métodos para interactuar con la tabla `tabla_usuario` de la base de datos.
 
 - **`Flow<List<Usuario>>`**:
-  - **`Flow`** es tipo de la programación reactiva, lo que significa que puede monitorear cambios en los datos y notificarlos cuando estos ocurren.
+  - **`Flow`** es flujo(transmisión) de datos, lo que significa que puede monitorear cambios en los datos y notificarlos cuando estos ocurren.
   - Al devolver un **`Flow`** en el método `getAll()`, puedes obtener actualizaciones en tiempo real de los datos dentro de la tabla `tabla_usuario`. Cada vez que los datos cambien (por ejemplo, si se inserta o elimina un usuario), la lista se actualizará automáticamente
 
 ## 4. **Crear clase de Base de Datos**
-
 Extiende la clase `RoomDatabase` y define la base de datos. Se recomienda que esta clase tenga una única instancia en toda la aplicación.
 
 ```kotlin
@@ -329,6 +331,10 @@ class MainActivity : ComponentActivity() {
 ```
 - **`Room.databaseBuilder()`**:
   - Se utiliza el método `databaseBuilder()` de la clase `Room` para construir una instancia de la base de datos. Esto se hace proporcionando el contexto de la aplicación y la clase de base de datos (en este caso, `UsuarioDatabase::class.java`), que se usará para crear la base de datos.
+
+- **this**
+    - Este parámetro representa el contexto de `Application` o `Activity`.
+    - Se necesita para que Room sepa en qué parte de la aplicación se está creando la base de datos.
 
 - **`"db_usuarios"`**:
   - Este es el nombre que se le da a la base de datos, y bajo este nombre se almacenará el archivo de la base de datos en el almacenamiento del dispositivo.
