@@ -23,15 +23,16 @@ Crear un paquete `components` bajo `ui`.
 Crear una clase `UsuarioViewModel` en `components` y pegar el siguiente código en el `UsuarioViewModel`.
 ```kotlin
 class UsuarioViewModel() : ViewModel() {
-    // Estado para gestionar la lista de usuario
-    var listaUsuario by mutableStateOf(listOf<Usuario>())
+    // StateFlow para gestionar la lista de usuario
+    private val _listaUsuario = MutableStateFlow(listOf<Usuario>())
+    val listaUsuario: StateFlow<List<Usuario>> = _listaUsuario
 
     init {
-        listaUsuario = listOf(Usuario("Juan", 25), Usuario("Maria", 30))
+        _listaUsuario.value = listOf(Usuario("Juan", 25), Usuario("Maria", 30))
     }
 
     fun addUsuario(usuario: Usuario) {
-        listaUsuario = listaUsuario + usuario
+        _listaUsuario.value = _listaUsuario.value + usuario
     }
 }
 
@@ -39,9 +40,19 @@ data class Usuario(val nombre: String, val edad: Int)
 ```
 Crear un archivo `ListaUsuariosView` en `components` y pegar el siguiente código en el `ListaUsuariosView`.
 ```kotlin
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+
 @Composable
 fun ListaUsuariosView(viewModel: UsuarioViewModel) {
-    val usuarios = viewModel.listaUsuario
+    val usuarios by viewModel.listaUsuario.collectAsState()
     var nombre by remember { mutableStateOf("") }
     var edad by remember { mutableStateOf("") }
 
@@ -112,7 +123,7 @@ Añadir lo siguiente a las dependencias en su archivo `build.gradle.kts (:app)` 
 dependencies {
     ...
 
-+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
++    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 }
 ```
 
