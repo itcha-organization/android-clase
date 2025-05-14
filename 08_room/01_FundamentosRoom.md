@@ -256,17 +256,17 @@ Room se puede integrar con ViewModel para gestionar correctamente el ciclo de vi
 class UsuarioViewModel(
 +    private val dao: UsuarioDao
 ) : ViewModel() {
-    // Estado para gestionar la lista de usuario
-    var listaUsuario by mutableStateOf(listOf<Usuario>())
+     // StateFlow para gestionar la lista de usuario
+-    private val _listaUsuario = MutableStateFlow(listOf<Usuario>())
++    val listaUsuario: StateFlow<List<Usuario>> = dao.getAll().stateIn(
++        scope = viewModelScope,
++        started = SharingStarted.WhileSubscribed(5_000),
++        initialValue = listOf<Usuario>()
++    )
 
-    init {
-+        viewModelScope.launch {
-+            //obtenemos el listado de usuarios y lo convertimos a una coleccion
-+            dao.getAll().collectLatest {
-+                listaUsuario = it
-+            }
-+        }
-    }
+-    init {
+-        _listaUsuario.value = listOf(Usuario("Juan", 25), Usuario("Maria", 30))
+-    }
 
     fun addUsuario(usuario: Usuario) {
 +        viewModelScope.launch {
@@ -277,12 +277,32 @@ class UsuarioViewModel(
 
 - data class Usuario(val nombre: String, val edad: Int)
 ```
-- **`dao.getAll().collectLatest`**:
-  - obtiene la lista de usuarios de la base de datos y actualiza `listaUsuario` cada vez que se recibe una nueva lista.
-  - Al usar `collectLatest`, se optimiza la actualización de datos, manteniendo siempre el estado más reciente.
+-  **`dao.getAll()`**
+    -  Devuelve un `Flow<List<Usuario>>` desde la base de datos.
+    -  Por el flujo de datos `Flow`, se podría estar observando una tabla de usuarios en tiempo real.
 
+-  **`.stateIn(...)`**
+    -  Convierte un `Flow` en un `StateFlow`.
+    -  Parámetros:
+        1. `scope`: el alcance del ciclo de vida (aquí, `viewModelScope`).
+        2. `started`: la estrategia de compartición del flujo.
+        3. `initialValue`: el valor inicial si aún no hay datos emitidos.
+
+- **`started = SharingStarted.WhileSubscribed(5_000)`**
+    - Indica que el `Flow` **solo estará activo mientras alguien lo esté observando** (`collect`).
+    - Si nadie lo observa, espera 5 segundos antes de detenerse.
+        ```
+        WhileSubscribed(5_000) significa:
+        - Hay observadores → el flujo sigue activo.
+        - Nadie observa → espera 5 segundos y se detiene.
+        ```
 ## 6. **Construir la UI con Jetpack Compose**
-Finalmente, debes crear una instancia de la base de datos, que se usará durante todo el ciclo de vida de la aplicación.
+En `ListaUsuariosView`, importar la entidad creada `Usuario`.
+```
+import com.example.ejemploroom.data.Usuario
+```
+
+En `MainActivity`, debe crear una instancia de la base de datos, que se usará durante todo el ciclo de vida de la aplicación.
 ```diff
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -313,10 +333,7 @@ class MainActivity : ComponentActivity() {
 - **`"db_usuarios"`**:
   - Este es el nombre que se le da a la base de datos, y bajo este nombre se almacenará el archivo de la base de datos en el almacenamiento del dispositivo.
 
-## Visualización del contenido de la BD en las herramientas de AndroidStudio
-
-## Comprobación del contenido de la BD con `AppInspection`.
-
+## Visualización del contenido de la BD en las herramientas de AndroidStudio `AppInspection`
 Se puede utilizar `AppInspection` para comprobar los datos almacenados en la BD.
 
 ![image](https://github.com/user-attachments/assets/55401840-2f75-445f-9485-89d2b78becfd)
@@ -325,7 +342,7 @@ Active `Actualizaciones en directo` para observar las actualizaciones de datos e
 
 ![image](https://github.com/user-attachments/assets/175a7cd1-2cc8-465c-bd31-907e38c4afa5)
 
-## Añadir funcionalidad a la aplicación
+# Añadir funcionalidad a la aplicación
 
 ## Uso de componentes `Card` para mejorar el diseño
 
@@ -396,7 +413,6 @@ LazyColumn {
 ```
 
 Añade un método al `UsuarioViewModel` para acceder al método de borrado del DAO.
-
 ```kotlin
 // delete
 fun deleteUsuario(usuario: Usuario) = viewModelScope.launch {
@@ -405,11 +421,9 @@ fun deleteUsuario(usuario: Usuario) = viewModelScope.launch {
 ```
 
 ## Añadir una barra de búsqueda
-
 ![image](https://github.com/user-attachments/assets/587beb1c-cd40-47ba-8277-522ef333fcb9)
 
 Añadir campo de texto y estado para la barra de búsqueda.
-
 ```kotlin
 // estado de consulta de búsqueda.
 var consulta by remember { mutableStateOf("") }
@@ -432,14 +446,12 @@ TextField(
 ```
 
 Filtra la lista y pasa la lista de usuarios filtrada a `items` en la `LazyColumn`.
-
 ```kotlin
 // Filtrar los listados en función de los términos de búsqueda.
 val filteredList = usuarios.filter {
     it.nombre.contains(consulta, ignoreCase = true)
 }
 ```
-
 ```diff
 LazyColumn {
 +    items(filteredList) { usuario: Usuario ->
