@@ -47,4 +47,9 @@ Hay tres campos que rellenar: `Nombre`, `Apellido`, `Edad`<br>
   ![image](https://github.com/user-attachments/assets/9f2c40a4-fc33-41b2-8b0a-15c5b52e2fd8)
 
 ## PASO8: Añadir una función de borrado
-- En `ListaAmigosView`, aplica una `Card` a cada elemento de la `LazyColumn` para mejorar el diseño como se muestra en la imagen de abajo.
+- En `AmigoViewModel`, crear un método para borrar datos de la base de datos usando `delete` de DAO.
+- En `ListaAmigosView`, añadir un `IconButton` de borrado como se muestra en la imagen de abajo.
+- Añadir un método para borrar del ViewModel como acción para el `IconButton` añadido.
+  <br>
+  ![image](https://github.com/user-attachments/assets/21812715-042c-4688-9990-9901cb9aa232)
+
