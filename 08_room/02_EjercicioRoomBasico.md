@@ -39,3 +39,12 @@ Hay tres campos que rellenar: `Nombre`, `Apellido`, `Edad`<br>
 - Importar entidad `Amigo` en `ListaUsuariosView`.
 - En MainActivity, crear las instancias de la base de datos y DAO
 - En MainActivity, inicializar el ViewModel pasando la instancia de DAO.
+- Añadir `@SuppressLint("ViewModelConstructorInComposable")` cuando aparezcan advertencias en el constructor de `AmigoViewModel`.
+
+## PASO7: Usar `Card` para mejorar el diseño
+- En `ListaAmigosView`, aplica una `Card` a cada elemento de la `LazyColumn` para mejorar el diseño como se muestra en la imagen de abajo.
+  <br>
+  ![image](https://github.com/user-attachments/assets/9f2c40a4-fc33-41b2-8b0a-15c5b52e2fd8)
+
+## PASO8: Añadir una función de borrado
+- En `ListaAmigosView`, aplica una `Card` a cada elemento de la `LazyColumn` para mejorar el diseño como se muestra en la imagen de abajo.
