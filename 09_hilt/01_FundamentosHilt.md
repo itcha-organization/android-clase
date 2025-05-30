@@ -9,7 +9,9 @@ Hilt le ayuda a escribir **código más limpio, mantenible y escalable**, reduci
 # Pasos para implementar inyección de dependencias con Hilt
 
 ## Preparación Previa: Clonación del código inicial
+Clona el siguiente repositorio en AndroidStudio.
 
+https://github.com/itcha-organization/ListaUsuarios
 
 ## 1. **Agregar plug-in y dependencias**
 Primero, necesitas agregar plug-in y dependencias.
@@ -116,8 +118,11 @@ object AppModule {
   - Define cómo crear una instancia manualmente.
 - **`@Singleton`**:
   - Una sola instancia en toda la app.
+- `@ApplicationContext`:
+  - Permite inyectar un Context global que vive durante toda la vida de la app.
+  - Sin @ApplicationContext, se producirá el error «No sé qué Contexto utilizar».
 
-## 5. **Crear un ViewModel con @HiltViewModel y constructor anotado con @Inject**
+## 5. **Anotar ViewModel con @HiltViewModel y constructor anotado con @Inject**
 ```
 @HiltViewModel
 class UsuarioViewModel @Inject constructor(
@@ -132,6 +137,7 @@ class UsuarioViewModel @Inject constructor(
     -  Permite a Hilt saber cómo crear la instancia.
 
 ## 6. **Usar `by viewModels()` para inicializar el ViewModel **
+
 Usar by viewModels() o hiltViewModel() para inicializar el ViewModel y eliminar el código manual de creación.
 ```diff
 import androidx.activity.viewModels //★
