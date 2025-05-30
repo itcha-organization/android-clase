@@ -69,7 +69,7 @@ En AndroidManifest.xml, añada la siguiente línea.
 class MainActivity : AppCompatActivity() { ... }
 ```
 - **`@AndroidEntryPoint`**:
-  - Esto permite a Hilt inyectar dependencias como ViewModel o Fragment dentro de esta actividad.
+  - Esto permite a Hilt inyectar dependencias como ViewModel dentro de esta actividad.
 
 ## 4. **Crear un módulo y Definir cómo se crean las instancias.**
 Crear una clase `AppModule`.
@@ -140,7 +140,7 @@ class UsuarioViewModel @Inject constructor(
 
 Usar by viewModels() o hiltViewModel() para inicializar el ViewModel y eliminar el código manual de creación.
 ```diff
-import androidx.activity.viewModels //★
+import androidx.activity.viewModels //★Agregar
 
  class MainActivity : ComponentActivity() {
 -    @SuppressLint("ViewModelConstructorInComposable")
@@ -159,7 +159,7 @@ import androidx.activity.viewModels //★
 -                val dao = database.usuarioDao()
 -                // Inicializar el ViewModel dando la instancia DAO al constructor.
 -                val viewModel = UsuarioViewModel(dao)
-                 val viewModel: UsuarioViewModel by viewModels() //★
+                 val viewModel: UsuarioViewModel by viewModels() //★Agregar
                  ListaUsuariosView(viewModel)
              }
          }
