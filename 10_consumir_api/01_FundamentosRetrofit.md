@@ -353,7 +353,9 @@ dependencies {
 Haga clic en `Sync Now` para sincronizar.
 ![image](https://github.com/user-attachments/assets/79dcefdd-b5c2-49d2-ac7a-020075ea255e)
 
-## 
+## 2. Crear estructura de paquete
+Crear paquetes `data`, `di`, `model`, `utils` de acuerdo a la siguiente imagen
+![image](https://github.com/user-attachments/assets/0b1d39ec-15cd-4f15-98d2-393a6e24c9f2)
 
 ## 3. **Crear la clase Application Anotado con @HiltAndroidApp**
 Crear una clase `ProductApplication` en el paquete principal
@@ -376,4 +378,91 @@ En AndroidManifest.xml, añada la siguiente línea.
 ```kotlin
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() { ... }
+```
+
+## 5. Crear Constants para definir constantes
+Crear archivos `Constants` en el paquete `utils` y pegar los siguiente código.
+
+La palabra clave `object` hace que `Constants` sea la única instancia de la aplicación.<br>
+Definir la URL base y la ruta de la API como constantes. Ademas, definir los códigos de color habitual de la aplicación como constantes.
+
+```kotlin
+object Constants {
+    const val BASE_URL = "https://fakestoreapi.com/"
+    const val ENDPOINT = "products"
+    const val CUSTOM_BLACK = 0xFF2B2626
+}
+```
+
+## 6. Crear un modelo para la respuesta JSON de la API
+Para definir el o los modelos a utilizar debe analizarse la estructura del JSON devuelto por la API en el endpoint principal: https://fakestoreapi.com/
+
+Crear el archivo `ProductModel` en el paquete `model` y pegar los siguiente código.
+```kotlin
+data class ProductModel(
+    val id : Int,
+    val title : String,
+    val price : Double,
+    val description : String,
+    val category : String,
+    val image : String,
+    val rating : Rating
+)
+
+data class Rating(
+    val rate: Double,
+    val count: Int
+)
+```
+
+## 7. Crear interfaz de API
+El componente clave de Retrofit es la interfaz de API, que define los endpoints y métodos HTTP de forma declarativa.
+
+Crear el archivo `ApiProduct` en el paquete `data` y pegar los siguiente código.
+```kotlin
+interface ApiProduct {
+
+    @GET(ENDPOINT)
+    suspend fun getProducts(): Response<List<ProductModel>>
+
+    @GET("$ENDPOINT/{id}")
+    suspend fun getProductById(@Path("id") id: Int): Response<ProductModel>
+
+   //faltan métodos para agregar, editar y eliminar registros
+}
+```
+
+## 8. Crear módulo para la configuración de la inyección de dependencias
+Crear el archivo `AppModule` en el paquete `di` y pegar los siguiente código.
+
+Este módulo configura Retrofit como cliente HTTP y prepara la interfaz ApiProduct para hacer peticiones a la API. Ambas instancias se crean una vez y se reutilizan gracias al patrón Singleton, y están listas para ser inyectadas en las clases que las necesiten usando Hilt.
+
+```kotlin
+@Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+    //para inyectar dependencia primero se define el Singleton y despues el provider
+    @Singleton
+    @Provides
+    fun providesRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providesApiProducts(retrofit: Retrofit): ApiProduct {
+        return retrofit.create(ApiProduct::class.java)
+    }
+}
+```
+
+## 9. Crear una clase Repository
+Crear el clase `ProductRepository` en el paquete `data` y pegar los siguiente código.
+
+Un repositorio es una capa que separa la lógica de obtención de datos de la lógica de la interfaz de usuario (UI).
+
+```kotlin
 ```
