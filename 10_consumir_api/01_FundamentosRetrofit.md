@@ -317,3 +317,63 @@ Surface(
     NavManager(productViewModel)
 }
 ```
+
+## 1. Agregar plug-in y dependencias
+Añade el siguiente plugin a `build.gradle.kts` en el directorio raíz.
+```kotlin
+plugins {
+    ...Arriba omitido...
+    id("com.google.devtools.ksp") version "2.0.21-1.0.28" apply false
+    id("com.google.dagger.hilt.android") version "2.56.2" apply false
+}
+```
+
+Necesita agregar plugin y dependencias. Añade siguiente codigo en tu archivo `build.gradle.kts (:app)`.
+```kotlin
+plugins {
+  ...Arriba omitido...
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+}
+```
+```kotlin
+dependencies {
+    ...Arriba omitido...
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.56.2")
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // Coil
+    implementation("io.coil-kt.coil3:coil-compose:3.2.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.2.0")
+}
+```
+Haga clic en `Sync Now` para sincronizar.
+![image](https://github.com/user-attachments/assets/79dcefdd-b5c2-49d2-ac7a-020075ea255e)
+
+## 
+
+## 3. **Crear la clase Application Anotado con @HiltAndroidApp**
+Crear una clase `ProductApplication` en el paquete principal
+```kotlin
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class ProductApplication: Application()
+```
+En AndroidManifest.xml, añada la siguiente línea.
+```xml
+<application
+    android:name=".ProductApplication"
+    ... >
+</application>
+```
+
+## 4. **Anotar MainActivity con @AndroidEntryPoint**
+```kotlin
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() { ... }
+```
