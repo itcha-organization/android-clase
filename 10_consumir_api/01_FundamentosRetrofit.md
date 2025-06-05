@@ -421,6 +421,8 @@ El componente clave de Retrofit es la interfaz de API, que define los endpoints 
 
 Crear el archivo `ApiProduct` en el paquete `data` y pegar los siguiente código.
 ```kotlin
+import retrofit2.Response
+
 interface ApiProduct {
 
     @GET(ENDPOINT)
@@ -429,7 +431,11 @@ interface ApiProduct {
     @GET("$ENDPOINT/{id}")
     suspend fun getProductById(@Path("id") id: Int): Response<ProductModel>
 
-   //faltan métodos para agregar, editar y eliminar registros
+
+    @DELETE("$ENDPOINT/{id}")
+    suspend fun deleteProduct(@Path("id") id: Int): Response<Unit>
+
+    //faltan métodos para agregar y editar.
 }
 ```
 
@@ -439,6 +445,8 @@ Crear el archivo `AppModule` en el paquete `di` y pegar los siguiente código.
 Este módulo configura Retrofit como cliente HTTP y prepara la interfaz ApiProduct para hacer peticiones a la API. Ambas instancias se crean una vez y se reutilizan gracias al patrón Singleton, y están listas para ser inyectadas en las clases que las necesiten usando Hilt.
 
 ```kotlin
+import javax.inject.Singleton
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -461,11 +469,13 @@ object AppModule {
 ```
 
 ## 9. Crear una clase Repository
-Crear el clase `ProductRepository` en el paquete `data` y pegar los siguiente código.
+Crear la clase `ProductRepository` en el paquete `data` y pegar los siguiente código.
 
 Un repositorio es una capa que separa la lógica de obtención de datos de la lógica de la interfaz de usuario (UI).
 
 ```kotlin
+import javax.inject.Inject
+
 class ProductRepository @Inject constructor(private val apiProduct: ApiProduct) {
 
     suspend fun getProducts(): List<ProductModel>? {
@@ -494,6 +504,7 @@ class ProductRepository @Inject constructor(private val apiProduct: ApiProduct) 
 ```
 
 ## 10. Crear la clase ProductState para gestionar variables de estado
+Crear la clase `ProductState` en el paquete `ui` y pegar los siguiente código.
 
 ```kotlin
 data class ProductState(
@@ -509,3 +520,346 @@ data class ProductState(
 )
 ```
 
+## 11. Añadir métodos para la obtención de datos al ViewModel.
+
+```kotlin
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import javax.inject.Inject
+
+@HiltViewModel
+class ProductViewModel @Inject constructor(
+    private val repository: ProductRepository
+) : ViewModel() {
+
+    // Lista de productos
+    private val _products = MutableStateFlow<List<ProductModel>>(emptyList())
+    val products = _products.asStateFlow()
+
+    // Estado del producto en detalle
+    var state by mutableStateOf(ProductState())
+        private set
+
+    init {
+        getProducts()
+    }
+
+    private fun getProducts() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val products = repository.getProducts()
+                Log.d("ProductViewModel", "Fetched products: $products")
+                _products.value = products ?: emptyList()
+            }
+        }
+    }
+
+    fun getProductById(id: Int) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val product = repository.getProductById(id)
+                state = state.copy(
+                    title = product?.title ?: "",
+                    price = product?.price ?: 0.0,
+                    description = product?.description ?: "",
+                    category = product?.category ?: "",
+                    image = product?.image ?: "",
+                    rating = product?.rating ?: Rating(0.0, 0)
+                )
+            }
+        }
+    }
+    
+    fun clean() {
+        state = state.copy(
+            title = "",
+            price = 0.0,
+            description = "",
+            category = "",
+            image = "",
+            rating = Rating(0.0, 0)
+        )
+    }
+}
+```
+
+## 11. Crear CardProduct
+Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
+
+```kotlin
+import androidx.compose.ui.Modifier
+import androidx.compose.material3.Text
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.Icon
+import androidx.compose.foundation.layout.Row
+
+@Composable
+fun CardProduct(
+    product: ProductModel,
+    onClick: () -> Unit,
+    onEditClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+) {
+    Card(
+        shape = RoundedCornerShape(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .shadow(elevation = 10.dp)
+            .clickable { onClick() }
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        ) {
+            // Imagen del producto
+            AsyncImage(
+                model = product.image,
+                contentDescription = null,
+                contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(250.dp)
+                    .padding(8.dp)
+            )
+
+            // Detalles del producto
+            Text(
+                text = product.title,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(horizontal = 8.dp)
+            )
+            Text(
+                text = "$${product.price}",
+                fontWeight = FontWeight.ExtraBold,
+                style = MaterialTheme.typography.titleMedium.copy(color = Color.Black),
+                modifier = Modifier.padding(horizontal = 8.dp),
+            )
+            RatingBar(rating = product.rating.rate)
+
+            // Botones de Editar y Eliminar
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
+            ) {
+                IconButton(onClick = { onEditClick() }) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Editar",
+                        tint = Color.White
+                    )
+                }
+                IconButton(onClick = { onDeleteClick()}) {
+                    Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = "Eliminar",
+                        tint = Color.Red
+                    )
+                }
+            }
+        }
+    }
+}
+```
+
+## 12. Modicar Homeview
+Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
+
+```diff
+import androidx.compose.runtime.getValue // ★Agregar
+
+...Omitido...
+
+fun ContentHomeView(
+    viewModel: ProductViewModel,
+    paddingValues: PaddingValues,
+    navController: NavController
+) {
+-    val products = viewModel.products
+    val products by viewModel.products.collectAsState() // ★Agregar
+
+    Column(
+        modifier = Modifier.padding(paddingValues),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        LazyColumn() {
+            items(products) { product ->
+-                Card(
+-                    shape = RoundedCornerShape(8.dp),
+-                    modifier = Modifier
+-                        .fillMaxWidth()
+-                        .padding(10.dp)
+-                        .shadow(elevation = 10.dp)
+-                        .clickable { navController.navigate("DetailView/0") }
+-                ) {
+-                    Column(
+-                        modifier = Modifier
+-                            .fillMaxWidth()
+-                            .padding(8.dp)
+-                    ) {
+-                        // Imagen del producto
+-                        Image(
+-                            painter = painterResource(id = R.drawable.star_on),
+-                            contentDescription = null,
+-                            contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+-                            modifier = Modifier
+-                                .fillMaxWidth()
+-                                .height(250.dp)
+-                                .padding(8.dp)
+-                        )
+-
+-                        // Detalles del producto
+-                        Text(
+-                            text = product,
+-                            style = MaterialTheme.typography.titleLarge,
+-                            modifier = Modifier.padding(horizontal = 8.dp)
+-                        )
+-                        Text(
+-                            text = "$${product.length}",
+-                            fontWeight = FontWeight.ExtraBold,
+-                            style = MaterialTheme.typography.titleMedium.copy(color = Color.Black),
+-                            modifier = Modifier.padding(horizontal = 8.dp),
+-                        )
+-                        RatingBar(rating = 1.0)
+-
+-                        // Botones de Editar y Eliminar
+-                        Row(
+-                            horizontalArrangement = Arrangement.SpaceBetween,
+-                            modifier = Modifier
+-                                .fillMaxWidth()
+-                                .padding(horizontal = 8.dp)
+-                        ) {
+-                            IconButton(onClick = { }) {
+-                                Icon(
+-                                    imageVector = Icons.Default.Edit,
+-                                    contentDescription = "Editar",
+-                                    tint = Color.White
+-                                )
+-                            }
+-                            IconButton(onClick = { }) {
+-                                Icon(
+-                                    imageVector = Icons.Default.Delete,
+-                                    contentDescription = "Eliminar",
+-                                    tint = Color.Red
+-                                )
+-                            }
+-                        }
+-                    }
+-                }
+                // ★Agregar hacia abajo desde aquí.
+                CardProduct(
+                    product = product,
+                    onClick = { navController.navigate("DetailView/${product.id}") },
+                    onEditClick = {},
+                    onDeleteClick = {
+                        // TODO: Eliminar el producto
+                    }
+                )
+                // ★Agregar hasta aquí.
+           }
+        }
+    }
+}
+
+```
+
+## 13. Modicar Detailview
+Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
+
+```diff
+ @Composable
+ fun DetailView(viewModel: ProductViewModel, navController: NavController, id: Int) {
+    // ★Agregar hacia abajo desde aquí.
+    // Al inicio de la pantalla, obtener información del producto de API
+    LaunchedEffect(Unit) {
+        viewModel.getProductById(id)
+    }
+    // Al salir de la pantalla, inicializar el estado.
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.clean()
+        }
+    }
+    // ★Agregar hasta aquí.
+     Scaffold(
+         topBar = {
+             MainTopBar(
+-                title = "Product Detail",
+                 title = viewModel.state.title, // ★Agregar
+                 showBackButton = true,
+                 onCickBackButton = { navController.popBackStack() },
+                 onCickAction = {}
+...Omitido...
+ @Composable
+ fun ContentDetailView(padd: PaddingValues, viewModel: ProductViewModel) {
+    val state = viewModel.state // ★Agregar
+     Column(
+         modifier = Modifier
+             .padding(padd)
+     ) {
+-        Image(
+-            painter = painterResource(id = R.drawable.star_on),
+        AsyncImage(               // ★Agregar
+            model = state.image,  // ★Agregar
+             contentDescription = null,
+             contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+             modifier = Modifier
+...Omitido...
+         ) {
+             Text(text = "Price: ", color = Color.Green, style = MaterialTheme.typography.titleLarge)
+             Text(
+-                text = "1",
+                text = String.format("$%.2f", state.price), // ★Agregar
+                 color = Color.Green,
+                 style = MaterialTheme.typography.titleLarge
+             )
+...Omitido...
+                 modifier = Modifier.padding(start = 15.dp),
+             )
+             Text(
+-                text = "description producto",
+                text = state.description, // ★Agregar
+                 color = Color.White,
+                 textAlign = TextAlign.Justify,
+                 modifier = Modifier.padding(start = 15.dp, end = 15.dp, bottom = 10.dp)
+...Omitido...
+                 .fillMaxWidth()
+                 .padding(start = 20.dp, end = 10.dp, bottom = 10.dp)
+         ) {
+-            RatingBar(rating = 1.0)
+            RatingBar(rating = state.rating.rate) // ★Agregar
+             Text(
+-                text = "Cat: category producto",
+                text = "Cat: ${state.category}",  // ★Agregar
+                 color = Color.Green,
+                 style = MaterialTheme.typography.bodyLarge
+             )
+```
+
+## 14. Modicar MainActivity
+Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
+
+```diff
+{
+-    val productViewModel: ProductViewModel = viewModel()
+    val productViewModel: ProductViewModel by viewModels() // ★Agregar
+    NavManager(productViewModel)
+}
+```
+
+## 15. Add parmission a manifest
+
+```kotlin
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" /> // ★Agregar
+
+    <application
+        android:name=".ProductApplication"
+```
