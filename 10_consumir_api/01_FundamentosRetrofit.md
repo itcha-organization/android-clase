@@ -29,6 +29,13 @@ Crear un paquete `components` bajo `ui`.
 Crear archivos `RatingBar`, `MainTopBar`, `HomeView`, `DetailView` en el paquete `components` y pegar los siguiente código.
 - RatingBar
 ```kotlin
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+
 @Composable
 fun RatingBar(rating: Double) {
     Row(
@@ -52,6 +59,11 @@ fun RatingBar(rating: Double) {
 ```
 - MainTopBar
 ```kotlin
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTopBar(
@@ -92,6 +104,15 @@ fun MainTopBar(
 ```
 - HomeView
 ```kotlin
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import android.R
+
 @Composable
 fun HomeView(viewModel: ProductViewModel, navController: NavController) {
     Scaffold(
@@ -200,6 +221,15 @@ fun ContentHomeView(
 ```
 - DetailView
 ```kotlin
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import android.R
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailView(viewModel: ProductViewModel, navController: NavController, id: Int) {
@@ -280,6 +310,8 @@ fun ContentDetailView(padd: PaddingValues, viewModel: ProductViewModel) {
 Crear archivos `NavManager`, `ProductViewModel` en el paquete `ui` y pegar los siguiente código.
 - NavManager
 ```kotlin
+import androidx.navigation.compose.NavHost
+
 @Composable
 fun NavManager(viewModel: ProductViewModel) {
     val navController = rememberNavController()
