@@ -466,6 +466,12 @@ interface ApiProduct {
     //faltan métodos para eliminar, agregar y editar.
 }
 ```
+- **`@GET`**:
+  - Indica que se realizará una solicitud HTTP GET al endpoint especificado (por ejemplo, "products").
+- **`$ENDPOINT/{id}`:**
+  - Se accede a un producto específico por su ID, usando una ruta como `/products/1`.
+- **`@Path("id") id: Int`:**
+  - El parámetro `id` se inserta en la URL como parte del endpoint.
 
 ## 8. Crear módulo para la configuración de la inyección de dependencias
 Crear el archivo `AppModule` en el paquete `di` y pegar los siguiente código.
@@ -495,6 +501,14 @@ object AppModule {
     }
 }
 ```
+- **`Retrofit.Builder()`**: Construye una nueva instancia de Retrofit.
+- **`.baseUrl(BASE_URL)`**: Establece la URL base de la API (por ejemplo: `"https://miapi.com/"`).
+- **`.addConverterFactory(GsonConverterFactory.create())`**: Agrega un convertidor de JSON a objetos Kotlin usando `Gson`.
+- **`.build()`**: Crea la instancia de Retrofit lista para ser usada.
+- **`providesApiProducts()`**:
+  * Esta función crea una **implementación automática** de la interfaz `ApiProduct` usando Retrofit.
+  * Toma como parámetro la instancia de `Retrofit` ya creada.
+  * Gracias a esto, puedes usar `@Inject` para obtener una instancia de `ApiProduct` en cualquier parte de tu app.
 
 ## 9. Crear una clase Repository
 Crear la clase `ProductRepository` en el paquete `data` y pegar los siguiente código.
@@ -528,6 +542,7 @@ class ProductRepository @Inject constructor(private val apiProduct: ApiProduct) 
 
 ## 10. Crear la clase ProductState para gestionar variables de estado
 Crear la clase `ProductState` en el paquete `ui` y pegar los siguiente código.
+Todas las variables de datos utilizadas en la interfaz de usuario se definen en esta clase.
 
 ```kotlin
 data class ProductState(
@@ -904,6 +919,7 @@ suspend fun deleteProduct(id: Int): Boolean {
     return response.isSuccessful
 }
 ```
+
 ## 3. Llamar a métodos del repositorio desde `ProductViewModel`.
 ```kotlin
 fun deleteProductById(id: Int) {
