@@ -169,7 +169,7 @@ fun ContentHomeView(
                         Image(
                             painter = painterResource(id = R.drawable.star_on),
                             contentDescription = null,
-                            contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+                            contentScale = ContentScale.Fit, // Escala la imagen para que se ajuste completamente al contenedor sin recortarla.
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(250.dp)
@@ -256,7 +256,7 @@ fun ContentDetailView(padd: PaddingValues, viewModel: ProductViewModel) {
         Image(
             painter = painterResource(id = R.drawable.star_on),
             contentDescription = null,
-            contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+            contentScale = ContentScale.Fit, // Escala la imagen para que se ajuste completamente al contenedor sin recortarla.
             modifier = Modifier
                 .fillMaxWidth()
                 .height(250.dp)
@@ -621,6 +621,9 @@ class ProductViewModel @Inject constructor(
     }
 }
 ```
+- **`withContext(Dispatchers.IO)`**:
+  -  Se utiliza en Kotlin Coroutines para ejecutar tareas pesadas en un hilo adecuado que no bloquee el hilo principal (UI).
+  -  Si realizas tareas pesadas como llamadas a red o lectura de archivos en el hilo principal (UI), la aplicación se puede **congelar o cerrar inesperadamente**.
 
 ## 11. Crear CardProduct
 Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
@@ -656,7 +659,7 @@ fun CardProduct(
             AsyncImage(
                 model = product.image,
                 contentDescription = null,
-                contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+                contentScale = ContentScale.Fit, // Escala la imagen para que se ajuste completamente al contenedor sin recortarla.
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(250.dp)
@@ -703,6 +706,8 @@ fun CardProduct(
     }
 }
 ```
+- **`AsyncImage(...)`**: Composable de librería `Coil` para cargar imágenes desde una URL o recurso.
+- **`model = product.image`**: La URL o fuente de la imagen del producto (`product.image`). Puede ser un `String` o un `Uri`.
 
 ## 12. Modicar Homeview
 Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
@@ -744,7 +749,7 @@ fun ContentHomeView(
 -                        Image(
 -                            painter = painterResource(id = R.drawable.star_on),
 -                            contentDescription = null,
--                            contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+-                            contentScale = ContentScale.Fit, // Escala la imagen para que se ajuste completamente al contenedor sin recortarla.
 -                            modifier = Modifier
 -                                .fillMaxWidth()
 -                                .height(250.dp)
@@ -803,7 +808,6 @@ fun ContentHomeView(
         }
     }
 }
-
 ```
 
 ## 13. Modicar Detailview
@@ -845,7 +849,7 @@ Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente 
         AsyncImage(               // ★Agregar
             model = state.image,  // ★Agregar
              contentDescription = null,
-             contentScale = ContentScale.Fit, // Para evitar que la imagen se corte
+             contentScale = ContentScale.Fit, // Escala la imagen para que se ajuste completamente al contenedor sin recortarla.
              modifier = Modifier
 ...Omitido...
          ) {
