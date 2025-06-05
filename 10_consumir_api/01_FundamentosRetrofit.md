@@ -431,11 +431,7 @@ interface ApiProduct {
     @GET("$ENDPOINT/{id}")
     suspend fun getProductById(@Path("id") id: Int): Response<ProductModel>
 
-
-    @DELETE("$ENDPOINT/{id}")
-    suspend fun deleteProduct(@Path("id") id: Int): Response<Unit>
-
-    //faltan métodos para agregar y editar.
+    //faltan métodos para eliminar, agregar y editar.
 }
 ```
 
@@ -494,11 +490,6 @@ class ProductRepository @Inject constructor(private val apiProduct: ApiProduct) 
         }
         Log.e("ProductRepository", "Error getProductById: id: $id, ${response.code()}")
         return null
-    }
-
-    suspend fun deleteProduct(id: Int): Boolean {
-        val response = apiProduct.deleteProduct(id)
-        return response.isSuccessful
     }
 }
 ```
@@ -862,4 +853,115 @@ Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente 
 
     <application
         android:name=".ProductApplication"
+```
+
+# Añadir la función de eliminación de productos (DELETE)
+
+## 1. Añadir el método DELETE a la interfaz `ApiProduct`
+En `ApiProduct`, añadir un método para las solicitudes DELETE de acuerdo con la documentación de la API: https://fakestoreapi.com/docs#tag/Products/operation/deleteProduct
+
+```kotlin
+@DELETE("$ENDPOINT/{id}")
+suspend fun deleteProduct(@Path("id") id: Int): Response<Unit>
+```
+
+## 2. Añadir el método a la clase `ProductRepository`
+```kotlin
+suspend fun deleteProduct(id: Int): Boolean {
+    val response = apiProduct.deleteProduct(id)
+    return response.isSuccessful
+}
+```
+## 3. Llamar a métodos del repositorio desde `ProductViewModel`.
+```kotlin
+fun deleteProductById(id: Int) {
+    viewModelScope.launch {
+        withContext(Dispatchers.IO) {
+            val result = repository.deleteProduct(id)
+            if (result) {
+                // Eliminar el producto de la lista localmente si la solicitud fue exitosa
+                _products.value = _products.value.filter { it.id != id }
+            } else {
+                // Manejar el error si la eliminación falla
+                Log.e("ProductViewModel", "Error deleting product with id: $id")
+            }
+        }
+    }
+}
+```
+## 4. En la UI, establecer el método de ViewModel como manejadores de eventos.
+En el archivo `HomeView`, en la función componible `ContentHomeView`, establecer el método `deleteProductById` como manejadores de eventos de botón eliminar.
+```kotlin
+LazyColumn(
+    modifier = Modifier
+        .background(Color(Constants.CUSTOM_BLACK))
+) {
+    items(products) { product ->
+        CardProduct(
+            product = product,
+            onClick = { navController.navigate("DetailView/${product.id}") },
+            onEditClick = {},
+            onDeleteClick = {
+                viewModel.deleteProductById(product.id) // ★Agregar
+            }
+        )
+    }
+}
+```
+
+# Añadir diálogo de confirmación antes de la eliminación
+Se puede mostrar un diálogo de confirmación antes de la eliminación modificando `CardProduct` de la siguiente manera.
+- Utilice el componente `AlertDialog` para mostrar un diálogo de confirmación.
+- Defina la bandera `showDialog` para controlar si el diálogo se muestra u oculta, y sólo mostrar el diálogo si ture.
+```diff
+fun CardProduct(
+     onEditClick: () -> Unit,
+     onDeleteClick: () -> Unit,
+ ) {
+    var showDialog by remember { mutableStateOf(false) } // ★Agregar
+
+     Card(
+         shape = RoundedCornerShape(8.dp),
+         modifier = Modifier
+...Omitido...
+                         tint = Color.White
+                     )
+                 }
+-                IconButton(onClick = { onDeleteClick()}) {
+                IconButton(onClick = { showDialog = true }) { // ★Agregar
+                     Icon(
+                         imageVector = Icons.Default.Delete,
+                         contentDescription = "Eliminar",
+...Omitido...
+             }
+         }
+     }
+    // ★Agregar hacia abajo desde aquí.     
+    // mostrar dialogo de confirmacion
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = {
+                showDialog = false
+            },
+            title = { Text(text = "Confirmar eliminación") },
+            text = { Text("¿Está seguro/a de eliminar este producto?") },
+            confirmButton = {
+                Button(onClick = {
+                    onDeleteClick() // Llamar a la función para eliminar el producto
+                    showDialog = false
+                }) {
+                    Text("Eliminar")
+                }
+            },
+            dismissButton = {
+                Button(onClick = {
+                    showDialog = false // Cerrar el diálogo sin eliminar
+                }
+                ) { Text("Cancelar") }
+            }
+        )//fin del AlertDialog
+    }
+    // ★Agregar hasta aquí.
+ }
+
 ```
