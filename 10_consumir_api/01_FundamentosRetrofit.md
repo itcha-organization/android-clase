@@ -355,6 +355,7 @@ Haga clic en `Sync Now` para sincronizar.
 
 ## 2. Crear estructura de paquete
 Crear paquetes `data`, `di`, `model`, `utils` de acuerdo a la siguiente imagen
+<br>
 ![image](https://github.com/user-attachments/assets/0b1d39ec-15cd-4f15-98d2-393a6e24c9f2)
 
 ## 3. **Crear la clase Application Anotado con @HiltAndroidApp**
@@ -465,4 +466,46 @@ Crear el clase `ProductRepository` en el paquete `data` y pegar los siguiente c�
 Un repositorio es una capa que separa la lógica de obtención de datos de la lógica de la interfaz de usuario (UI).
 
 ```kotlin
+class ProductRepository @Inject constructor(private val apiProduct: ApiProduct) {
+
+    suspend fun getProducts(): List<ProductModel>? {
+        val response = apiProduct.getProducts()
+        if (response.isSuccessful) {
+            return response.body()
+        }
+        Log.e("ProductRepository", "Error getProducts: ${response.code()}")
+        return null
+    }
+
+    suspend fun getProductById(id: Int): ProductModel? {
+        val response = apiProduct.getProductById(id)
+        if (response.isSuccessful) {
+            return response.body()
+        }
+        Log.e("ProductRepository", "Error getProductById: id: $id, ${response.code()}")
+        return null
+    }
+
+    suspend fun deleteProduct(id: Int): Boolean {
+        val response = apiProduct.deleteProduct(id)
+        return response.isSuccessful
+    }
+}
 ```
+
+## 10. Crear la clase ProductState para gestionar variables de estado
+
+```kotlin
+data class ProductState(
+    val errorMessage: String = "",
+    val successMessage: String = "",
+
+    val title: String = "",
+    val price: Double = 0.0,
+    val description: String = "",
+    val category: String = "",
+    val image: String = "",
+    val rating: Rating = Rating(0.0, 0)
+)
+```
+
