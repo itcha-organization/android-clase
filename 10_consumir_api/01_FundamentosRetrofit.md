@@ -410,7 +410,7 @@ En AndroidManifest.xml, añada la siguiente línea.
 ## 4. **Anotar MainActivity con @AndroidEntryPoint**
 ```kotlin
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() { ... }
+class MainActivity : ComponentActivity() { ... }
 ```
 
 ## 5. Crear Constants para definir constantes
