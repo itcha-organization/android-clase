@@ -882,6 +882,14 @@ Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente 
                  style = MaterialTheme.typography.bodyLarge
              )
 ```
+- **`LaunchedEffect(Unit) {...}`**:
+  - Se ejecuta una sola vez cuando el Composable entra en la pantalla (es decir, cuando se muestra).
+  - Usando `Unit` como clave, se asegura que solo se ejecute **una vez**, no en cada recomposición.
+  - Funciona de forma similar a `onMounted()` en Vue.js.
+- **`DisposableEffect(Unit) {...}`**:
+  - `DisposableEffect` se usa para ejecutar lógica **cuando el Composable se elimina de la pantalla** (por ejemplo, al navegar hacia atrás o cambiar de vista).
+  - `onDispose` define el bloque de código que se ejecutará cuando el Composable sea descartado.
+  - Funciona de forma similar a `onUnmounted()` en Vue.js.
 
 ## 14. Modicar MainActivity
 Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
@@ -894,8 +902,8 @@ Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente 
 }
 ```
 
-## 15. Add parmission a manifest
-
+## 15. Add parmission a `AndroidManifest.xml`
+Es una línea que se agrega en el archivo `AndroidManifest.xml` para declarar que tu aplicación necesita acceso a Internet.
 ```kotlin
  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:tools="http://schemas.android.com/tools">
