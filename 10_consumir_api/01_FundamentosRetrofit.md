@@ -351,7 +351,7 @@ Surface(
 ```
 
 ## 1. Agregar plug-in y dependencias
-Añade el siguiente plugin a `build.gradle.kts` en el directorio raíz.
+Añade el siguiente plugin a `build.gradle.kts (ProductsApiApp)` en el directorio raíz.
 ```kotlin
 plugins {
     ...Arriba omitido...
@@ -710,7 +710,6 @@ fun CardProduct(
 - **`model = product.image`**: La URL o fuente de la imagen del producto (`product.image`). Puede ser un `String` o un `Uri`.
 
 ## 12. Modicar Homeview
-Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
 
 ```diff
 import androidx.compose.runtime.getValue // ★Agregar
@@ -811,7 +810,6 @@ fun ContentHomeView(
 ```
 
 ## 13. Modicar Detailview
-Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
 
 ```diff
  @Composable
@@ -892,7 +890,6 @@ Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente 
   - Funciona de forma similar a `onUnmounted()` en Vue.js.
 
 ## 14. Modicar MainActivity
-Crear el archivo `CardProduct` en el paquete `components` y pegar los siguiente código.
 
 ```diff
 {
