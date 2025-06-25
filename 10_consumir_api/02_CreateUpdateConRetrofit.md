@@ -228,6 +228,36 @@ fun RegisterProductScreen(
     }
 }
 ```
+- **`rememberLauncherForActivityResult(...)`:**
+  En Jetpack Compose, esta función permite **lanzar una actividad externa** (por ejemplo, la galería o la cámara) y **recibir su resultado**.
+    * `rememberLauncherForActivityResult` es un **envoltorio para utilizar el API de resultados de actividades** dentro de Compose.
+    * `contract` define **qué acción deseas realizar** (como seleccionar un archivo o pedir permisos).
+    * `onResult` define **qué hacer cuando se recibe un resultado**.
+    * La función usa `remember` para **mantener el estado durante recomposiciones** de Compose.
+
+- **`permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)` :**
+  Se utiliza para **solicitar permisos al usuario**, por ejemplo, para acceder a imágenes.
+    * `permissionLauncher` es un lanzador creado con `rememberLauncherForActivityResult`.
+    * `.launch(...)` muestra al usuario una solicitud de permiso.
+    * `Manifest.permission.READ_MEDIA_IMAGES` es el **permiso requerido a partir de Android 13 (TIRAMISU)** para leer imágenes.
+      * En versiones anteriores, se usa `READ_EXTERNAL_STORAGE`.
+    * El resultado (`permitido` o `denegado`) se gestiona en el bloque `onResult`.
+
+- **`val context = LocalContext.current` :**
+  Se utiliza para **obtener el `Context` actual** dentro de una función `@Composable`.
+    * `Context` es un objeto importante en Android que permite hacer cosas como:
+      * mostrar `Toast`
+      * acceder a recursos etc.
+    * `LocalContext.current` es la forma **recomendada en Compose para acceder al contexto actual**.
+
+- **`Toast.makeText(context, "...", Toast.LENGTH_SHORT).show()` :**
+  Muestra un **mensaje corto tipo Toast**, que aparece unos segundos en la pantalla.
+    * `Toast` es una forma sencilla de **mostrar un mensaje temporal** al usuario.
+    * `makeText(...)` crea el Toast y `.show()` lo muestra.
+    * Parámetros:
+      * `context`: el contexto actual (obtenido con `LocalContext.current`)
+      * `"Producto registrado"`: el texto que se va a mostrar
+      * `Toast.LENGTH_SHORT`: duración del mensaje (también hay `LENGTH_LONG`)
 
 ### 5. Crear la ruta de navegación en `NavManager`
 ```kotlin
