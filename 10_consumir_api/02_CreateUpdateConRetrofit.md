@@ -45,9 +45,22 @@ fun createProduct(product: ProductModel) {
 
 ## 4. Crear archivo `AddProductView` en el paquete `components` y pegar los siguiente código
 ```kotlin
+import android.Manifest
+import android.net.Uri
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.material3.Button
+import androidx.compose.foundation.Image
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddView(navController: NavController, viewModel: ProductViewModel){
+fun AddProductView(navController: NavController, viewModel: ProductViewModel){
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(title = {
@@ -219,7 +232,7 @@ fun RegisterProductScreen(
 ### 5. Crear la ruta de navegación en `NavManager`
 ```kotlin
 composable("agregar"){
-   AddView(navController, viewModel)
+   AddProductView(navController, viewModel)
 }
 ```
 
@@ -287,6 +300,14 @@ fun updateProduct(product: ProductModel) {
 
 ## 4. Crear archivo `UpdateProductView` en el paquete `components` y pegar los siguiente código
 ```kotlin
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UpdateProductView(viewModel: ProductViewModel, navController: NavController, id: Int) {
