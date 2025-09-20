@@ -148,12 +148,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-+ class TextWidget extends StatelessWidget {
-+  @override
-+  Widget build(BuildContext context) {
-+    return Text('Hello, World!');
-+  }
-+ }
++ // ★↓↓↓Añade lo siguiente↓↓↓
+class TextWidget extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+   return Text('Hello, World!');
+ }
+}
++ // ★↑↑↑Añade hasta aquí↑↑↑
 ```
 
 ### Puntos Importantes
