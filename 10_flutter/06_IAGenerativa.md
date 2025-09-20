@@ -1,32 +1,29 @@
-# Crea aplicaciones con IA con Flutter y Gemini
+# Crea aplicaciones con IA Gemini en Flutter
 Vamos a probar una aplicación de chat simple en Flutter que se conecte a la API de Gemini para generar respuestas de IA a los mensajes del usuario.
 
-## Generar clave API.
+## Generar clave API de Gemini.
 
-https://ai.google.dev/pricing?hl=es-419#1_5flash
+Accede a Google AI Studio en un navegador: 
+https://aistudio.google.com/
 
-![image](https://github.com/user-attachments/assets/786d5cb6-56bf-49a8-a622-14991639040a)
+Haga clic en `Get started`.
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/0786505d-f3db-491e-a3cc-bebe85644173" />
 
 Inicia sesión de Google.
+> ![image](https://github.com/user-attachments/assets/f95fe743-5406-4c2a-bd68-d4bcf8f52903)
+> ![image](https://github.com/user-attachments/assets/fcd75a82-09b4-419b-8754-33254becd0f8)
 
-![image](https://github.com/user-attachments/assets/f95fe743-5406-4c2a-bd68-d4bcf8f52903)
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/eb47ea22-3403-4fee-a0b7-7a6f1ed6c510" />
 
-![image](https://github.com/user-attachments/assets/fcd75a82-09b4-419b-8754-33254becd0f8)
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/b989b50f-2537-4fcd-aff4-60ec02c53028" />
 
-![image](https://github.com/user-attachments/assets/29e522b1-556f-4647-a97c-124ca59e4d86)
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/eb47ea22-3403-4fee-a0b7-7a6f1ed6c510" />
 
-![image](https://github.com/user-attachments/assets/d695f024-64da-465c-ab97-a12a26a75d9b)
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/0abcba91-20dc-4926-9004-f02be039905d" />
+Copie y anote siempre la clave generada para no olvidarla, ya que se utilizará más adelante.
+> <img width="601" height="457" alt="image" src="https://github.com/user-attachments/assets/0f198dcf-1750-4508-a757-e1a984360642" />
 
-![image](https://github.com/user-attachments/assets/552efe6d-98f6-49f8-8856-ccfb5d2b251d)
-
-![image](https://github.com/user-attachments/assets/70c134b6-ab49-4e0f-9a4f-e66bd50543ad)
-
-![image](https://github.com/user-attachments/assets/cb84ceb1-66ea-45c7-b14b-502bf6d3294b)
-
-![image](https://github.com/user-attachments/assets/7fd1eab8-bab3-4f7e-b65e-06a573d5284d)
-
-![image](https://github.com/user-attachments/assets/84cc552e-d1b3-4f94-8367-9d73f8e36137)
-
+## Pasos para crear aplicaciones con IA Gemini en Flutter
 
 ### Paso 1: Crear un Proyecto de Flutter
 
@@ -93,7 +90,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  String? apiKey; // TODO: Falta el clave
+  String? apiKey; // TODO: ★★Falta el clave★★
   late final GenerativeModel _model;
   late final ChatSession _chatSession;
   final TextEditingController _textController = TextEditingController();
@@ -101,10 +98,10 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
-    // TODO: Falta la implementación
+    // TODO: ★★Falta la implementación★★
   }
 
-// TODO: Falta la implementación
+// TODO: ★★Falta la implementación★★
 //   Future<void> _sendMessage(String message) async {
 //   }
 
@@ -138,7 +135,7 @@ class _ChatScreenState extends State<ChatScreen> {
               IconButton(
                 icon: Icon(Icons.send),
                 onPressed: () {
-                  // TODO: Falta la implementación
+                  // TODO: ★★Falta la implementación★★
                 },
               ),
             ],
@@ -155,7 +152,8 @@ class _ChatScreenState extends State<ChatScreen> {
 ```diff
 home: Scaffold(
    appBar: AppBar(title: Text('AI Chat con Gemini API')),
-+   body: ChatScreen(),
+-   body: Text('TODO: Falta la implementación de ChatScreen.'),
++   body: ChatScreen(),　// ★★Añade este código.★★
 ));
 ```
 
@@ -182,8 +180,8 @@ Future<void> _sendMessage(String message) async {
 IconButton(
   icon: Icon(Icons.send),
   onPressed: () {
-    _sendMessage(_textController.text); // Añade este código.
-    _textController.clear(); // Añade este código.
+    _sendMessage(_textController.text); // ★★Añade este código.★★
+    _textController.clear(); // ★★Añade este código.★★
   },
 ),
 ```
@@ -197,7 +195,7 @@ Implementa `initState` e inicializa `GenerativeModel` y `_chatSession`.El progra
 void initState() {
   super.initState();
   if (apiKey != null) {
-    _model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey!);
+    _model = GenerativeModel(model: 'gemini-2.0-flash', apiKey: apiKey!);
     _chatSession = _model.startChat();
   }
 }
