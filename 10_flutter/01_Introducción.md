@@ -125,7 +125,7 @@ Este código muestra cómo crear una aplicación simple en Flutter. Tiene una ba
 2. **Método build**
    El método `build` se utiliza para definir cómo se mostrará el widget. Este método toma un objeto `BuildContext` como argumento y devuelve un árbol de widgets.
 
-### Práctico: Crear un Widget que muestre `Hello, World!`
+### Práctico: Crear un Widget que muestre `Este es un widget personalizado!`
 
 ```diff
 import 'package:flutter/material.dart';
@@ -152,7 +152,7 @@ class MyApp extends StatelessWidget {
 class TextWidget extends StatelessWidget {
  @override
  Widget build(BuildContext context) {
-   return Text('Hello, World!');
+   return Text('Este es un widget personalizado!');
  }
 }
 + // ★↑↑↑Añade hasta aquí↑↑↑
