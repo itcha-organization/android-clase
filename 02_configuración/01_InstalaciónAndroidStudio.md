@@ -39,32 +39,33 @@ No es necesario cambiar la ruta de instalación. Presione `Next`.
 
 Decide el nombre que aparecerá en el menú Inicio. Si no necesita cambiarlo en particular, pulse `Instalar` tal como está.
 
-![image](https://github.com/user-attachments/assets/c55e4999-5efd-489b-a974-f9a213654551)
+<img width="498" height="389" alt="image" src="https://github.com/user-attachments/assets/a679f8b8-bc4f-465f-ac84-538af0b0b0c7" />
+
 
 Pulse `Siguiente` cuando finalice la instalación.
 
-![image](https://github.com/user-attachments/assets/e6f1fce8-5786-4997-988d-36f6a31a6588)
+<img width="498" height="381" alt="image" src="https://github.com/user-attachments/assets/01261dda-0ad5-483d-b2eb-c9c94cf6522e" />
+
 
 Asegúrate de que la opción `Start Android Studio` está marcada y pulsa `Finish`.
 
-![image](https://github.com/user-attachments/assets/fde2a1f8-c612-48e4-973f-6e9fa7a60461)
-
-Seleccione `No importar configuración` y pulse `OK`. 
-
-![image](https://github.com/user-attachments/assets/2587ab1c-a84b-422c-989d-a8e6100d9050)
+<img width="498" height="387" alt="image" src="https://github.com/user-attachments/assets/26e168cd-423b-4f7d-96f8-3b5fabf95a93" />
 
 Selecciona si quieres permitir que `Android Studio` envíe información de uso a `Google`.<br>
-Si no hay ningún motivo, puede seleccionar "No enviar" sin problemas.
+Si no hay ningún motivo, puede seleccionar "Don´t Send" sin problemas.
 
-![image](https://github.com/user-attachments/assets/5c5f2709-56bd-4453-9758-336a9ca90977)
+<img width="526" height="307" alt="image" src="https://github.com/user-attachments/assets/88e0dbdf-bdfe-4ae9-b9fe-1c0beb7ee0e2" />
+
 
 Pulse `Next`.
 
-![image](https://github.com/user-attachments/assets/658150be-55b0-43fc-a9f4-bb93f63e43e3)
+<img width="900" height="640" alt="image" src="https://github.com/user-attachments/assets/78d883b3-7477-4299-bf67-96c9321b3f18" />
+
 
 Selección del método de configuración. Seleccione `Estándar` y pulse `Siguiente`.
 
-![image](https://github.com/user-attachments/assets/c98e0cf4-3b61-41c8-9d1b-45789facc530)
+<img width="898" height="643" alt="image" src="https://github.com/user-attachments/assets/718178c4-ca11-4373-b9ab-97349b1477a7" />
+
 
 Pulse `Next`.
 
