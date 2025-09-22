@@ -6,29 +6,35 @@ Necesitará unos 8 GB de espacio libre. Asegúrese de que dispone de suficiente 
 Abra el sitio web oficial https://developer.android.com/studio?hl=es-419
 
 <br>
-Haz clic en "Descargar Android Studio Koala".
+Haz clic en "Descargar Android Studio Narwhal 3".
 
-![image](https://github.com/user-attachments/assets/90a35eaf-04b3-4ed5-92f7-33c46c02bf24)
+<img width="1358" height="689" alt="image" src="https://github.com/user-attachments/assets/d9dac0ee-ed31-4a30-9b39-86c1b7695b0f" />
+
 
 Después de revisar los términos y condiciones de uso, marque "Leí y acepto los Términos y Condiciones anteriores" y pulse "Descargar".
 
-![image](https://github.com/user-attachments/assets/09da411d-621e-4a1e-8ce2-10ab7c7c8c98)
+<img width="1091" height="525" alt="image" src="https://github.com/user-attachments/assets/dad08ce9-43b9-4678-b72a-a7ce9f3cc1b3" />
+
 
 Ejecute el instalador descargado.
 
-![image](https://github.com/user-attachments/assets/6de74cb7-3e96-41d0-ae2d-d8207d278c21)
+<img width="953" height="190" alt="image" src="https://github.com/user-attachments/assets/7d17fcc3-df8a-45d3-b96f-e0758d3a0d8e" />
+
 
 Pulse `Next` cuando aparezca la pantalla `Welcome to Android Studio Setup`.
 
-![image](https://github.com/user-attachments/assets/42f567c5-afc4-4aad-9820-a5937ca9670f)
+<img width="496" height="381" alt="image" src="https://github.com/user-attachments/assets/956a33f6-d79e-4b70-988c-a45e496b564f" />
 
-Asegúrate de que la opción `Android Virtual Device` está marcada y pulse `Next`.
 
-![image](https://github.com/user-attachments/assets/5711178e-0e9e-4934-9722-ef6b026695dc)
+Asegúrese de que la opción `Android Virtual Device` está marcada y pulse `Next`.
 
-No es necesario cambiar el lugar de instalación. Pulse `Next`.
+<img width="499" height="384" alt="image" src="https://github.com/user-attachments/assets/9eed5b2d-9437-41fa-8fa1-29700dbce1f8" />
 
-![image](https://github.com/user-attachments/assets/610f8697-197d-4afa-8e26-3beeba095112)
+
+No es necesario cambiar la ruta de instalación. Presione `Next`.
+
+<img width="497" height="387" alt="image" src="https://github.com/user-attachments/assets/e68eff54-4ab3-4871-b467-7f9efe701e20" />
+
 
 
 Decide el nombre que aparecerá en el menú Inicio. Si no necesita cambiarlo en particular, pulse `Instalar` tal como está.
