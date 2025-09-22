@@ -104,7 +104,8 @@ Haga clic en `Device Mirroring` para abrirlo.<br>
 Marque `Activate mirroring when a new physical device is connected`. Si aparece una advertencia, seleccione `Acknowledge`.<br>
 Por último, pulse `Apply` para aplicar los ajustes y pulse `OK` para finalizar.
 
-![image](https://github.com/user-attachments/assets/920a66e1-7656-434e-9da1-ef926744196d)
+<img width="1173" height="711" alt="image" src="https://github.com/user-attachments/assets/af0c84e7-ec04-44e1-912d-d199603ae85a" />
+
 
 Conecta el dispositivo Android al ordenador mediante un cable USB.
 
