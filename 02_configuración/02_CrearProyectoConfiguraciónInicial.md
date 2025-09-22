@@ -4,16 +4,19 @@
 
 Haga clic en `New Project`.
 
-![image](https://github.com/user-attachments/assets/98bae122-05f2-465d-8d9a-65d3adac409a)
+<img width="783" height="641" alt="image" src="https://github.com/user-attachments/assets/dfcf7248-d987-450c-8337-d7e891c5aa91" />
 
-Seleccione `Empty Views Activity` y pulse `Next`.
-<br>Empty significa 'vacío' y Empty Views Activity es un diseño para construir una pantalla de aplicación desde cero.
 
-![image](https://github.com/user-attachments/assets/731937ad-f286-45d3-893a-b75d27c9787f)
+Seleccione `Empty Activity` y haga click en botón `Next`.
+<br>Es una Activity vacía con JetPack Compose para construir una pantalla de aplicación desde cero.
+
+<img width="899" height="610" alt="image" src="https://github.com/user-attachments/assets/c66c7a5e-ebe3-4daf-b285-7cb8df606780" />
+
 
 A continuación, introduzca la información del proyecto.
 
-![image](https://github.com/user-attachments/assets/313e606d-db00-44ac-a7b4-285e09892907)
+<img width="896" height="608" alt="image" src="https://github.com/user-attachments/assets/e11159f4-f11c-4330-9e25-2cff82337e5a" />
+
 
 * ①Nombre de la aplicación:<br>
   Introduzca un nombre para su aplicación. En este caso, hemos elegido `Sample`.
@@ -53,13 +56,17 @@ Una vez finalizada la instalación del SDK, pulse `Finish`.
 
 ![image](https://github.com/user-attachments/assets/80af867b-e5a1-43ba-bcfc-f8a2e6077dbf)
 
+Si aparece la ventana del firewall de windows parar crear una acl para permitir adb, haz click en permitir
+<img width="438" height="413" alt="image" src="https://github.com/user-attachments/assets/777a7fcc-8563-4d6b-99b6-03b1b36199dc" />
+
 
 Cuando se crea el proyecto, aparece la siguiente pantalla.
 
 En la parte derecha de la pantalla verás una introducción a las nuevas características del Android Studio descargado.<br>
 Haga clic en el botón Asistente situado en el extremo derecho para cerrarlo.
 
-![image](https://github.com/user-attachments/assets/b214319c-7ec6-4424-b4b8-9b24fd295f54)
+<img width="1365" height="718" alt="image" src="https://github.com/user-attachments/assets/0b1f1cce-d331-4faf-8796-5c727044a803" />
+
 
 ## Conexión de un dispositivo Android a Android Studio
 
