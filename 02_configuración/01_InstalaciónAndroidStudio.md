@@ -69,33 +69,34 @@ Selección del método de configuración. Seleccione `Estándar` y pulse `Siguie
 
 Pulse `Next`.
 
-![image](https://github.com/user-attachments/assets/f6b52477-84bc-41c2-a210-20400a2f3778)
+<img width="898" height="647" alt="image" src="https://github.com/user-attachments/assets/fe9e9bfa-7691-4e01-8e91-3aa1bbec288d" />
 
-Tienes que aceptar la licencia, así que haz clic en `android-sdk-license` a la izquierda y selecciona `Accept` abajo a la derecha.<br>
-Se espera que dure aproximadamente 30 minutos.
 
-![image](https://github.com/user-attachments/assets/47a7046a-2a0e-4059-abbb-a51731c05fb9)
+Debes aceptar la licencia, selecciona `Accept` y luego haga click en Next.
 
-Pulse `Finish` para iniciar la instalación.
+<img width="897" height="642" alt="image" src="https://github.com/user-attachments/assets/643674cd-3e97-4933-b7ed-e413e33b1a9c" />
 
-![image](https://github.com/user-attachments/assets/07124e99-6e68-45b0-ab20-43c8f00b313b)
+
+Iniciará descarga de componentes. esto puede tardar dependiendo la conexión a internet.
+
+<img width="899" height="643" alt="image" src="https://github.com/user-attachments/assets/44b4b6e0-51a3-4b77-9178-3ec29865678b" />
+
 
 Pulse `Finish` cuando la instalación haya terminado.
 
-![image](https://github.com/user-attachments/assets/15e12513-333e-42c1-92e2-ab9e8e0ccd40)
+<img width="900" height="645" alt="image" src="https://github.com/user-attachments/assets/1ea63b0a-7e72-4b5b-be3d-871b2720153a" />
+
 
 Cuando aparezca la pantalla de inicio de Android Studio, habrás terminado.
 
 Android Studio se actualiza con frecuencia, así que comprueba si hay actualizaciones. Haz clic en el símbolo de configuración situado en la parte inferior izquierda de la pantalla de bienvenida y selecciona `Check for Updates` en el menú que aparece.
 
-![image](https://github.com/user-attachments/assets/a67efc4f-2ef0-4a10-8278-942520cb1b59)
+<img width="757" height="644" alt="image" src="https://github.com/user-attachments/assets/68db4ddd-3728-4230-a595-fe4711a672f8" />
 
-Si aparece en la esquina inferior derecha de la pantalla, hay una actualización disponible. Haga clic en `Update` para obtenerla.
+
+Si aparece en la esquina inferior derecha de la pantalla, hay una actualización disponible. Haga clic en `Update` para obtenerla. Si aparece la palabra `Restart`, haga clic para reiniciar.
 
 ![image](https://github.com/user-attachments/assets/2d50ba92-92dd-49c3-bc37-c0888f3e6542)
 
-![image](https://github.com/user-attachments/assets/8c6fbcd8-0243-43c2-ab74-3f279db8cb6b)
-
-Si aparece la palabra `Restart`, haga clic para reiniciar.
-
-![image](https://github.com/user-attachments/assets/cc1b7476-8991-4c63-8e02-c36d8ba6582c)
+Pero si es la última versión de Android Studio y sus componente estan actualizados te mostrará ese mensaje en la esquina inferior derecha 
+<img width="790" height="634" alt="image" src="https://github.com/user-attachments/assets/837a9210-985b-4eff-baee-57ef6582a984" />
